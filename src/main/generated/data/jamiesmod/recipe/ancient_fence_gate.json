@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wooden_fence_gate",
+  "key": {
+    "W": {
+      "item": "jamiesmod:ancient_planks"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "XWX",
+    "XWX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jamiesmod:ancient_fence_gate"
+  }
+}

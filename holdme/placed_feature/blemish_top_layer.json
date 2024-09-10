@@ -1,0 +1,8 @@
+{
+  "feature": "jamiesmod:blemish_top_layer",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

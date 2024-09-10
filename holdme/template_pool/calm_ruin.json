@@ -1,0 +1,41 @@
+{
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "jamiesmod:ruin_calm_large_1",
+        "processors": "jamiesmod:randomize_calm",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "jamiesmod:ruin_calm_small_1",
+        "processors": "jamiesmod:randomize_calm",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "jamiesmod:ruin_calm_large_2",
+        "processors": "jamiesmod:randomize_calm",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "jamiesmod:ruin_calm_small_2",
+        "processors": "jamiesmod:randomize_calm",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

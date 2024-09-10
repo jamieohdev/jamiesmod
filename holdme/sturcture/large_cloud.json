@@ -1,0 +1,17 @@
+{
+  "type": "jamiesmod:large_cloud",
+  "biomes": "#jamiesmod:has_structure/has_large_cloud",
+  "blocks": {
+    "type": "minecraft:simple_state_provider",
+    "state": {
+      "Name": "jamiesmod:cloud_white",
+      "Properties": {
+        "double_drops": "true"
+      }
+    }
+  },
+  "rangeY": 128,
+  "size": 3,
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

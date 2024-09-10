@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "jamiesmod:block/ancient_planks",
+    "side": "jamiesmod:block/ancient_planks",
+    "top": "jamiesmod:block/ancient_planks"
+  }
+}

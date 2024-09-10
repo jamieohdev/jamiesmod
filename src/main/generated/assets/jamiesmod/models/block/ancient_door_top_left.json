@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "jamiesmod:block/ancient_door_bottom",
+    "top": "jamiesmod:block/ancient_door_top"
+  }
+}

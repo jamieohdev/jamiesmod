@@ -1,0 +1,12 @@
+{
+  "feature": "jamiesmod:shard_small_magenta",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 1
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

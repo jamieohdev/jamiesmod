@@ -1,0 +1,13 @@
+{
+  "feature": "jamiesmod:trees_jungle",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 255
+    },
+
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

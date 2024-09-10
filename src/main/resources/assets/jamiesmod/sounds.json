@@ -1,0 +1,163 @@
+{
+  "ambience.volcanic1": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/volcanic1",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.volcanic2": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/volcanic2",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.volcanic3": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/volcanic3",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.frozen1": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/frozen1",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.frozen2": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/frozen2",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.frozen3": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/frozen3",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.upsidedown1": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/upsidedown1",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.upsidedown2": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/upsidedown2",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.upsidedown3": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.limbo",
+    "sounds":[
+      {
+        "name": "jamiesmod:ambience/upsidedown3",
+        "stream": false
+      }
+    ]
+  },
+  "records.ease": {
+    "category": "record",
+    "sounds":[
+      {
+        "name": "jamiesmod:records/ease",
+        "stream": true
+      }
+    ]
+  },
+  "records.fox": {
+    "category": "record",
+    "sounds":[
+      {
+        "name": "jamiesmod:records/fox",
+        "stream": true
+      }
+    ]
+  },
+  "records.hullabaloo": {
+    "category": "record",
+    "sounds":[
+      {
+        "name": "jamiesmod:records/hullabaloo",
+        "stream": true
+      }
+    ]
+  },
+  "music.glimmer": {
+    "sounds": [
+      {
+        "name": "jamiesmod:music/glimmer",
+        "stream": true
+      }
+    ]
+  },
+  "music.gelida": {
+    "category": "music",
+    "sounds":[
+      {
+        "name": "jamiesmod:music/gelida",
+        "stream": true
+      }
+    ]
+  },
+  "music.theashfalls": {
+    "category": "music",
+    "sounds":[
+      {
+        "name": "jamiesmod:music/theashfalls",
+        "stream": true
+      }
+    ]
+  },
+  "music.coda": {
+    "category": "music",
+    "sounds":[
+      {
+        "name": "jamiesmod:music/coda",
+        "stream": true
+      }
+    ]
+  },
+  "music.rodhim": {
+    "category": "music",
+    "sounds":[
+      {
+        "name": "jamiesmod:music/rodhim",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "jamiesmod:block/ancient_log",
+    "side": "jamiesmod:block/ancient_log"
+  }
+}

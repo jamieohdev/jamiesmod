@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 15536420,
+    "separation": 3,
+    "spacing": 6
+  },
+  "structures": [
+    {
+      "structure": "jamiesmod:large_cloud",
+      "weight": 1
+    }
+  ]
+}

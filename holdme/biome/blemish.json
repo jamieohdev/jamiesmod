@@ -1,0 +1,98 @@
+{
+  "carvers": {
+    "air": [
+
+      "minecraft:cave"
+    ]
+  },
+  "creature_spawn_probability": 0.07,
+  "downfall": 0.5,
+  "effects": {
+    "fog_color": 12638463,
+    "ambient_sound": "jamiesmod:ambience.blemish",
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2.0,
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000
+    },
+    "particle": {
+      "options": {
+        "type": "jamiesmod:blemish_spore"
+      },
+      "probability": 0.025
+    },
+    "sky_color": 8364543,
+    "water_color": 4159204,
+    "water_fog_color": 329011
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [
+      "minecraft:amethyst_geode"
+    ],
+    [
+      "minecraft:monster_room_deep"
+    ],
+    [
+    ],
+    [],
+    [
+      "minecraft:underwater_magma"
+    ],
+    [
+      "jamiesmod:blemishstone_cluster"
+    ],
+    [
+    ],
+    [
+    ],
+    [
+      "jamiesmod:blemish_top_layer",
+      "minecraft:spring_lava",
+      "jamiesmod:blemish_vines",
+      "jamiesmod:patch_blemish_roots",
+      "jamiesmod:goop",
+      "jamiesmod:patch_rafflesia"
+    ]
+  ],
+  "precipitation": "none",
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [
+      {
+        "type": "minecraft:bat",
+        "maxCount": 8,
+        "minCount": 8,
+        "weight": 10
+      }
+    ],
+    "axolotls": [],
+    "creature": [
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "jamiesmod:blemish",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 100
+      },
+      {
+        "type": "jamiesmod:spreader",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 50
+      }
+    ],
+    "underground_water_creature": [
+    ],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": -1.0
+}

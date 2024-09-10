@@ -1,0 +1,23 @@
+{
+  "type": "jamiesmod:xp_floor",
+  "config": {
+    "crystal_state": {
+      "Name": "jamiesmod:shard_red"
+    },
+    "cluster_state": {
+      "Name": "minecraft:dirt"
+    },
+    "glinted_cluster": {
+      "Name": "jamiesmod:shard_magenta"
+    },
+    "xz_radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 8,
+        "min_inclusive": 1
+      }
+    },
+    "crystal_direction": "floor",
+    "glinted_cluster_chance": 0.45
+  }
+}

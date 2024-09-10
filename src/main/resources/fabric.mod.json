@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "jamiesmod",
+	"version": "${version}",
+	"name": "jamiesmod",
+	"description": "a dimension",
+	"authors": [
+		"jamieadev", "soumeh"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/jamiesmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.jamiedev.mod.JamiesMod"
+		],
+		"client": [
+			"com.jamiedev.mod.client.JamiesModClient"
+		],
+		"fabric-datagen": [
+			"com.jamiedev.mod.JamiesModDataGenerator"
+		]
+	},
+	"mixins": [
+		"jamiesmod.mixins.json",
+		{
+			"config": "jamiesmod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.4",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
