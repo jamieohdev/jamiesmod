@@ -20,6 +20,8 @@ public class JamiesModBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(JamiesModBlocks.LIMBOSLATE)
                         .add(JamiesModBlocks.LIMBOSTONE);
         getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+                .add(JamiesModBlocks.ANCIENT_LEAVES)
+                .add(JamiesModBlocks.ANCIENT_ROOTS)
                 .add(JamiesModBlocks.CLOUD);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(JamiesModBlocks.LIMBOSTONE)

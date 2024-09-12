@@ -3,6 +3,7 @@ package com.jamiedev.mod.init;
 import java.util.Optional;
 import com.jamiedev.mod.*;
 
+import com.jamiedev.mod.blocks.AncientRootBlock;
 import com.jamiedev.mod.blocks.JamiesModBlockSetType;
 import com.jamiedev.mod.blocks.JamiesModStrippableBlocks;
 import com.jamiedev.mod.blocks.JamiesModWoodType;
@@ -30,9 +31,7 @@ public class JamiesModBlocks {
         createBlockItem(blockID, block);
         return Registry.register(Registries.BLOCK, JamiesMod.getModId(blockID), block);
     }
-    public static Block createBlockWithoutItem(String blockID, Block block){
-        return Registry.register(Registries.BLOCK, JamiesMod.getModId(blockID), block);
-    }
+    Blocks blocks; // using this as a reference
 
     public static final Block JAMIES_BLOCK = createBlockWithItem("jamies_block", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7),
             AbstractBlock.Settings.copy(Blocks.OBSIDIAN).strength(52.0F, 1200.0F).instrument(NoteBlockInstrument.BANJO).pistonBehavior(PistonBehavior.NORMAL)));
@@ -45,6 +44,12 @@ public class JamiesModBlocks {
 
     public static final Block CLOUD = registerBlock("cloud",
             new TranslucentBlock(AbstractBlock.Settings.create().mapColor(MapColor.OFF_WHITE).strength(0.001F).slipperiness(0.989F).sounds(BlockSoundGroup.WOOL)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block ANCIENT_ROOTS = registerBlock("ancient_roots",
+            new AncientRootBlock(AbstractBlock.Settings.create().mapColor(MapColor.LICHEN_GREEN).instrument(NoteBlockInstrument.BASS).strength(0.7F).sounds(BlockSoundGroup.MANGROVE_ROOTS).nonOpaque().suffocates(Blocks::never).blockVision(Blocks::never).nonOpaque().burnable()), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block ANCIENT_VINE = registerBlock("ancient_vine",
+            new VineBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable().noCollision().ticksRandomly().strength(0.2F).sounds(BlockSoundGroup.VINE).burnable().pistonBehavior(PistonBehavior.DESTROY)),  JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block ANCIENT_SAPLING = createBlockWithItem("ancient_sapling", new SaplingBlock(new SaplingGenerator(JamiesMod.getModId( "ancient_tree").toString(),
             Optional.empty(),

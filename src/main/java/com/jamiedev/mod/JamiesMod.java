@@ -1,9 +1,11 @@
 package com.jamiedev.mod;
 
+import com.jamiedev.mod.entities.DuckEntity;
 import com.jamiedev.mod.init.*;
 import com.jamiedev.mod.items.JamiesModItemGroup;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -23,6 +25,10 @@ public class JamiesMod implements ModInitializer {
 		JamiesModBiomes.init();
 		JamiesModItemGroup.registerItemgroups();
 		JamiesModFeatures.init();
+
+		JamiesMod.LOGGER.info("Registering Entities for " + JamiesMod.MOD_ID);
+		FabricDefaultAttributeRegistry.register(JamiesModEntityTypes.DUCK, DuckEntity.createDuckAttributes());
+
 	}
 
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);

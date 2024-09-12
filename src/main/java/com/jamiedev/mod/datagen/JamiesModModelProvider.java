@@ -24,8 +24,10 @@ public class JamiesModModelProvider  extends FabricModelProvider {
         valtroxPlankPool.family(BlockFamilies.register(JamiesModBlocks.ANCIENT_PLANKS).sign(JamiesModBlocks.ANCIENT_SIGN, JamiesModBlocks.ANCIENT_WALL_SIGN).build());
         blockStateModelGenerator.registerHangingSign(JamiesModBlocks.STRIPPED_ANCIENT_LOG, JamiesModBlocks.ANCIENT_HANGING_SIGN, JamiesModBlocks.ANCIENT_WALL_HANGING_SIGN);
         blockStateModelGenerator.registerDoor(JamiesModBlocks.ANCIENT_DOOR);
+        blockStateModelGenerator.registerWallPlant(JamiesModBlocks.ANCIENT_VINE);
         blockStateModelGenerator.registerTrapdoor(JamiesModBlocks.ANCIENT_TRAPDOOR);
         blockStateModelGenerator.registerSingleton(JamiesModBlocks.ANCIENT_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerSingleton(JamiesModBlocks.ANCIENT_ROOTS, TexturedModel.LEAVES);
         blockStateModelGenerator.registerFlowerPotPlant(JamiesModBlocks.ANCIENT_SAPLING, Blocks.POTTED_ACACIA_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(JamiesModBlocks.ANCIENT_LOG).log(JamiesModBlocks.ANCIENT_LOG).wood(JamiesModBlocks.ANCIENT_WOOD);
         blockStateModelGenerator.registerLog(JamiesModBlocks.STRIPPED_ANCIENT_LOG).log(JamiesModBlocks.STRIPPED_ANCIENT_LOG).wood(JamiesModBlocks.STRIPPED_ANCIENT_WOOD);

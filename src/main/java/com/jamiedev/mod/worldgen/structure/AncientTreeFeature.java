@@ -1,102 +1,175 @@
 package com.jamiedev.mod.worldgen.structure;
+import com.jamiedev.mod.init.JamiesModBlocks;
 import com.mojang.serialization.Codec;
+import net.minecraft.block.AbstractPlantStemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.StructureWorldAccess;
+import net.minecraft.world.TestableWorld;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.TreeFeature;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.util.FeatureContext;
-public class AncientTreeFeature   extends Feature<DefaultFeatureConfig> {
+import net.minecraft.world.gen.foliage.FoliagePlacer;
+import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
-    public AncientTreeFeature(Codec<DefaultFeatureConfig> configCodec) {
-        super(configCodec);
+public class AncientTreeFeature  extends Feature<AncientTreeFeatureConfig> {
+    public AncientTreeFeature(Codec<AncientTreeFeatureConfig> codec) {
+        super(codec);
     }
 
-    @Override
-    public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
+    public boolean generate(FeatureContext<AncientTreeFeatureConfig> context) {
+        StructureWorldAccess structureWorldAccess = context.getWorld();
         BlockPos blockPos = context.getOrigin();
-        Random random = context.getRandom();
-
-        StructureWorldAccess structureWorldAccess;
-        for(structureWorldAccess = context.getWorld(); structureWorldAccess.isAir(blockPos) && blockPos.getY() > structureWorldAccess.getBottomY() + 2; blockPos = blockPos.down()) {
-        }
-
-        if (!structureWorldAccess.getBlockState(blockPos).isOf(Blocks.MOSS_BLOCK)) {
+        if (isNotSuitable(structureWorldAccess, blockPos)) {
             return false;
         } else {
-            blockPos = blockPos.up(random.nextInt(4));
-            int i = random.nextInt(4) + 7;
-            int j = i / 4 + random.nextInt(2);
-            if (j > 1 && random.nextInt(60) == 0) {
-                blockPos = blockPos.up(10 + random.nextInt(30));
-            }
+            Random random = context.getRandom();
+            AncientTreeFeatureConfig twistingVinesFeatureConfig = (AncientTreeFeatureConfig)context.getConfig();
+            int i = twistingVinesFeatureConfig.spreadWidth();
+            int j = twistingVinesFeatureConfig.spreadHeight();
+            int k = twistingVinesFeatureConfig.maxHeight();
+            BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-            int k;
-            int l;
-            for(k = 0; k < i; ++k) {
-                float f = (1.0F - (float)k / (float)i) * (float)j;
-                l = MathHelper.ceil(f);
-
-                for(int m = -l; m <= l; ++m) {
-                    float g = (float)MathHelper.abs(m) - 0.25F;
-
-                    for(int n = -l; n <= l; ++n) {
-                        float h = (float)MathHelper.abs(n) - 0.25F;
-                        if ((m == 0 && n == 0 || !(g * g + h * h > f * f)) && (m != -l && m != l && n != -l && n != l || !(random.nextFloat() > 0.75F))) {
-                            BlockState blockState = structureWorldAccess.getBlockState(blockPos.add(m, k, n));
-                            if (blockState.isAir() || isSoil(blockState) || blockState.isOf(Blocks.MOSS_BLOCK) || blockState.isOf(Blocks.JUNGLE_LOG)) {
-                                this.setBlockState(structureWorldAccess, blockPos.add(m, k, n), Blocks.JUNGLE_LOG.getDefaultState());
-                            }
-
-                            if (k != 0 && l > 1) {
-                                blockState = structureWorldAccess.getBlockState(blockPos.add(m, -k, n));
-                                if (blockState.isAir() || isSoil(blockState) || blockState.isOf(Blocks.MOSS_BLOCK) || blockState.isOf(Blocks.GRASS_BLOCK)) {
-                                    this.setBlockState(structureWorldAccess, blockPos.add(m, -k, n), Blocks.JUNGLE_LOG.getDefaultState());
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            k = j - 1;
-            if (k < 0) {
-                k = 0;
-            } else if (k > 1) {
-                k = 1;
-            }
-
-            for(int o = -k; o <= k; ++o) {
-                for(l = -k; l <= k; ++l) {
-                    BlockPos blockPos2 = blockPos.add(o, -1, l);
-                    int p = 50;
-                    if (Math.abs(o) == 1 && Math.abs(l) == 1) {
-                        p = random.nextInt(5);
+            for(int l = 0; l < i * i; ++l) {
+                mutable.set(blockPos).move(MathHelper.nextInt(random, -i, i), MathHelper.nextInt(random, -j, j), MathHelper.nextInt(random, -i, i));
+                if (canGenerate(structureWorldAccess, mutable) && !isNotSuitable(structureWorldAccess, mutable)) {
+                    int m = MathHelper.nextInt(random, 1, k);
+                    if (random.nextInt(6) == 0) {
+                        m *= 2;
                     }
 
-                    while(blockPos2.getY() > 50) {
-                        BlockState blockState2 = structureWorldAccess.getBlockState(blockPos2);
-                        if (!blockState2.isAir() && !isSoil(blockState2) && !blockState2.isOf(Blocks.MOSS_BLOCK) && !blockState2.isOf(Blocks.ICE) && !blockState2.isOf(Blocks.JUNGLE_LOG)) {
-                            break;
-                        }
-
-                        this.setBlockState(structureWorldAccess, blockPos2, Blocks.JUNGLE_LOG.getDefaultState());
-                        blockPos2 = blockPos2.down();
-                        --p;
-                        if (p <= 0) {
-                            blockPos2 = blockPos2.down(random.nextInt(5) + 1);
-                            p = random.nextInt(5);
-                        }
+                    if (random.nextInt(5) == 0) {
+                        m = 1;
                     }
+
+                    generateVineColumn(structureWorldAccess, random, mutable, m, 17, 25);
                 }
             }
 
             return true;
+        }
+    }
+
+    private static boolean canGenerate(WorldAccess world, BlockPos.Mutable pos) {
+        do {
+            pos.move(0, -1, 0);
+            if (world.isOutOfHeightLimit(pos)) {
+                return false;
+            }
+        } while(world.getBlockState(pos).isAir());
+
+        pos.move(0, 1, 0);
+        return true;
+    }
+
+    public static void generateVineColumn(WorldAccess world, Random random, BlockPos.Mutable pos, int maxLength, int minAge, int maxAge) {
+        for(int i = 1; i <= maxLength; ++i) {
+            if (world.isAir(pos)) {
+                if (i == maxLength || !world.isAir(pos.up())) {
+                    world.setBlockState(pos, (BlockState)Blocks.JUNGLE_LOG.getDefaultState(), 2);
+                    break;
+                }
+
+                world.setBlockState(pos, Blocks.JUNGLE_LOG.getDefaultState(), 2);
+            }
+
+            pos.move(Direction.UP);
+        }
+
+    }
+
+    private static boolean isNotSuitable(WorldAccess world, BlockPos pos) {
+        if (!world.isAir(pos)) {
+            return true;
+        } else {
+            BlockState blockState = world.getBlockState(pos.down());
+            return !blockState.isOf(JamiesModBlocks.LIMBOSLATE) && !blockState.isOf(JamiesModBlocks.LIMBOSTONE) && !blockState.isOf(Blocks.MOSS_BLOCK);
+        }
+    }
+
+    protected FoliagePlacerType<?> getType() {
+        return FoliagePlacerType.ACACIA_FOLIAGE_PLACER;
+    }
+    protected boolean isPositionInvalid(Random random, int dx, int y, int dz, int radius, boolean giantTrunk) {
+        int i;
+        int j;
+        if (giantTrunk) {
+            i = Math.min(Math.abs(dx), Math.abs(dx - 1));
+            j = Math.min(Math.abs(dz), Math.abs(dz - 1));
+        } else {
+            i = Math.abs(dx);
+            j = Math.abs(dz);
+        }
+
+        return this.isInvalidForLeaves(random, i, y, j, radius, giantTrunk);
+    }
+    private static boolean placeFoliageBlock(TestableWorld world, FoliagePlacer.BlockPlacer placer, Random random, TreeFeatureConfig config, float chance, BlockPos origin, BlockPos.Mutable pos) {
+        if (pos.getManhattanDistance(origin) >= 7) {
+            return false;
+        } else {
+            return random.nextFloat() > chance ? false : placeFoliageBlock(world, placer, random, config, pos);
+        }
+    }
+
+    protected static boolean placeFoliageBlock(TestableWorld world, FoliagePlacer.BlockPlacer placer, Random random, TreeFeatureConfig config, BlockPos pos) {
+        if (!TreeFeature.canReplace(world, pos)) {
+            return false;
+        } else {
+            BlockState blockState = config.foliageProvider.get(random, pos);
+            if (blockState.contains(Properties.WATERLOGGED)) {
+                blockState = (BlockState)blockState.with(Properties.WATERLOGGED, world.testFluidState(pos, (fluidState) -> {
+                    return fluidState.isEqualAndStill(Fluids.WATER);
+                }));
+            }
+
+            placer.placeBlock(pos, blockState);
+            return true;
+        }
+    }
+
+    protected void generateSquare(TestableWorld world, FoliagePlacer.BlockPlacer placer, Random random, TreeFeatureConfig config, BlockPos centerPos, int radius, int y, boolean giantTrunk) {
+        int i = giantTrunk ? 1 : 0;
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+
+        for(int j = -radius; j <= radius + i; ++j) {
+            for(int k = -radius; k <= radius + i; ++k) {
+                if (!this.isPositionInvalid(random, j, y, k, radius, giantTrunk)) {
+                    mutable.set(centerPos, j, y, k);
+                    placeFoliageBlock(world, placer, random, config, mutable);
+                }
+            }
+        }
+
+    }
+
+    protected void generate(TestableWorld world, FoliagePlacer.BlockPlacer placer, Random random, TreeFeatureConfig config, int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset) {
+        boolean bl = treeNode.isGiantTrunk();
+        BlockPos blockPos = treeNode.getCenter().up(offset);
+        this.generateSquare(world, placer, random, config, blockPos, radius + treeNode.getFoliageRadius(), -1 - foliageHeight, bl);
+        this.generateSquare(world, placer, random, config, blockPos, radius - 1, -foliageHeight, bl);
+        this.generateSquare(world, placer, random, config, blockPos, radius + treeNode.getFoliageRadius() - 1, 0, bl);
+    }
+
+    public int getRandomHeight(Random random, int trunkHeight, TreeFeatureConfig config) {
+        return 0;
+    }
+
+    protected boolean isInvalidForLeaves(Random random, int dx, int y, int dz, int radius, boolean giantTrunk) {
+        if (y == 0) {
+            return (dx > 1 || dz > 1) && dx != 0 && dz != 0;
+        } else {
+            return dx == radius && dz == radius && radius > 0;
         }
     }
 }

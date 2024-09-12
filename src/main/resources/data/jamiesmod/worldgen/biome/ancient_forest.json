@@ -97,8 +97,8 @@
     [
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "minecraft:weeping_vines"
-
+      "jamiesmod:ancient_tree",
+      "jamiesmod:ancient_fungi"
     ]
   ],
   "has_precipitation": true,

@@ -2,6 +2,7 @@ package com.jamiedev.mod.init;
 import com.jamiedev.mod.worldgen.structure.AncientForestVegetationFeature;
 import com.jamiedev.mod.worldgen.structure.AncientForestVegetationFeatureConfig;
 import com.jamiedev.mod.worldgen.structure.AncientTreeFeature;
+import com.jamiedev.mod.worldgen.structure.AncientTreeFeatureConfig;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.world.gen.feature.*;
@@ -10,8 +11,7 @@ import com.jamiedev.mod.*;
 
 public class JamiesModFeatures
 {
-    public static final Feature<DefaultFeatureConfig> ANCIENT_TREE = register("ancient_tree", new AncientTreeFeature(DefaultFeatureConfig.CODEC));
-
+    public static final Feature<AncientTreeFeatureConfig> ANCIENT_TREE = register("ancient_tree", new AncientTreeFeature(AncientTreeFeatureConfig.CODEC));
 
     public static final Feature<AncientForestVegetationFeatureConfig> ANCIENT_FOREST_VEGATATION = register("ancient_forest_vegetation", new AncientForestVegetationFeature(AncientForestVegetationFeatureConfig.VEGETATION_CODEC));
 

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:range_choice",
+  "input": "jamiesmod:ocean_or_river",
+  "min_inclusive": 0,
+  "max_exclusive": 1,
+  "when_in_range": {
+    "type": "minecraft:noise",
+    "noise": "jamiesmod:aquifer_fluid_level_floodedness",
+    "xz_scale": 2,
+    "y_scale": 0.67
+  },
+  "when_out_of_range": {
+    "type": "minecraft:range_choice",
+    "input": "minecraft:y",
+    "min_inclusive": 40,
+    "max_exclusive": 80,
+    "when_in_range": 0.8,
+    "when_out_of_range": {
+      "type": "minecraft:add",
+      "argument1": 0.3,
+      "argument2": {
+        "type": "minecraft:abs",
+        "argument": {
+          "type": "minecraft:noise",
+          "noise": "minecraft:aquifer_fluid_level_floodedness",
+          "xz_scale": 1,
+          "y_scale": 0.67
+        }
+      }
+    }
+  }
+}
