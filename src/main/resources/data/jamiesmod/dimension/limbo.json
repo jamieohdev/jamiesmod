@@ -1538,18 +1538,6 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "minecraft:nether_wastes",
-          "parameters": {
-            "temperature": 0,
-            "humidity": 0,
-            "continentalness": 0,
-            "erosion": 0,
-            "weirdness": 0,
-            "depth": 0,
-            "offset": 0
-          }
-        },
-        {
           "biome": "jamiesmod:primordial_ocean",
           "parameters": {
             "temperature": [
@@ -1592,7 +1580,31 @@
           }
         },
         {
-          "biome": "jamiesmod:calm",
+          "biome": "jamiesmod:ancient_forest",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:ancient_forest",
+          "parameters": {
+            "temperature": 0,
+            "humidity": -0.5,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:ancient_forest",
           "parameters": {
             "temperature": 0,
             "humidity": 0.5,
@@ -1604,7 +1616,7 @@
           }
         },
         {
-          "biome": "jamiesmod:pillars",
+          "biome": "jamiesmod:ancient_forest",
           "parameters": {
             "temperature": -0.5,
             "humidity": 0,
