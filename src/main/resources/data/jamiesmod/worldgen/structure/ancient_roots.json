@@ -1,0 +1,16 @@
+{
+  "type": "jamiesmod:ancient_roots",
+  "start_pool": "jamiesmod:ancient_roots",
+  "biomes": "jamiesmod:ancient_forest",
+  "height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "below_top": 2
+    },
+    "min_inclusive": {
+      "absolute": 32
+    }
+  },
+  "spawn_overrides": {},
+  "step": "underground_decoration"
+}
