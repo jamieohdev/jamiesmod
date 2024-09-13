@@ -6,9 +6,7 @@
       "element": {
         "location": "jamiesmod:ancient_roots_1",
         "projection": "rigid",
-        "processors": {
-          "processors": []
-        },
+        "processors": "jamiesmod:randomize_roots",
         "element_type": "minecraft:single_pool_element"
       }
     },
@@ -17,20 +15,7 @@
       "element": {
         "location": "jamiesmod:ancient_roots_2",
         "projection": "rigid",
-        "processors": {
-          "processors": []
-        },
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "location": "jamiesmod:ancient_roots_2",
-        "projection": "rigid",
-        "processors": {
-          "processors": []
-        },
+        "processors": "jamiesmod:randomize_roots",
         "element_type": "minecraft:single_pool_element"
       }
     },
@@ -39,9 +24,7 @@
       "element": {
         "location": "jamiesmod:ancient_roots_3",
         "projection": "rigid",
-        "processors": {
-          "processors": []
-        },
+        "processors": "jamiesmod:randomize_roots",
         "element_type": "minecraft:single_pool_element"
       }
     },
@@ -50,9 +33,7 @@
       "element": {
         "location": "jamiesmod:ancient_roots_4",
         "projection": "rigid",
-        "processors": {
-          "processors": []
-        },
+        "processors": "jamiesmod:randomize_roots",
         "element_type": "minecraft:single_pool_element"
       }
     },
@@ -61,9 +42,7 @@
       "element": {
         "location": "jamiesmod:ancient_roots_5",
         "projection": "rigid",
-        "processors": {
-          "processors": []
-        },
+        "processors": "jamiesmod:randomize_roots",
         "element_type": "minecraft:single_pool_element"
       }
     },
@@ -72,9 +51,7 @@
       "element": {
         "location": "jamiesmod:ancient_roots_6",
         "projection": "rigid",
-        "processors": {
-          "processors": []
-        },
+        "processors": "jamiesmod:randomize_roots",
         "element_type": "minecraft:single_pool_element"
       }
     }

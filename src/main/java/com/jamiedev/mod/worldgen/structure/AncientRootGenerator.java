@@ -30,7 +30,7 @@ public class AncientRootGenerator
 
     public static void addPieces(StructureTemplateManager manager, StructurePiecesHolder holder, Random random, BlockPos pos) {
         BlockRotation blockRotation = BlockRotation.random(random);
-        holder.addPiece(new NetherFossilGenerator.Piece(manager, (Identifier) Util.getRandom(FOSSILS, random), pos, blockRotation));
+        holder.addPiece(new AncientRootGenerator.Piece(manager, (Identifier) Util.getRandom(FOSSILS, random), pos, blockRotation));
     }
 
     public static class Piece extends SimpleStructurePiece {

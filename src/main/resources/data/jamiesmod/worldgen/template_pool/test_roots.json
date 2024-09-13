@@ -1,0 +1,14 @@
+{
+"fallback": "minecraft:empty",
+ "elements": [
+    {
+    "weight": 1,
+      "element": {
+      "location": "jamiesmod:test_roots_1",
+       "processors": "jamiesmod:randomize_roots",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
