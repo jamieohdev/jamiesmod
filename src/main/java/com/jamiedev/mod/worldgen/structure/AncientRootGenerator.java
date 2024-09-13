@@ -35,14 +35,21 @@ public class AncientRootGenerator
 
     public static class Piece extends SimpleStructurePiece {
         public Piece(StructureTemplateManager manager, Identifier template, BlockPos pos, BlockRotation rotation) {
-            super((StructurePieceType) JamiesModStructures.ANCIENT_ROOTS, 0, manager, template, template.toString(), createPlacementData(rotation), pos);
+            super(JamiesModStructures.ANCIENT_ROOTS_PIECES, 0, manager, template, template.toString(), createPlacementData(rotation), pos);
         }
 
         public Piece(StructureTemplateManager manager, NbtCompound nbt) {
-            super((StructurePieceType) JamiesModStructures.ANCIENT_ROOTS, nbt, manager, (id) -> {
+            super(JamiesModStructures.ANCIENT_ROOTS_PIECES, nbt, manager, (id) -> {
                 return createPlacementData(BlockRotation.valueOf(nbt.getString("Rot")));
             });
         }
+
+        public Piece(StructureContext structureContext, NbtCompound nbt) {
+            super(JamiesModStructures.ANCIENT_ROOTS_PIECES, nbt, structureContext.structureTemplateManager(), (id) -> {
+                return createPlacementData(BlockRotation.valueOf(nbt.getString("Rot")));
+            });
+        }
+
 
         private static StructurePlacementData createPlacementData(BlockRotation rotation) {
             return (new StructurePlacementData()).setRotation(rotation).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_AIR_AND_STRUCTURE_BLOCKS);
