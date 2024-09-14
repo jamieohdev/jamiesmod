@@ -89,8 +89,9 @@ public class AncientRootStructure extends Structure {
         while (currentY > context.chunkGenerator().getMinimumY()) {
             BlockState currentState = columnOfBlocks.getState(currentY);
             boolean currBlockWasAir = currentState.isAir();
+            boolean currBlockWasWater = currentState.getBlock() == Blocks.WATER;
 
-            if (prevBlockWasAir && !currBlockWasAir) {
+            if (prevBlockWasAir && !currBlockWasAir && !currBlockWasWater) {
                 break; //exit loop. Found a surface with air above. currentY is now a good spot.
             }
 
