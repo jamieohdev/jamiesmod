@@ -62,7 +62,6 @@ public class ShooterItem extends Item
     private static void retrieve(World level, PlayerEntity player, ShotEntity lashingPotatoHook) {
         if (!level.isClient()) {
             lashingPotatoHook.discard();
-            //player.setData(MarvelAttachmentTypes.GRAPPLING, new EntityHolder<>(null));
         }
 
         player.emitGameEvent(GameEvent.ITEM_INTERACT_FINISH);

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "jamiesmod:block/gourd_lantern"
+    },
+    "hanging=true": {
+      "model": "jamiesmod:block/gourd_lantern_hanging"
+    }
+  }
+}
