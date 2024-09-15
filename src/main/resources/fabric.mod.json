@@ -3,13 +3,16 @@
 	"id": "jamiesmod",
 	"version": "${version}",
 	"name": "jamiesmod",
-	"description": "a dimension",
+	"description": "The Bygone adds a new prehistoric dimension where everything wound up- Including you.",
 	"authors": [
-		"jamieadev", "soumeh"
+		"Programmers: Jamie, soumeh, TelepathicGrunt",
+		"Artists: boomsh0t (concept art), CrispyTwig & betwixer (textures)",
+		"Music: LudoCrypt & MistaJubb",
+		"Playtesters: reider"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/jamieohdev/jamiesmod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/jamiesmod/icon.png",

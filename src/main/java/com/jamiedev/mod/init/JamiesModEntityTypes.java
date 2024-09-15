@@ -1,7 +1,9 @@
 package com.jamiedev.mod.init;
 
 import com.jamiedev.mod.JamiesMod;
+import com.jamiedev.mod.entities.BrungleEntity;
 import com.jamiedev.mod.entities.DuckEntity;
+import com.jamiedev.mod.entities.GlareEntity;
 import com.jamiedev.mod.entities.ShotEntity;
 import net.minecraft.registry.Registry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -26,6 +28,16 @@ public class JamiesModEntityTypes {
             JamiesMod.getModId( "duck"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DuckEntity::new)
                     .dimensions(EntityDimensions.fixed(0.4F, 0.7F)).build());
+
+    public static final EntityType<BrungleEntity> BRUNGLE = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "brungle"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BrungleEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.5F, 1.0F)).build());
+
+    public static final EntityType<GlareEntity> GLARE = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "glare"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GlareEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6F, 0.8F)).build());
 
     public static void init(){
         FabricDefaultAttributeRegistry.register(DUCK, DuckEntity.createDuckAttributes());

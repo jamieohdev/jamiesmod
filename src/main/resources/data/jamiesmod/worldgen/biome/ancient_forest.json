@@ -9,6 +9,8 @@
   "downfall": 0.5,
   "effects": {
     "fog_color": 8299908,
+    "foliage_color": 11851346,
+    "grass_color": 11851346,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -84,15 +86,14 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:bamboo",
+      "minecraft:bamboo_vegetation",
       "minecraft:patch_tall_grass_2",
       "minecraft:lush_caves_ceiling_vegetation",
       "minecraft:cave_vines",
-      "minecraft:lush_caves_clay",
       "minecraft:lush_caves_vegetation",
       "minecraft:rooted_azalea_tree",
-      "minecraft:spore_blossom",
-      "minecraft:classic_vines_cave_feature",
-      "minecraft:patch_pumpkin"
+      "minecraft:classic_vines_cave_feature"
     ],
     [
       "minecraft:brown_mushroom_normal",
@@ -105,12 +106,6 @@
   "spawn_costs": {},
   "spawners": {
     "ambient": [
-      {
-        "type": "minecraft:bat",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 10
-      }
     ],
     "axolotls": [
       {
@@ -120,29 +115,18 @@
         "weight": 10
       }
     ],
-    "creature": [],
+    "creature": [
+      {
+        "type": "minecraft:sniffer",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 6
+      }
+    ],
     "misc": [],
     "monster": [
       {
-        "type": "minecraft:spider",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:zombie",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 95
-      },
-      {
-        "type": "minecraft:zombie_villager",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      },
-      {
-        "type": "minecraft:skeleton",
+        "type": "minecraft:bogged",
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
@@ -158,18 +142,6 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
-      },
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 1,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:witch",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
       }
     ],
     "underground_water_creature": [

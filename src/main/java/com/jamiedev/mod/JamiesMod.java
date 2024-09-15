@@ -26,6 +26,7 @@ public class JamiesMod implements ModInitializer {
 		JamiesModItemGroup.registerItemgroups();
 		JamiesModFeatures.init();
 		JamiesModStructures.init();
+		JamiesModParticleTypes.init();
 
 		JamiesMod.LOGGER.info("Registering Entities for " + JamiesMod.MOD_ID);
 		FabricDefaultAttributeRegistry.register(JamiesModEntityTypes.DUCK, DuckEntity.createDuckAttributes());
