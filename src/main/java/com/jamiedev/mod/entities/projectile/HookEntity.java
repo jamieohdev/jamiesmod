@@ -90,7 +90,7 @@ public class HookEntity extends ProjectileEntity
         PlayerEntity player = this.getPlayerOwner();
         if (player != null) {
             ((PlayerWithHook)player).setHook(hook);
-            player.getAttachedOrCreate(JamiesModAttatchments.GRAPPLING);
+            //player.getAttachedOrCreate(JamiesModAttatchments.GRAPPLING);
         }
 
     }
@@ -115,7 +115,7 @@ public class HookEntity extends ProjectileEntity
             HitResult hit = ProjectileUtil.getCollision(this, this::canHit);
             if (hit.getType() != HitResult.Type.MISS)
             {
-                this.onEntityHit((EntityHitResult) hit);
+                this.onCollision(hit);
             }
             setPosition(hit.getPos());
             this.checkBlockCollision();
