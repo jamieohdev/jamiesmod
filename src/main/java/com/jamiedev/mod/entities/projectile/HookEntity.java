@@ -40,7 +40,6 @@ public class HookEntity extends ProjectileEntity
     public HookEntity(World level, PlayerEntity player) {
         super(JamiesModEntityTypes.HOOK, level);
         setOwner(player);
-        //setNoGravity(true);
         setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
         setVelocity(player.getLeashPos(1.0F).multiply(3.0));
     }
