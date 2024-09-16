@@ -7,5 +7,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 public class JamiesModModelLayers {
     public static final EntityModelLayer DUCKIE =
             new EntityModelLayer(JamiesMod.getModId("duckie"), "main");
+    public static final EntityModelLayer HOOK =
+            new EntityModelLayer(JamiesMod.getModId("hook"), "main");
 
 }

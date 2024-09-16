@@ -4,7 +4,7 @@ import com.jamiedev.mod.JamiesMod;
 import com.jamiedev.mod.entities.BrungleEntity;
 import com.jamiedev.mod.entities.DuckEntity;
 import com.jamiedev.mod.entities.GlareEntity;
-import com.jamiedev.mod.entities.ShotEntity;
+import com.jamiedev.mod.entities.projectile.HookEntity;
 import net.minecraft.registry.Registry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -19,10 +19,14 @@ public class JamiesModEntityTypes {
         return Identifier.of(JamiesMod.MOD_ID, name);
     }
 
-   public static final EntityType<ShotEntity> SHOT = Registry.register(Registries.ENTITY_TYPE,
-            JamiesMod.getModId( "shot"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, ShotEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.25F, 0.25F)).build());
+    public static final EntityType<HookEntity> HOOK = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "hook"),
+            FabricEntityTypeBuilder.<HookEntity>create(SpawnGroup.MISC, HookEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+                    .trackRangeChunks(4)
+                    .trackedUpdateRate(5)
+                    .build()
+    );
 
     public static final EntityType<DuckEntity> DUCK = Registry.register(Registries.ENTITY_TYPE,
             JamiesMod.getModId( "duck"),

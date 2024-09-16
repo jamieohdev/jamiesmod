@@ -1,5 +1,6 @@
 package com.jamiedev.mod.init;
 import com.jamiedev.mod.JamiesMod;
+import com.jamiedev.mod.items.HookItem;
 import com.jamiedev.mod.items.JamiesModItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
@@ -19,6 +20,7 @@ public class JamiesModItems
     Items items;
 
     public static final Item JAMIES_ITEM = registerItem("jamies_item", new Item(new Item.Settings().fireproof()));
+    public static final Item HOOK = registerItem("hook", new HookItem(new Item.Settings().maxCount(1)));
 
     public static final Item ANCIENT_SIGN = registerItem("ancient_sign",
             new SignItem(new Item.Settings().maxCount(16), JamiesModBlocks.ANCIENT_SIGN, JamiesModBlocks.ANCIENT_WALL_SIGN));
