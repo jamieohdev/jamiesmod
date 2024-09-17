@@ -7,30 +7,40 @@ import com.jamiedev.mod.init.JamiesModItems;
 import com.jamiedev.mod.util.EntityHolder;
 import com.jamiedev.mod.util.PlayerWithHook;
 import com.mojang.datafixers.types.templates.Hook;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ProjectileDeflection;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.FishingBobberEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
+import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.server.network.EntityTrackerEntry;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class HookEntity extends ProjectileEntity
 {
     public static final TrackedData<Boolean> IN_BLOCK = DataTracker.registerData(HookEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Float> LENGTH = DataTracker.registerData(HookEntity.class, TrackedDataHandlerRegistry.FLOAT);
+
+
+    FishingBobberEntity tryne;
 
     public HookEntity(EntityType<? extends HookEntity> entityType, World pLevel) {
         super(JamiesModEntityTypes.HOOK, pLevel);
@@ -43,8 +53,6 @@ public class HookEntity extends ProjectileEntity
         setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
         setVelocity(player.getLeashPos(1.0F).multiply(3.0));
     }
-
-
 
     protected void initDataTracker(DataTracker.Builder builder) {
         builder.add(LENGTH, 0.0F);
@@ -126,6 +134,13 @@ public class HookEntity extends ProjectileEntity
         }
     }
 
+    protected boolean canHit(Entity entity) {
+        return false;
+    }
+
+
+
+    @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         super.onBlockHit(blockHitResult);
         this.setPosition(Vec3d.ZERO);
@@ -134,6 +149,19 @@ public class HookEntity extends ProjectileEntity
         if (player != null) {
             double d = player.getEyePos().subtract(blockHitResult.getPos()).length();
             this.setLength(Math.max((float)d * 0.5F - 3.0F, 1.5F));
+        }
+
+    }
+
+    
+    @Override
+    protected void onCollision(HitResult hitResult) {
+        HitResult.Type type = hitResult.getType();
+        if (type == HitResult.Type.BLOCK) {
+            BlockHitResult blockHitResult = (BlockHitResult)hitResult;
+            this.onBlockHit(blockHitResult);
+            BlockPos blockPos = blockHitResult.getBlockPos();
+            this.getWorld().emitGameEvent(GameEvent.PROJECTILE_LAND, blockPos, GameEvent.Emitter.of(this, this.getWorld().getBlockState(blockPos)));
         }
 
     }
@@ -165,11 +193,8 @@ public class HookEntity extends ProjectileEntity
 
     public void onSpawnPacket(EntitySpawnS2CPacket packet) {
         super.onSpawnPacket(packet);
-        if (this.getPlayerOwner() == null) {
-            int i = packet.getEntityData();
-            JamiesMod.LOGGER.error("Failed to recreate grappling hook on client. {} (id: {}) is not a valid owner.", this.getWorld().getEntityById(i), i);
-            this.kill();
-        }
+        Entity entity = this.getEntityWorld().getEntityById(packet.getEntityData());
+        this.setOwner(entity);
 
     }
 }

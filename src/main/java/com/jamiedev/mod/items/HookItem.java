@@ -46,8 +46,6 @@ public class HookItem extends Item
         return TypedActionResult.success(itemStack, world.isClient());
     }
 
-    FishingRodItem ref;
-    TridentItem ref2;
 
     private void shoot(World world, PlayerEntity user) {
         if (!world.isClient)
