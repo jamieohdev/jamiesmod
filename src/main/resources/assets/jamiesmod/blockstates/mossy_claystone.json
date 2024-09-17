@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "jamiesmod:block/mossy_claystone"
+      },
+      {
+        "model": "jamiesmod:block/mossy_claystone",
+        "y": 90
+      },
+      {
+        "model": "jamiesmod:block/mossy_claystone",
+        "y": 180
+      },
+      {
+        "model": "jamiesmod:block/mossy_claystone",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "jamiesmod:block/mossy_claystone"
+    }
+  }
+}

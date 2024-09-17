@@ -39,8 +39,9 @@ public class JamiesModModelProvider  extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.LIMBOSTONE);
         blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.LIMBOSLATE);
         blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.CLOUD);
-        blockStateModelGenerator.registerSimpleState(JamiesModBlocks.GOURD_LANTERN);
-        blockStateModelGenerator.registerSimpleState(JamiesModBlocks.RAFFLESIA);
+        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.BYSTONE);
+        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.CLAYSTONE);
+
     }
 
     @Override

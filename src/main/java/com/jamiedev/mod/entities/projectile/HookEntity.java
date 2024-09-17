@@ -30,6 +30,7 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
@@ -153,7 +154,21 @@ public class HookEntity extends ProjectileEntity
 
     }
 
-    
+
+    @Override
+    protected void onBlockCollision(BlockState state) {
+
+        BlockHitResult blockHitResult = this.getWorld().raycast(new RaycastContext(this.getPos(), this.getPos().add(this.getMovement()), RaycastContext.ShapeType.FALLDAMAGE_RESETTING, RaycastContext.FluidHandling.WATER, this));
+        super.onBlockHit(blockHitResult);
+        this.setPosition(Vec3d.ZERO);
+        this.setInBlock(true); // idk
+        PlayerEntity player = this.getPlayerOwner();
+        if (player != null) {
+            double d = player.getEyePos().subtract(blockHitResult.getPos()).length();
+            this.setLength(Math.max((float)d * 0.5F - 3.0F, 1.5F));
+        }
+    }
+
     @Override
     protected void onCollision(HitResult hitResult) {
         HitResult.Type type = hitResult.getType();
