@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "jamiesmod:block/claystone"
-    }
+    "": [
+      {
+        "model": "jamiesmod:block/claystone"
+      },
+      {
+        "model": "jamiesmod:block/claystone",
+        "y": 90
+      },
+      {
+        "model": "jamiesmod:block/claystone",
+        "y": 180
+      },
+      {
+        "model": "jamiesmod:block/claystone",
+        "y": 270
+      }
+    ]
   }
 }

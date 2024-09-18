@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "jamiesmod:block/ancient_vine"
+    "layer0": "jamiesmod:block/ancient_vines"
   }
 }

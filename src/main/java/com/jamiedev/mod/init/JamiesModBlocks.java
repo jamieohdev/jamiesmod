@@ -53,12 +53,13 @@ public class JamiesModBlocks {
 
     public static final Block BYSTONE = registerBlock("bystone", new Block(AbstractBlock.Settings.copyShallow(DIRT).strength(2.0F, 3.0F).sounds(BlockSoundGroup.DRIPSTONE_BLOCK)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block CLAYSTONE = registerBlock("claystone", new Block(AbstractBlock.Settings.copyShallow(DIRT).strength(1.0F, 3.0F).sounds(BlockSoundGroup.PACKED_MUD)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block COARSE_CLAYSTONE = registerBlock("coarse_claystone", new Block(AbstractBlock.Settings.copyShallow(DIRT).strength(1.0F, 3.0F).sounds(BlockSoundGroup.PACKED_MUD)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block MOSSY_CLAYSTONE = registerBlock((String)"mossy_claystone", new GrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_GREEN).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block GRASSY_CLAYSTONE = registerBlock((String)"grassy_claystone", new GrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_GREEN).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block ANCIENT_ROOTS = registerBlock("ancient_roots",
             new AncientRootBlock(AbstractBlock.Settings.create().mapColor(MapColor.LICHEN_GREEN).instrument(NoteBlockInstrument.BASS).strength(0.7F).sounds(BlockSoundGroup.MANGROVE_ROOTS).nonOpaque().suffocates(Blocks::never).blockVision(Blocks::never).nonOpaque().burnable()), JamiesModItemGroup.JAMIES_MOD);
 
-    public static final Block ANCIENT_VINE = registerBlock("ancient_vine",
+    public static final Block ANCIENT_VINE = registerBlock("ancient_vines",
             new VineBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable().noCollision().ticksRandomly().strength(0.2F).sounds(BlockSoundGroup.VINE).burnable().pistonBehavior(PistonBehavior.DESTROY)),  JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block ANCIENT_SAPLING = createBlockWithItem("ancient_sapling", new SaplingBlock(new SaplingGenerator(JamiesMod.getModId( "ancient_tree").toString(),

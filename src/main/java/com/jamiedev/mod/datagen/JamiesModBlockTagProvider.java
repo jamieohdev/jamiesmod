@@ -23,6 +23,11 @@ public class JamiesModBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(JamiesModBlocks.ANCIENT_LEAVES)
                 .add(JamiesModBlocks.ANCIENT_ROOTS)
                 .add(JamiesModBlocks.CLOUD);
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(JamiesModBlocks.CLAYSTONE)
+                .add(JamiesModBlocks.COARSE_CLAYSTONE)
+                .add(JamiesModBlocks.GRASSY_CLAYSTONE)
+                .add(JamiesModBlocks.MOSSY_CLAYSTONE);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(JamiesModBlocks.LIMBOSTONE)
                         .add(JamiesModBlocks.LIMBOSLATE);
@@ -49,6 +54,12 @@ public class JamiesModBlockTagProvider extends FabricTagProvider.BlockTagProvide
 
         getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
                 .add(JamiesModBlocks.ANCIENT_WALL_HANGING_SIGN);
+
+        getOrCreateTagBuilder(BlockTags.DIRT)
+                .add(JamiesModBlocks.CLAYSTONE)
+                .add(JamiesModBlocks.COARSE_CLAYSTONE)
+                .add(JamiesModBlocks.GRASSY_CLAYSTONE)
+                .add(JamiesModBlocks.MOSSY_CLAYSTONE);
     }
 
 
