@@ -2,10 +2,11 @@
 	"schemaVersion": 1,
 	"id": "jamiesmod",
 	"version": "${version}",
+	"accessWidener": "jamiesmod.accesswidener",
 	"name": "jamiesmod",
 	"description": "The Bygone adds a new prehistoric dimension where everything wound up- Including you.",
 	"authors": [
-		"Programmers: Jamie, soumeh, TelepathicGrunt",
+		"Programmers: Jamie, soumeh, TelepathicGrunt, TheInfamous1",
 		"Artists: boomsh0t (concept art), CrispyTwig & betwixer (textures)",
 		"Music: LudoCrypt & MistaJubb",
 		"Playtesters: reider"

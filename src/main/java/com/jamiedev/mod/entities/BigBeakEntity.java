@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 public class BigBeakEntity extends AnimalEntity implements JumpingMount
 {
 
-    protected BigBeakEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public BigBeakEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 

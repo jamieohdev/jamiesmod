@@ -10,4 +10,7 @@ public class JamiesModModelLayers {
     public static final EntityModelLayer HOOK =
             new EntityModelLayer(JamiesMod.getModId("hook"), "main");
 
+    public static final EntityModelLayer BIG_BEAK =
+            new EntityModelLayer(JamiesMod.getModId("big_beak"), "main");
+
 }

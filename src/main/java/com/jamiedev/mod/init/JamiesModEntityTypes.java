@@ -1,6 +1,7 @@
 package com.jamiedev.mod.init;
 
 import com.jamiedev.mod.JamiesMod;
+import com.jamiedev.mod.entities.BigBeakEntity;
 import com.jamiedev.mod.entities.BrungleEntity;
 import com.jamiedev.mod.entities.DuckEntity;
 import com.jamiedev.mod.entities.GlareEntity;
@@ -27,6 +28,11 @@ public class JamiesModEntityTypes {
                     .trackedUpdateRate(5)
                     .build()
     );
+
+    public static final EntityType<BigBeakEntity> BIG_BEAK = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "big_beak"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BigBeakEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.4F, 0.7F)).build());
 
     public static final EntityType<DuckEntity> DUCK = Registry.register(Registries.ENTITY_TYPE,
             JamiesMod.getModId( "duck"),
