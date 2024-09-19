@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -45,6 +46,19 @@ public class JamiesModBlocks {
     public static final Block CLOUD = registerBlock("cloud",
             new TranslucentBlock(AbstractBlock.Settings.create().mapColor(MapColor.OFF_WHITE).strength(0.001F).slipperiness(0.989F).sounds(BlockSoundGroup.WOOL)), JamiesModItemGroup.JAMIES_MOD);
 
+    public static  final  Block CAVE_VINES = registerBlock("cave_vines", new AncientCaveVinesHeadBlock(AbstractBlock.Settings.create()
+            .mapColor(MapColor.DARK_GREEN).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly()
+            .sounds(BlockSoundGroup.CAVE_VINES).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    public static  final  Block CAVE_VINES_PLANT = registerBlock("cave_vines_plant", new AncientCaveVinesBodyBlock(AbstractBlock.Settings.create()
+            .mapColor(MapColor.DARK_GREEN).noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES)
+            .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static  final Block MONTSECHIA = registerBlock("montsechia", new FlowerBlock(StatusEffects.UNLUCK, 12.0F,AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static  final Block POTTED_MONTSECHIA = registerBlock("potted_montsechia", createFlowerPotBlock(MONTSECHIA), JamiesModItemGroup.JAMIES_MOD);
+    public static  final Block SAGARIA = registerBlock("sagaria", new FlowerBlock(StatusEffects.LUCK, 12.0F,AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static  final Block POTTED_SAGARIA = registerBlock("potted_sagaria", createFlowerPotBlock(SAGARIA), JamiesModItemGroup.JAMIES_MOD);
     public static  final  Block RAFFLESIA = registerBlock("rafflesia", new RafflesiaBlock(AbstractBlock.Settings.create().mapColor(MapColor.DULL_PINK).breakInstantly().noCollision().sounds(BlockSoundGroup.SPORE_BLOSSOM).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block GOURD_LANTERN = registerBlock("gourd_lantern", new LanternBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_DULL_PINK).solid().requiresTool().strength(0.2F).sounds(BlockSoundGroup.SHROOMLIGHT).luminance((state) -> {
@@ -134,6 +148,11 @@ public class JamiesModBlocks {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
         return item;
     }
+
+    public static Block createFlowerPotBlock(Block flower) {
+        return new FlowerPotBlock(flower, AbstractBlock.Settings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY));
+    }
+
 
     private static boolean always(BlockState p_50775_, BlockPos p_50777_) {
         return true;

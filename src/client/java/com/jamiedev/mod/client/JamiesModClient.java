@@ -6,6 +6,8 @@ import com.jamiedev.mod.init.*;
 import com.jamiedev.mod.util.PlayerWithHook;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -31,6 +33,10 @@ public class JamiesModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.ANCIENT_VINE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.GOURD_LANTERN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.RAFFLESIA, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.CAVE_VINES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.CAVE_VINES_PLANT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.MONTSECHIA, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.SAGARIA, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.ANCIENT_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.ANCIENT_TRAPDOOR, RenderLayer.getCutout());
@@ -47,14 +53,17 @@ public class JamiesModClient implements ClientModInitializer {
 
 
         registerModelPredicateProviders();
+
+        ClientPlayNetworking.registerGlobalReceiver(SyncPlayerHookS2C.PACkET_ID, (payload, context) -> {
+            context.client().execute(() -> SyncPlayerHookPacketHandler.handle(payload, context));
+        });
     }
     public static void registerModelPredicateProviders() {
         ModelPredicateProviderRegistry.register(JamiesModItems.HOOK, JamiesMod.getModId("deployed"), (itemStack, clientWorld, livingEntity, seed) -> {
             if (livingEntity instanceof PlayerEntity) {
                 for (Hand value : Hand.values())
                 {
-                    ItemStack heldStack = livingEntity.getStackInHand(value);
-                    if (heldStack == itemStack && (((PlayerWithHook)livingEntity).getHook()  != null && !((PlayerWithHook)livingEntity).getHook().isRemoved()))
+                    if (heldStack == itemStack && (((PlayerWithHook)livingEntity).jamiesmod$getHook()  != null && !((PlayerWithHook)livingEntity).jamiesmod$getHook().isRemoved()))
                     {
                         return 1;
                     }

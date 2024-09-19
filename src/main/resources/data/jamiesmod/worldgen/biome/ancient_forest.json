@@ -85,15 +85,12 @@
       "minecraft:spring_water"
     ],
     [
+      "jamiesmod:ancient_flowers",
       "minecraft:glow_lichen",
-      "minecraft:bamboo",
-      "minecraft:bamboo_vegetation",
+      "jamiesmod:cave_vines",
       "minecraft:patch_tall_grass_2",
-      "minecraft:lush_caves_ceiling_vegetation",
-      "minecraft:cave_vines",
       "minecraft:lush_caves_vegetation",
-      "minecraft:rooted_azalea_tree",
-      "minecraft:classic_vines_cave_feature"
+      "minecraft:rooted_azalea_tree"
     ],
     [
       "minecraft:brown_mushroom_normal",
@@ -106,12 +103,7 @@
     "ambient": [
     ],
     "axolotls": [
-      {
-        "type": "minecraft:axolotl",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
-      }
+
     ],
     "creature": [
       {
@@ -123,40 +115,10 @@
     ],
     "misc": [],
     "monster": [
-      {
-        "type": "minecraft:bogged",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:creeper",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:slime",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      }
+
     ],
     "underground_water_creature": [
-      {
-        "type": "minecraft:glow_squid",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 10
-      }
-    ],
-    "water_ambient": [
-      {
-        "type": "minecraft:tropical_fish",
-        "maxCount": 8,
-        "minCount": 8,
-        "weight": 25
-      }
+
     ],
     "water_creature": []
   },
