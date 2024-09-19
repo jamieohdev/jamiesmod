@@ -1,23 +1,24 @@
 package com.jamiedev.mod.items;
 
+import com.jamiedev.mod.JamiesMod;
 import com.jamiedev.mod.entities.projectile.HookEntity;
 import com.jamiedev.mod.util.PlayerWithHook;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.FishingRodItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.TridentItem;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import org.jetbrains.annotations.Nullable;
 
 public class HookItem extends Item
 {
@@ -29,42 +30,119 @@ public class HookItem extends Item
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         PlayerWithHook hookuser = (PlayerWithHook)user;
         ItemStack itemStack = user.getStackInHand(hand);
-        HookEntity hook = hookuser.getHook();
-
-        if (hook != null) {
-            world.playSound((PlayerEntity)null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, SoundCategory.NEUTRAL, 1.0F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-            retrieve(world,user, hook);
-        } else {
-            world.playSound((PlayerEntity)null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-            if (world instanceof ServerWorld) {
-                itemStack.damage(1, user, LivingEntity.getSlotForHand(hand));
+        HookEntity hook = hookuser.jamiesmod$getHook();
+        boolean secondaryUse = user.shouldCancelInteraction();
+        boolean used = false;
+        if(!secondaryUse){
+            if(hook != null){
+                JamiesMod.LOGGER.info("{} started grappling using their HookItem!", user);
+            } else{
+                JamiesMod.LOGGER.info("{} is charging up their HookItem!", user);
             }
-
-            this.shoot(world, user);
+            user.setCurrentHand(hand);
+            used = true;
+        }
+        if (hook != null && secondaryUse) {
+            JamiesMod.LOGGER.info("{} is retrieving their HookItem!", user);
+            retrieve(world, user, hook);
+            used = true;
         }
 
-        return TypedActionResult.success(itemStack, world.isClient());
+        return used ? TypedActionResult.consume(itemStack) : TypedActionResult.fail(itemStack);
     }
 
-
-    private void shoot(World world, PlayerEntity user) {
-        if (!world.isClient)
-        {
-            world.spawnEntity(new HookEntity(world, user));
-        }
-        user.incrementStat(Stats.USED.getOrCreateStat(this));
-        user.emitGameEvent(GameEvent.ITEM_INTERACT_START);
-    }
-
-    protected void shoot(LivingEntity Hook, ProjectileEntity projectile, int index, float speed, float divergence, float yaw, @Nullable LivingEntity target) {
-        projectile.setVelocity(Hook, Hook.getPitch(), Hook.getYaw() + yaw, 0.0F, speed, divergence);
-    }
-
-    private static void retrieve(World level, PlayerEntity player, HookEntity lashingPotatoHook) {
+    private static void retrieve(World level, PlayerEntity player, HookEntity hook) {
+        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, SoundCategory.NEUTRAL, 1.0F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!level.isClient()) {
-            lashingPotatoHook.discard();
+            hook.discard();
+            ((PlayerWithHook)player).jamiesmod$setHook(null);
         }
 
         player.emitGameEvent(GameEvent.ITEM_INTERACT_FINISH);
     }
+
+    @Override
+    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+        if (user instanceof PlayerEntity player) {
+            HookEntity hook = ((PlayerWithHook) player).jamiesmod$getHook();
+            if (hook != null) {
+                if(remainingUseTicks % 5 == 0){
+                    world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, SoundCategory.NEUTRAL, 1.0F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+                }
+                grapple(hook, player);
+            }
+        }
+    }
+
+    // Based on how TridentItem launches the player when enchanted with Riptide
+    private static void grapple(HookEntity hook, PlayerEntity player) {
+        float xStep = (float) (hook.getX() - player.getX());
+        float yStep = (float) (hook.getY() - player.getY());
+        float zStep = (float) (hook.getZ() - player.getZ());
+        float distance = MathHelper.sqrt(xStep * xStep + yStep * yStep + zStep * zStep);
+        int speedLevel = 1;
+        float customScale = 0.1F;
+        float speed = 3.0F * ((1.0F + (float) speedLevel) / 4.0F) * customScale;
+        xStep *= speed / distance;
+        yStep *= speed / distance;
+        zStep *= speed / distance;
+        player.addVelocity(xStep, yStep, zStep);
+        // Bump the player up by 1.2 blocks if they're on the ground or horizontally colliding with a block
+        if (player.isOnGround() || player.horizontalCollision) {
+            player.move(MovementType.SELF, new Vec3d(0.0D, 1.1999999F, 0.0D));
+        }
+    }
+
+    // Similar to a bow
+    @Override
+    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+        if (user instanceof PlayerEntity player) {
+            if (((PlayerWithHook) player).jamiesmod$getHook() != null) return;
+
+            int useTime = this.getMaxUseTime(stack, user) - remainingUseTicks;
+            if (useTime < 0) return;
+
+            float powerForTime = getPullProgress(useTime);
+            if (powerForTime >= 0.1D) {
+                if (!world.isClient) {
+                    stack.damage(1, player, LivingEntity.getSlotForHand(user.getActiveHand()));
+                    HookEntity hook = new HookEntity(world, player);
+                    this.shoot(user, hook, powerForTime * 3.0F);
+                    if(world.spawnEntity(hook)){
+                        ((PlayerWithHook)player).jamiesmod$setHook(hook);
+                        JamiesMod.LOGGER.info("{} has create {} using HookItem!", user, hook);
+                    }
+                    player.incrementStat(Stats.USED.getOrCreateStat(this));
+                }
+                world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_THROW, SoundCategory.NEUTRAL, 1.0F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+            }
+        }
+    }
+
+    public static float getPullProgress(int useTicks) {
+        float pullProgress = (float)useTicks / 20.0F;
+        pullProgress = (pullProgress * pullProgress + pullProgress * 2.0F) / 3.0F;
+        if (pullProgress > 1.0F) {
+            pullProgress = 1.0F;
+        }
+
+        return pullProgress;
+    }
+
+
+    protected void shoot(LivingEntity shooter, ProjectileEntity projectile, float speed) {
+        projectile.setVelocity(shooter, shooter.getPitch(), shooter.getYaw(), 0.0F, speed, 0.0F);
+    }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
+        return 72000;
+    }
+
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BOW;
+    }
+
+
 }

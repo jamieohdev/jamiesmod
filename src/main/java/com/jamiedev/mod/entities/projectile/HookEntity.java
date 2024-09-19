@@ -1,50 +1,20 @@
 package com.jamiedev.mod.entities.projectile;
 
-import com.jamiedev.mod.JamiesMod;
-import com.jamiedev.mod.init.JamiesModAttatchments;
 import com.jamiedev.mod.init.JamiesModEntityTypes;
 import com.jamiedev.mod.init.JamiesModItems;
-import com.jamiedev.mod.util.EntityHolder;
-import com.jamiedev.mod.util.PlayerWithHook;
-import com.mojang.datafixers.types.templates.Hook;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ProjectileDeflection;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.FishingBobberEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
-import net.minecraft.registry.tag.EntityTypeTags;
-import net.minecraft.server.network.EntityTrackerEntry;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.RaycastContext;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-public class HookEntity extends ProjectileEntity
+public class HookEntity extends PersistentProjectileEntity
 {
-    public static final TrackedData<Boolean> IN_BLOCK = DataTracker.registerData(HookEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    public static final TrackedData<Float> LENGTH = DataTracker.registerData(HookEntity.class, TrackedDataHandlerRegistry.FLOAT);
-
-
-    FishingBobberEntity tryne;
 
     public HookEntity(EntityType<? extends HookEntity> entityType, World pLevel) {
-        super(JamiesModEntityTypes.HOOK, pLevel);
+        super(entityType, pLevel);
         this.ignoreCameraFrustum = true;
     }
 
@@ -52,56 +22,17 @@ public class HookEntity extends ProjectileEntity
         super(JamiesModEntityTypes.HOOK, level);
         setOwner(player);
         setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
-        setVelocity(player.getLeashPos(1.0F).multiply(3.0));
     }
 
-    protected void initDataTracker(DataTracker.Builder builder) {
-        builder.add(LENGTH, 0.0F);
-        builder.add(IN_BLOCK, false);
+    @Override
+    protected ItemStack getDefaultItemStack() {
+        return JamiesModItems.HOOK.getDefaultStack();
     }
 
-    public void writeCustomDataToNbt(NbtCompound compoundTag) {
-        compoundTag.putBoolean("in_block", this.inBlock());
-        compoundTag.putFloat("length", this.length());
-    }
-
-    public void readCustomDataFromNbt(NbtCompound compoundTag) {
-        this.setInBlock(compoundTag.getBoolean("in_block"));
-        this.setLength(compoundTag.getFloat("length"));
-    }
-
-    public boolean shouldRender(double distance) {
-        return true;
-    }
-
-    public void updateTrackedPositionAndAngles(double x, double y, double z, float yaw, float pitch, int interpolationSteps) {
-    }
-
-    protected Entity.MoveEffect getMoveEffect() {
-        return MoveEffect.NONE;
-    }
-
-    public void remove(Entity.RemovalReason removalReason) {
-        this.updateOwnerInfo(null);
-        super.remove(removalReason);
-    }
-
-    public void onRemoved() {
-        this.updateOwnerInfo(null);
-    }
-
+    @Override
     public void setOwner(@Nullable Entity entity) {
         super.setOwner(entity);
-        this.updateOwnerInfo(this);
-    }
-
-    private void updateOwnerInfo(@Nullable HookEntity hook) {
-        PlayerEntity player = this.getPlayerOwner();
-        if (player != null) {
-            ((PlayerWithHook)player).setHook(hook);
-            //player.getAttachedOrCreate(JamiesModAttatchments.GRAPPLING);
-        }
-
+        this.pickupType = PickupPermission.DISALLOWED;
     }
 
     @Nullable
@@ -110,106 +41,21 @@ public class HookEntity extends ProjectileEntity
         return entity instanceof PlayerEntity ? (PlayerEntity)entity : null;
     }
 
-    public boolean shouldRetract(PlayerEntity player)
-    {
-        return player.isRemoved() || !player.isAlive() || !player.isHolding(JamiesModItems.HOOK) || this.squaredDistanceTo(player) > 10000.0;
-    }
-
+    @Override
     public void tick() {
         super.tick();
         PlayerEntity player = this.getPlayerOwner();
-
-        if (player != null && (this.getWorld().isClient || !this.shouldRetract(player)))
-        {
-            HitResult hit = ProjectileUtil.getCollision(this, this::canHit);
-            if (hit.getType() != HitResult.Type.MISS)
-            {
-                this.onCollision(hit);
-            }
-            setPosition(hit.getPos());
-            this.checkBlockCollision();
-        }
-        else
-        {
+        if((player == null || this.shouldRetract(player)) && !this.getWorld().isClient) {
             this.discard();
         }
     }
 
-    protected boolean canHit(Entity entity) {
-        return false;
-    }
-
-
-
-    @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
-        this.setPosition(Vec3d.ZERO);
-        this.setInBlock(true); // idk
-        PlayerEntity player = this.getPlayerOwner();
-        if (player != null) {
-            double d = player.getEyePos().subtract(blockHitResult.getPos()).length();
-            this.setLength(Math.max((float)d * 0.5F - 3.0F, 1.5F));
-        }
-
-    }
-
-
-    @Override
-    protected void onBlockCollision(BlockState state) {
-
-        BlockHitResult blockHitResult = this.getWorld().raycast(new RaycastContext(this.getPos(), this.getPos().add(this.getMovement()), RaycastContext.ShapeType.FALLDAMAGE_RESETTING, RaycastContext.FluidHandling.WATER, this));
-        super.onBlockHit(blockHitResult);
-        this.setPosition(Vec3d.ZERO);
-        this.setInBlock(true); // idk
-        PlayerEntity player = this.getPlayerOwner();
-        if (player != null) {
-            double d = player.getEyePos().subtract(blockHitResult.getPos()).length();
-            this.setLength(Math.max((float)d * 0.5F - 3.0F, 1.5F));
-        }
+    private boolean shouldRetract(PlayerEntity player) {
+        return player.isRemoved() || !player.isAlive() || !player.isHolding(JamiesModItems.HOOK) || this.squaredDistanceTo(player) > 10000.0;
     }
 
     @Override
-    protected void onCollision(HitResult hitResult) {
-        HitResult.Type type = hitResult.getType();
-        if (type == HitResult.Type.BLOCK) {
-            BlockHitResult blockHitResult = (BlockHitResult)hitResult;
-            this.onBlockHit(blockHitResult);
-            BlockPos blockPos = blockHitResult.getBlockPos();
-            this.getWorld().emitGameEvent(GameEvent.PROJECTILE_LAND, blockPos, GameEvent.Emitter.of(this, this.getWorld().getBlockState(blockPos)));
-        }
-
-    }
-
-    private void setInBlock(boolean bl) {
-        this.getDataTracker().set(IN_BLOCK, bl);
-    }
-
-    private void setLength(float f) {
-        this.getDataTracker().set(LENGTH, f);
-    }
-
-    public boolean inBlock() {
-        return this.getDataTracker().get(IN_BLOCK);
-    }
-
-    public float length() {
-        return this.getDataTracker().get(LENGTH);
-    }
-
     public boolean canUsePortals(boolean allowVehicles) {
         return false;
-    }
-
-    public Packet<ClientPlayPacketListener> createSpawnPacket(EntityTrackerEntry entityTrackerEntry) {
-        Entity entity = this.getOwner();
-        return new EntitySpawnS2CPacket(this, entityTrackerEntry, entity == null ? this.getId() : entity.getId());
-    }
-
-    public void onSpawnPacket(EntitySpawnS2CPacket packet) {
-        super.onSpawnPacket(packet);
-        Entity entity = this.getEntityWorld().getEntityById(packet.getEntityData());
-        this.setOwner(entity);
-
     }
 }

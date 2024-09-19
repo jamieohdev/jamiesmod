@@ -3,12 +3,10 @@ package com.jamiedev.mod;
 import com.jamiedev.mod.entities.DuckEntity;
 import com.jamiedev.mod.init.*;
 import com.jamiedev.mod.items.JamiesModItemGroup;
-import net.fabricmc.api.ClientModInitializer;
+import com.jamiedev.mod.network.SyncPlayerHookS2C;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,6 +28,8 @@ public class JamiesMod implements ModInitializer {
 
 		JamiesMod.LOGGER.info("Registering Entities for " + JamiesMod.MOD_ID);
 		FabricDefaultAttributeRegistry.register(JamiesModEntityTypes.DUCK, DuckEntity.createDuckAttributes());
+
+		PayloadTypeRegistry.playS2C().register(SyncPlayerHookS2C.PACkET_ID, SyncPlayerHookS2C.CODEC);
 
 	}
 
