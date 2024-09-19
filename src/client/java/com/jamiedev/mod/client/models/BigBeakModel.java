@@ -29,7 +29,7 @@ public class BigBeakModel<T extends Entity> extends AnimalModel<T> {
     private final ModelPart feathers;
     private final ModelPart head;
     private final ModelPart body;
-    private final ModelPart tail;
+    //private final ModelPart tail;
 
     public BigBeakModel(ModelPart root) {
         this.root = root.getChild("root");
@@ -40,7 +40,7 @@ public class BigBeakModel<T extends Entity> extends AnimalModel<T> {
         this.feathers = root.getChild("feathers");
         this.head = root.getChild("head");
         this.body = root.getChild("body");
-        this.tail = root.getChild("tail");
+       // this.tail = root.getChild("tail");
     }
 
     public static TexturedModelData getTexturedModelData() {
@@ -88,13 +88,14 @@ public class BigBeakModel<T extends Entity> extends AnimalModel<T> {
         feathers.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
         head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
         body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+      //  tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
     }
     protected Iterable<ModelPart> getHeadParts() {
         return ImmutableList.of(this.head, this.feathers);
     }
 
     protected Iterable<ModelPart> getBodyParts() {
-        return ImmutableList.of(this.body,  this.rightWing, this.leftWing, this.tail, this.leftLeg,this.rightLeg, this.tail);
+        return ImmutableList.of(this.body,  this.rightWing, this.leftWing, this.leftLeg,this.rightLeg);
     }
 
     @Override

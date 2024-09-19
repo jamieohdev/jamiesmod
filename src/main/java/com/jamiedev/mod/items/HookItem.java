@@ -5,8 +5,11 @@ import com.jamiedev.mod.entities.projectile.HookEntity;
 import com.jamiedev.mod.util.PlayerWithHook;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.item.FishingRodItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -22,6 +25,8 @@ import net.minecraft.world.event.GameEvent;
 
 public class HookItem extends Item
 {
+    static boolean isGrappling;
+
     public HookItem(Settings settings) {
         super(settings);
     }
@@ -35,15 +40,12 @@ public class HookItem extends Item
         boolean used = false;
         if(!secondaryUse){
             if(hook != null){
-                JamiesMod.LOGGER.info("{} started grappling using their HookItem!", user);
             } else{
-                JamiesMod.LOGGER.info("{} is charging up their HookItem!", user);
             }
             user.setCurrentHand(hand);
             used = true;
         }
         if (hook != null && secondaryUse) {
-            JamiesMod.LOGGER.info("{} is retrieving their HookItem!", user);
             retrieve(world, user, hook);
             used = true;
         }
@@ -56,6 +58,7 @@ public class HookItem extends Item
         if (!level.isClient()) {
             hook.discard();
             ((PlayerWithHook)player).jamiesmod$setHook(null);
+            isGrappling = false;
         }
 
         player.emitGameEvent(GameEvent.ITEM_INTERACT_FINISH);
@@ -69,7 +72,9 @@ public class HookItem extends Item
                 if(remainingUseTicks % 5 == 0){
                     world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, SoundCategory.NEUTRAL, 1.0F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
                 }
+
                 grapple(hook, player);
+
             }
         }
     }
@@ -87,11 +92,14 @@ public class HookItem extends Item
         yStep *= speed / distance;
         zStep *= speed / distance;
         player.addVelocity(xStep, yStep, zStep);
+        isGrappling = true;
         // Bump the player up by 1.2 blocks if they're on the ground or horizontally colliding with a block
         if (player.isOnGround() || player.horizontalCollision) {
             player.move(MovementType.SELF, new Vec3d(0.0D, 1.1999999F, 0.0D));
         }
+
     }
+
 
     // Similar to a bow
     @Override
@@ -107,10 +115,9 @@ public class HookItem extends Item
                 if (!world.isClient) {
                     stack.damage(1, player, LivingEntity.getSlotForHand(user.getActiveHand()));
                     HookEntity hook = new HookEntity(world, player);
-                    this.shoot(user, hook, powerForTime * 3.0F);
+                    this.shoot(user, hook, powerForTime *  8.0F);
                     if(world.spawnEntity(hook)){
                         ((PlayerWithHook)player).jamiesmod$setHook(hook);
-                        JamiesMod.LOGGER.info("{} has create {} using HookItem!", user, hook);
                     }
                     player.incrementStat(Stats.USED.getOrCreateStat(this));
                 }

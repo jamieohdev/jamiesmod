@@ -60,13 +60,19 @@ public class JamiesModLootTableProvider  extends FabricBlockLootTableProvider {
 
         addDrop(JamiesModBlocks.LIMBOSLATE, JamiesModBlocks.LIMBOSLATE.asItem());
         addDrop(JamiesModBlocks.LIMBOSTONE, JamiesModBlocks.LIMBOSTONE.asItem());
+        addDrop(JamiesModBlocks.SAGARIA, JamiesModBlocks.SAGARIA.asItem());
+        addDrop(JamiesModBlocks.MONTSECHIA, JamiesModBlocks.MONTSECHIA.asItem());
+        addDrop(JamiesModBlocks.CLAYSTONE, JamiesModBlocks.CLAYSTONE.asItem());
+        addDrop(JamiesModBlocks.COARSE_CLAYSTONE, JamiesModBlocks.COARSE_CLAYSTONE.asItem());
+        addDrop(JamiesModBlocks.BYSTONE, JamiesModBlocks.BYSTONE.asItem());
+        addDrop(JamiesModBlocks.RAFFLESIA, JamiesModBlocks.RAFFLESIA.asItem());
 
     }
 
     public LootTable.Builder mushroomBlockDrops(Block withSilkTouch, ItemConvertible withoutSilkTouch) {
         return this.dropsWithSilkTouch(withSilkTouch, this.applyExplosionDecay(withSilkTouch,
                 ItemEntry.builder(withoutSilkTouch)
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(-6.0F, 2.0F)))//TODO the chance?
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(-6.0F, 2.0F)))
                         .apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.createMin(0)))));
     }
 
