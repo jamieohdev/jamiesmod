@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "jamiesmod:block/cave_vines"
+    },
+    "berries=true": {
+      "model": "jamiesmod:block/cave_vines_lit"
+    }
+  }
+}
