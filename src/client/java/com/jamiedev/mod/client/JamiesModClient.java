@@ -3,10 +3,11 @@ package com.jamiedev.mod.client;
 import com.jamiedev.mod.JamiesMod;
 import com.jamiedev.mod.client.particles.RafflesiaSporeParticle;
 import com.jamiedev.mod.init.*;
+import com.jamiedev.mod.network.SyncPlayerHookS2C;
+import com.jamiedev.mod.client.network.SyncPlayerHookPacketHandler;
 import com.jamiedev.mod.util.PlayerWithHook;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
@@ -25,8 +26,6 @@ public class JamiesModClient implements ClientModInitializer {
     public static Identifier BYGONE = JamiesMod.getModId("bygone");
     @Override
     public void onInitializeClient() {
-        // JamiesModBlocks.customField.getAllBlocks().forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout()));
-
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.CLOUD, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.ANCIENT_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.ANCIENT_ROOTS, RenderLayer.getCutout());
@@ -63,6 +62,8 @@ public class JamiesModClient implements ClientModInitializer {
             if (livingEntity instanceof PlayerEntity) {
                 for (Hand value : Hand.values())
                 {
+                    ItemStack heldStack = livingEntity.getStackInHand(value);
+
                     if (heldStack == itemStack && (((PlayerWithHook)livingEntity).jamiesmod$getHook()  != null && !((PlayerWithHook)livingEntity).jamiesmod$getHook().isRemoved()))
                     {
                         return 1;
