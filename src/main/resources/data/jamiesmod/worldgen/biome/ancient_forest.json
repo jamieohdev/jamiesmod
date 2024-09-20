@@ -8,6 +8,11 @@
   },
   "downfall": 0.5,
   "effects": {
+    "additions_sound": {
+      "sound": "jamiesmod:ambient.ancient_forest.additions",
+      "tick_chance": 0.0011
+    },
+
     "fog_color": 8436873,
     "foliage_color": 11851346,
     "grass_color": 11851346,
@@ -21,7 +26,7 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.lush_caves"
+      "sound": "jamiesmod:music.bygone.ancient_forest"
     },
     "particle": {
       "options": {

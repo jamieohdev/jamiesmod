@@ -1,4 +1,42 @@
 {
+  "music.bygone.ancient_forest": {
+    "category":"music",
+    "sounds": [
+      {
+        "name": "jamiesmod:music/coda",
+        "stream": true
+      },
+      {
+        "name": "jamiesmod:music/gelinda",
+        "stream": true
+      },
+      {
+        "name": "jamiesmod:music/glimmer",
+        "stream": true
+      },
+      {
+        "name": "jamiesmod:music/rodhim",
+        "stream": true
+      },
+      {
+        "name": "jamiesmod:music/theashfallsr",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.ancient_forest.additions": {
+    "sounds":  [
+      "jamiesmod:ambience/ancient_creak1",
+      "jamiesmod:ambience/ancient_creak2",
+      "jamiesmod:ambience/ancient_wind1",
+      "jamiesmod:ambience/ancient_wind2",
+      "jamiesmod:ambience/ancient_wind3",
+      "jamiesmod:ambience/ancient_wind4",
+      "jamiesmod:ambience/ancient_woosh1",
+      "jamiesmod:ambience/ancient_woosh2"
+    ],
+    "subtitle": "subtitles.ambient.ancient_forest.additions"
+  },
   "ambience.volcanic1": {
     "category": "ambient",
     "subtitle": "subtitles.ambient.bygone",

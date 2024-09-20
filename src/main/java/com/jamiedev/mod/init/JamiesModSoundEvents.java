@@ -8,6 +8,10 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 public class JamiesModSoundEvents
 {
+    public static final Identifier AMBIENT_ANCIENTFOREST_ADDITIONS = JamiesMod.getModId("ambient.ancient_forest.additions");
+    public static final Identifier MUSIC_ANCIENTFOREST_ADDITIONS = JamiesMod.getModId("music.bygone.ancient_forest");
+     public static SoundEvent AMBIENT_ANCIENTFOREST_ADDITIONS_EVENT = SoundEvent.of(AMBIENT_ANCIENTFOREST_ADDITIONS);
+     public static SoundEvent MUSIC_ANCIENTFOREST_ADDITIONS_EVENT = SoundEvent.of(MUSIC_ANCIENTFOREST_ADDITIONS);
     public static final SoundEvent BLOCK_JAMIESBLOCK_BREAK = register("block.jamiesblock.break");
 
     private static SoundEvent register(String id) {
@@ -22,7 +26,9 @@ public class JamiesModSoundEvents
         return Registry.registerReference(Registries.SOUND_EVENT, id, SoundEvent.of(soundId));
     }
 
-    public static void init(){
-
+    public static void init()
+    {
+        Registry.register(Registries.SOUND_EVENT, JamiesModSoundEvents.AMBIENT_ANCIENTFOREST_ADDITIONS, JamiesModSoundEvents.AMBIENT_ANCIENTFOREST_ADDITIONS_EVENT);
+        Registry.register(Registries.SOUND_EVENT, JamiesModSoundEvents.MUSIC_ANCIENTFOREST_ADDITIONS, JamiesModSoundEvents.MUSIC_ANCIENTFOREST_ADDITIONS_EVENT);
     }
 }

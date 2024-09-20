@@ -49,10 +49,10 @@ public class JamiesModBlocks {
     public static final Block CLOUD = registerBlock("cloud",
             new TranslucentBlock(AbstractBlock.Settings.create().mapColor(MapColor.OFF_WHITE).strength(0.001F).slipperiness(0.989F).sounds(BlockSoundGroup.WOOL)), JamiesModItemGroup.JAMIES_MOD);
 
-    public static  final  Block CAVE_VINES = registerBlock("cave_vines", new AncientCaveVinesHeadBlock(AbstractBlock.Settings.create()
+    public static  final  Block CAVE_VINES = registerBlockWithoutBlockItem("cave_vines", new AncientCaveVinesHeadBlock(AbstractBlock.Settings.create()
             .mapColor(MapColor.DARK_GREEN).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly()
             .sounds(BlockSoundGroup.CAVE_VINES).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
-    public static  final  Block CAVE_VINES_PLANT = registerBlock("cave_vines_plant", new AncientCaveVinesBodyBlock(AbstractBlock.Settings.create()
+    public static  final  Block CAVE_VINES_PLANT = registerBlockWithoutBlockItem("cave_vines_plant", new AncientCaveVinesBodyBlock(AbstractBlock.Settings.create()
             .mapColor(MapColor.DARK_GREEN).noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES)
             .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
 
