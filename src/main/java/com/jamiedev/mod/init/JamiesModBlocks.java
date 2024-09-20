@@ -6,6 +6,7 @@ import com.jamiedev.mod.*;
 import com.jamiedev.mod.blocks.*;
 import com.jamiedev.mod.items.JamiesModItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.kyrptonaught.customportalapi.CustomPortalBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
@@ -23,8 +24,7 @@ import static net.minecraft.block.Blocks.DIRT;
 
 public class JamiesModBlocks {
 
-    // public static final Woodset FIR = new Woodset(JamiesMod.getModId("fir"), MapColor.DEEPSLATE_GRAY, MapColor.SPRUCE_BROWN, Woodset.WoodPreset.DEFAULT);
-    public static BlockItem createBlockItem(String blockID, Block block){
+   public static BlockItem createBlockItem(String blockID, Block block){
         return Registry.register(Registries.ITEM, JamiesMod.getModId(blockID), new BlockItem(block, new Item.Settings().fireproof()));
     }
 
@@ -33,14 +33,17 @@ public class JamiesModBlocks {
         return Registry.register(Registries.BLOCK, JamiesMod.getModId(blockID), block);
     }
     Blocks blocks; // using this as a reference
+    public static final CustomPortalBlock BYGONE_PORTAL = (CustomPortalBlock) registerBlockWithoutBlockItem("bygone_portal",
+            new CustomPortalBlock(AbstractBlock.Settings.copy(Blocks.NETHER_PORTAL).luminance((state) -> 6).dropsNothing().noCollision().strength(-1.0f,3600000.0f)), JamiesModItemGroup.JAMIES_MOD );
+
 
     public static final Block JAMIES_BLOCK = createBlockWithItem("jamies_block", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7),
             AbstractBlock.Settings.copy(Blocks.OBSIDIAN).strength(52.0F, 1200.0F).instrument(NoteBlockInstrument.BANJO).pistonBehavior(PistonBehavior.NORMAL)));
 
-    public static final Block LIMBOSTONE = registerBlock("limbostone",
+    public static final Block LIMBOSTONE = registerBlock("bygonestone",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
 
-    public static final Block LIMBOSLATE = registerBlock("limboslate",
+    public static final Block LIMBOSLATE = registerBlock("bygoneslate",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.DEEPSLATE)),  JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block CLOUD = registerBlock("cloud",

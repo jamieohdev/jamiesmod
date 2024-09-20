@@ -45,6 +45,7 @@ public class JamiesModItems
         addToItemGroup(JamiesModItemGroup.JAMIES_MOD, JAMIES_ITEM);
         addToItemGroup(JamiesModItemGroup.JAMIES_MOD, ANCIENT_SIGN);
         addToItemGroup(JamiesModItemGroup.JAMIES_MOD, ANCIENT_HANGING_SIGN);
+        addToItemGroup(JamiesModItemGroup.JAMIES_MOD, HOOK);
     }
 
 

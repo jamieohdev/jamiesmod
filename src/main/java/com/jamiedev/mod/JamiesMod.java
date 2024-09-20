@@ -1,5 +1,6 @@
 package com.jamiedev.mod;
 
+import com.jamiedev.mod.entities.BigBeakEntity;
 import com.jamiedev.mod.entities.DuckEntity;
 import com.jamiedev.mod.init.*;
 import com.jamiedev.mod.items.JamiesModItemGroup;
@@ -25,9 +26,9 @@ public class JamiesMod implements ModInitializer {
 		JamiesModFeatures.init();
 		JamiesModStructures.init();
 		JamiesModParticleTypes.init();
+		JamiesModPortals.init();
 
 		JamiesMod.LOGGER.info("Registering Entities for " + JamiesMod.MOD_ID);
-		FabricDefaultAttributeRegistry.register(JamiesModEntityTypes.DUCK, DuckEntity.createDuckAttributes());
 
 		PayloadTypeRegistry.playS2C().register(SyncPlayerHookS2C.PACkET_ID, SyncPlayerHookS2C.CODEC);
 

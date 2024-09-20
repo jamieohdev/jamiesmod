@@ -1,7 +1,7 @@
 {
   "ambience.volcanic1": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/volcanic1",
@@ -11,7 +11,7 @@
   },
   "ambience.volcanic2": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/volcanic2",
@@ -21,7 +21,7 @@
   },
   "ambience.volcanic3": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/volcanic3",
@@ -31,7 +31,7 @@
   },
   "ambience.frozen1": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/frozen1",
@@ -41,7 +41,7 @@
   },
   "ambience.frozen2": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/frozen2",
@@ -51,7 +51,7 @@
   },
   "ambience.frozen3": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/frozen3",
@@ -61,7 +61,7 @@
   },
   "ambience.upsidedown1": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/upsidedown1",
@@ -71,7 +71,7 @@
   },
   "ambience.upsidedown2": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/upsidedown2",
@@ -81,7 +81,7 @@
   },
   "ambience.upsidedown3": {
     "category": "ambient",
-    "subtitle": "subtitles.ambient.limbo",
+    "subtitle": "subtitles.ambient.bygone",
     "sounds":[
       {
         "name": "jamiesmod:ambience/upsidedown3",

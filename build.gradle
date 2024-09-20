@@ -11,11 +11,9 @@ base {
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	maven {
+		url = "https://maven.kyrptonaught.dev"
+	}
 }
 
 loom {
@@ -43,6 +41,11 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+	// Custom Portal API
+	modImplementation "net.kyrptonaught:customportalapi:${portal_api_version}" // can't use `project.minecraft_version` because 1.21.1 and not 1.21
+	include "net.kyrptonaught:customportalapi:${portal_api_version}"
+	modImplementation 'net.kyrptonaught:customportalapi:<version>'
+	include 'net.kyrptonaught:customportalapi:<version>'
 }
 
 processResources {

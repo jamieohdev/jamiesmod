@@ -8,7 +8,7 @@
   },
   "downfall": 0.5,
   "effects": {
-    "fog_color": 8299908,
+    "fog_color": 8436873,
     "foliage_color": 11851346,
     "grass_color": 11851346,
     "mood_sound": {
@@ -86,10 +86,12 @@
     ],
     [
       "jamiesmod:ancient_flowers",
+      "jamiesmod:ancient_forest/medium_ancient_trees",
+      "jamiesmod:ancient_forest/small_ancient_trees",
       "minecraft:glow_lichen",
       "jamiesmod:cave_vines",
       "minecraft:patch_tall_grass_2",
-      "minecraft:lush_caves_vegetation",
+      "jamiesmod:ancient_forest_vegetation",
       "minecraft:rooted_azalea_tree"
     ],
     [
@@ -107,10 +109,22 @@
     ],
     "creature": [
       {
+        "type": "jamiesmod:big_beak",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
         "type": "minecraft:sniffer",
         "maxCount": 2,
         "minCount": 1,
-        "weight": 6
+        "weight": 2
+      },
+      {
+        "type": "jamiesmod:glare",
+        "maxCount": 8,
+        "minCount": 2,
+        "weight": 10
       }
     ],
     "misc": [],

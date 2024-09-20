@@ -1,12 +1,13 @@
 {
-	"required": true,
-	"package": "com.jamiedev.mod.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ExampleMixin",
-		"PlayerMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "com.jamiedev.mod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ExampleMixin",
+    "PlayerMixin",
+    "SpawnRestrictMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

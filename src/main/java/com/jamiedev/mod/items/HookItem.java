@@ -7,6 +7,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.passive.CatEntity;
+import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.FishingRodItem;
@@ -96,6 +98,12 @@ public class HookItem extends Item
         // Bump the player up by 1.2 blocks if they're on the ground or horizontally colliding with a block
         if (player.isOnGround() || player.horizontalCollision) {
             player.move(MovementType.SELF, new Vec3d(0.0D, 1.1999999F, 0.0D));
+        }
+        Vec3d vec3d = player.getVelocity();
+
+        if (!player.isOnGround() && vec3d.y < 0.0) {
+            player.setVelocity(vec3d.multiply(1.0, 0.6, 1.0));
+            player.fallDistance--;
         }
 
     }
