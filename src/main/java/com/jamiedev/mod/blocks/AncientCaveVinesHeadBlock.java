@@ -17,11 +17,11 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class AncientCaveVinesHeadBlock extends AbstractPlantStemBlock implements Fertilizable, CaveVines {
-    public static final MapCodec<CaveVinesHeadBlock> CODEC = createCodec(CaveVinesHeadBlock::new);
+public class AncientCaveVinesHeadBlock extends AbstractPlantStemBlock implements Fertilizable, AncientCaveVines {
+    public static final MapCodec<AncientCaveVinesHeadBlock> CODEC = createCodec(AncientCaveVinesHeadBlock::new);
     private static final float GROW_CHANCE = 0.11F;
 
-    public MapCodec<CaveVinesHeadBlock> getCodec() {
+    public MapCodec<AncientCaveVinesHeadBlock> getCodec() {
         return CODEC;
     }
 
@@ -55,7 +55,7 @@ public class AncientCaveVinesHeadBlock extends AbstractPlantStemBlock implements
     }
 
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        return CaveVines.pickBerries(player, state, world, pos);
+        return AncientCaveVines.pickBerries(player, state, world, pos);
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

@@ -19,14 +19,16 @@ public class JamiesModItems
 
     Items items;
 
-    public static final Item JAMIES_ITEM = registerItem("jamies_item", new Item(new Item.Settings().fireproof()));
-    public static final Item HOOK = registerItem("hook", new HookItem(new Item.Settings().maxCount(1).maxDamage(64)));
+   // public static final Item JAMIES_ITEM = registerItem("jamies_item", new Item(new Item.Settings().fireproof()));
+    public static final Item HOOK = registerItem("hook", new HookItem(new Item.Settings().maxCount(1).maxDamage(100)));
 
     public static final Item ANCIENT_SIGN = registerItem("ancient_sign",
             new SignItem(new Item.Settings().maxCount(16), JamiesModBlocks.ANCIENT_SIGN, JamiesModBlocks.ANCIENT_WALL_SIGN));
 
     public static final Item ANCIENT_HANGING_SIGN = registerItem("ancient_hanging_sign",
             new HangingSignItem(JamiesModBlocks.ANCIENT_HANGING_SIGN, JamiesModBlocks.ANCIENT_WALL_HANGING_SIGN, new Item.Settings().maxCount(16)));
+
+    public static final Item SCALE = registerItem("scale", new Item(new Item.Settings().fireproof()));
 
 
     public static final Item ANCIENT_BOAT = registerItem("ancient_boat", (Item)(new BoatItem(false, net.minecraft.entity.vehicle.BoatEntity.Type.OAK, (new Item.Settings()).maxCount(1))));
@@ -39,13 +41,28 @@ public class JamiesModItems
 //    public static final Item MUSIC_DISC_MOLTEN = registerItem("music_disc_molten", new Item(new Item.Settings().rarity(Rarity.RARE).jukeboxPlayable(JukeboxSongs.CREATOR_MUSIC_BOX).maxCount(1)));
 //    public static final Item DISC_FRAGMENT_MOLTEN = registerItem("disc_fragment_molten", new DiscFragmentItem(new Item.Settings()));
 
+    ArmorMaterials mat;
+
+    public static final Item SCALE_HELMET = registerItem("scale_helmet",
+            new ArmorItem(JamiesModArmorMaterials.SCALE, ArmorItem.Type.HELMET,
+                    new Item.Settings().fireproof()));
+    public static final Item SCALE_CHESTPLATE = registerItem("scale_chestplate",
+            new ArmorItem(JamiesModArmorMaterials.SCALE, ArmorItem.Type.CHESTPLATE,
+                    new Item.Settings().fireproof()));
+    public static final Item SCALE_LEGGINGS = registerItem("scale_leggings",
+            new ArmorItem(JamiesModArmorMaterials.SCALE, ArmorItem.Type.LEGGINGS,
+                    new Item.Settings().fireproof()));
+    public static final Item SCALE_BOOTS = registerItem("scale_boots",
+            new ArmorItem(JamiesModArmorMaterials.SCALE, ArmorItem.Type.BOOTS,
+                    new Item.Settings().fireproof()));
 
     public static void addItemsToItemGroup() {
 
-        addToItemGroup(JamiesModItemGroup.JAMIES_MOD, JAMIES_ITEM);
-        addToItemGroup(JamiesModItemGroup.JAMIES_MOD, ANCIENT_SIGN);
-        addToItemGroup(JamiesModItemGroup.JAMIES_MOD, ANCIENT_HANGING_SIGN);
+       // addToItemGroup(JamiesModItemGroup.JAMIES_MOD, JAMIES_ITEM);
+        //addToItemGroup(JamiesModItemGroup.JAMIES_MOD, ANCIENT_SIGN);
+        //addToItemGroup(JamiesModItemGroup.JAMIES_MOD, ANCIENT_HANGING_SIGN);
         addToItemGroup(JamiesModItemGroup.JAMIES_MOD, HOOK);
+        addToItemGroup(JamiesModItemGroup.JAMIES_MOD, SCALE);
     }
 
 

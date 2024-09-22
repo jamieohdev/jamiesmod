@@ -39,33 +39,7 @@ public class JamiesModLootTableProvider  extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        addDrop(JamiesModBlocks.STRIPPED_ANCIENT_LOG, JamiesModBlocks.STRIPPED_ANCIENT_LOG.asItem());
-        addDrop(JamiesModBlocks.STRIPPED_ANCIENT_WOOD, JamiesModBlocks.STRIPPED_ANCIENT_WOOD.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_PRESSURE_PLATE, drops(JamiesModBlocks.ANCIENT_PRESSURE_PLATE.asItem()));
 
-
-        addDrop(JamiesModBlocks.ANCIENT_LOG, JamiesModBlocks.ANCIENT_LOG.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_WOOD, JamiesModBlocks.ANCIENT_WOOD.asItem());
-        addDrop(JamiesModBlocks.STRIPPED_ANCIENT_LOG, JamiesModBlocks.STRIPPED_ANCIENT_LOG.asItem());
-        addDrop(JamiesModBlocks.STRIPPED_ANCIENT_WOOD, JamiesModBlocks.STRIPPED_ANCIENT_WOOD.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_PLANKS, JamiesModBlocks.ANCIENT_PLANKS.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_STAIRS, JamiesModBlocks.ANCIENT_STAIRS.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_SLAB, JamiesModBlocks.ANCIENT_SLAB.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_FENCE, JamiesModBlocks.ANCIENT_FENCE.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_FENCE_GATE, JamiesModBlocks.ANCIENT_FENCE_GATE.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_TRAPDOOR, JamiesModBlocks.ANCIENT_TRAPDOOR.asItem());
-        addDrop(JamiesModBlocks.ANCIENT_PRESSURE_PLATE, drops(JamiesModBlocks.ANCIENT_PRESSURE_PLATE.asItem()));
-        addDrop(JamiesModBlocks.ANCIENT_BUTTON, drops(JamiesModBlocks.ANCIENT_BUTTON.asItem()));
-
-
-        addDrop(JamiesModBlocks.LIMBOSLATE, JamiesModBlocks.LIMBOSLATE.asItem());
-        addDrop(JamiesModBlocks.LIMBOSTONE, JamiesModBlocks.LIMBOSTONE.asItem());
-        addDrop(JamiesModBlocks.SAGARIA, JamiesModBlocks.SAGARIA.asItem());
-        addDrop(JamiesModBlocks.MONTSECHIA, JamiesModBlocks.MONTSECHIA.asItem());
-        addDrop(JamiesModBlocks.CLAYSTONE, JamiesModBlocks.CLAYSTONE.asItem());
-        addDrop(JamiesModBlocks.COARSE_CLAYSTONE, JamiesModBlocks.COARSE_CLAYSTONE.asItem());
-        addDrop(JamiesModBlocks.BYSTONE, JamiesModBlocks.BYSTONE.asItem());
-        addDrop(JamiesModBlocks.RAFFLESIA, JamiesModBlocks.RAFFLESIA.asItem());
 
     }
 

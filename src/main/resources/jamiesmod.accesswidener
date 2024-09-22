@@ -47,6 +47,7 @@ accessible field net/minecraft/client/model/ModelCuboidData name Ljava/lang/Stri
 accessible field net/minecraft/client/model/ModelCuboidData offset Lorg/joml/Vector3f;
 accessible field net/minecraft/client/model/ModelCuboidData dimensions Lorg/joml/Vector3f;
 accessible field net/minecraft/client/model/ModelCuboidData extraSize Lnet/minecraft/client/model/Dilation;
+accessible field net/minecraft/entity/projectile/PersistentProjectileEntity inGround Z
 
 accessible field net/minecraft/client/model/ModelPartBuilder cuboidData Ljava/util/List;
 accessible field net/minecraft/client/model/ModelPartBuilder textureX I

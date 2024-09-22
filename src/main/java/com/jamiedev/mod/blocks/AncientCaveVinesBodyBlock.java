@@ -3,24 +3,30 @@ package com.jamiedev.mod.blocks;
 import com.jamiedev.mod.init.JamiesModBlocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.event.GameEvent;
+import org.jetbrains.annotations.Nullable;
 
-public class AncientCaveVinesBodyBlock  extends AbstractPlantBlock implements Fertilizable, CaveVines {
-    public static final MapCodec<CaveVinesBodyBlock> CODEC = createCodec(CaveVinesBodyBlock::new);
+public class AncientCaveVinesBodyBlock  extends AbstractPlantBlock implements Fertilizable, AncientCaveVines {
+    public static final MapCodec<AncientCaveVinesBodyBlock> CODEC = createCodec(AncientCaveVinesBodyBlock::new);
 
-    public MapCodec<CaveVinesBodyBlock> getCodec() {
+    public MapCodec<AncientCaveVinesBodyBlock> getCodec() {
         return CODEC;
     }
 
@@ -42,7 +48,7 @@ public class AncientCaveVinesBodyBlock  extends AbstractPlantBlock implements Fe
     }
 
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        return CaveVines.pickBerries(player, state, world, pos);
+        return AncientCaveVines.pickBerries(player, state, world, pos);
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -60,4 +66,5 @@ public class AncientCaveVinesBodyBlock  extends AbstractPlantBlock implements Fe
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         world.setBlockState(pos, (BlockState)state.with(BERRIES, true), 2);
     }
+
 }

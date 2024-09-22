@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "jamiesmod:scale_helmet",
+    "jamiesmod:scale_chestplate",
+    "jamiesmod:scale_leggings",
+    "jamiesmod:scale_boots"
+  ]
+}

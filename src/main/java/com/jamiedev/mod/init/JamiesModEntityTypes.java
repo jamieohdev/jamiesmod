@@ -7,13 +7,10 @@ import com.jamiedev.mod.entities.DuckEntity;
 import com.jamiedev.mod.entities.GlareEntity;
 import com.jamiedev.mod.entities.projectile.HookEntity;
 import com.jamiedev.mod.mixin.SpawnRestrictMixin;
-import net.minecraft.entity.SpawnLocationTypes;
+import net.minecraft.entity.*;
 import net.minecraft.registry.Registry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.Heightmap;
@@ -71,10 +68,14 @@ public class JamiesModEntityTypes {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GlareEntity::new)
                     .dimensions(EntityDimensions.fixed(0.6F, 0.8F)).build());
 
-    public static void init(){
+    public static void init()
+    {
+        SpawnRestriction.register(GLARE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, GlareEntity::canSpawn);
+        SpawnRestrictMixin.callRegister(BIG_BEAK, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, BigBeakEntity::canSpawn);
         FabricDefaultAttributeRegistry.register(DUCK, DuckEntity.createDuckAttributes());
         FabricDefaultAttributeRegistry.register(BIG_BEAK, BigBeakEntity.createBigBeakAttributes());
         FabricDefaultAttributeRegistry.register(GLARE, GlareEntity.createGlareAttributes());
+
     }
 
     public static void postInit() {
@@ -84,5 +85,7 @@ public class JamiesModEntityTypes {
     public static void initSpawnRestrictions() {
         SpawnRestrictMixin.callRegister(GLARE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, GlareEntity::canSpawn);
         SpawnRestrictMixin.callRegister(BIG_BEAK, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, BigBeakEntity::canSpawn);
+        SpawnRestriction.register(GLARE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, GlareEntity::canSpawn);
+        SpawnRestriction.register(BIG_BEAK, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, BigBeakEntity::canSpawn);
    }
 }

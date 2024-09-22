@@ -16,7 +16,7 @@ public class JamiesModItemGroup
 
     public static void registerItemgroups() {
         Registry.register(Registries.ITEM_GROUP, JAMIES_MOD, FabricItemGroup.builder()
-                .icon(() -> new ItemStack(JamiesModBlocks.JAMIES_BLOCK))
+                .icon(() -> new ItemStack(JamiesModBlocks.MOSSY_CLAYSTONE))
                 .displayName(Text.translatable("itemgroup.jamies_mod"))
                 .build());
     }

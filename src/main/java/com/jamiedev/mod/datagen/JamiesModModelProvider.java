@@ -17,41 +17,10 @@ public class JamiesModModelProvider  extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 
-        BlockStateModelGenerator.BlockTexturePool valtroxPlankPool = blockStateModelGenerator.registerCubeAllModelTexturePool(JamiesModBlocks.ANCIENT_PLANKS);
-
-
-        valtroxPlankPool.fenceGate(JamiesModBlocks.ANCIENT_FENCE_GATE);
-        valtroxPlankPool.family(BlockFamilies.register(JamiesModBlocks.ANCIENT_PLANKS).sign(JamiesModBlocks.ANCIENT_SIGN, JamiesModBlocks.ANCIENT_WALL_SIGN).build());
-        blockStateModelGenerator.registerHangingSign(JamiesModBlocks.STRIPPED_ANCIENT_LOG, JamiesModBlocks.ANCIENT_HANGING_SIGN, JamiesModBlocks.ANCIENT_WALL_HANGING_SIGN);
-        blockStateModelGenerator.registerDoor(JamiesModBlocks.ANCIENT_DOOR);
-        blockStateModelGenerator.registerWallPlant(JamiesModBlocks.ANCIENT_VINE);
-        blockStateModelGenerator.registerTrapdoor(JamiesModBlocks.ANCIENT_TRAPDOOR);
-        blockStateModelGenerator.registerSingleton(JamiesModBlocks.ANCIENT_LEAVES, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerSingleton(JamiesModBlocks.ANCIENT_ROOTS, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(JamiesModBlocks.ANCIENT_SAPLING, Blocks.POTTED_ACACIA_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerLog(JamiesModBlocks.ANCIENT_LOG).log(JamiesModBlocks.ANCIENT_LOG).wood(JamiesModBlocks.ANCIENT_WOOD);
-        blockStateModelGenerator.registerLog(JamiesModBlocks.STRIPPED_ANCIENT_LOG).log(JamiesModBlocks.STRIPPED_ANCIENT_LOG).wood(JamiesModBlocks.STRIPPED_ANCIENT_WOOD);
-        valtroxPlankPool.pressurePlate(JamiesModBlocks.ANCIENT_PRESSURE_PLATE);
-        valtroxPlankPool.stairs(JamiesModBlocks.ANCIENT_STAIRS);
-        valtroxPlankPool.slab(JamiesModBlocks.ANCIENT_SLAB);
-        valtroxPlankPool.fence(JamiesModBlocks.ANCIENT_FENCE);
-        valtroxPlankPool.button(JamiesModBlocks.ANCIENT_BUTTON);
-        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.LIMBOSTONE);
-        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.LIMBOSLATE);
-        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.CLOUD);
-        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.BYSTONE);
-        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.CLAYSTONE);
-        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.COARSE_CLAYSTONE);
-        blockStateModelGenerator.registerFlowerPotPlant(JamiesModBlocks.MONTSECHIA, JamiesModBlocks.POTTED_MONTSECHIA, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(JamiesModBlocks.SAGARIA, JamiesModBlocks.POTTED_SAGARIA, BlockStateModelGenerator.TintType.NOT_TINTED);
-
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        //itemModelGenerator.register(JamiesModItems.ANCIENT_SIGN, Models.GENERATED);
-        //itemModelGenerator.register(JamiesModItems.ANCIENT_HANGING_SIGN, Models.GENERATED);
-        itemModelGenerator.register(JamiesModItems.ANCIENT_BOAT, Models.GENERATED);
-        itemModelGenerator.register(JamiesModItems.ANCIENT_CHEST_BOAT, Models.GENERATED);
+
     }
 }

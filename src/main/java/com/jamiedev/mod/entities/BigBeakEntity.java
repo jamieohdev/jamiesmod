@@ -3,6 +3,7 @@ package com.jamiedev.mod.entities;
 import com.google.common.collect.UnmodifiableIterator;
 import com.jamiedev.mod.init.JamiesModBlocks;
 import com.jamiedev.mod.init.JamiesModEntityTypes;
+import com.jamiedev.mod.init.JamiesModTag;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
@@ -35,10 +36,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.world.*;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
@@ -46,6 +44,7 @@ import java.util.Objects;
 
 public class BigBeakEntity  extends AbstractHorseEntity
 {
+SnifferEntity ref;
     private static final EntityDimensions BABY_BASE_DIMENSIONS;
     public float flapProgress;
     public float maxWingDeviation;
@@ -139,9 +138,12 @@ public class BigBeakEntity  extends AbstractHorseEntity
     protected void playWalkSound(BlockSoundGroup group) {
         super.playWalkSound(group);
         if (this.random.nextInt(10) == 0) {
-           // this.playSound(SoundEvents.ENTITY_PARROT_BREATHE, group.getVolume() * 0.6F, group.getPitch());
         }
 
+    }
+
+    public boolean canImmediatelyDespawn(double distanceSquared) {
+        return this.hasVehicle();
     }
 
     protected SoundEvent getAmbientSound() {
@@ -237,6 +239,15 @@ public class BigBeakEntity  extends AbstractHorseEntity
         return var10000;
     }
 
+    public static boolean isValidNaturalSpawn(EntityType<? extends AnimalEntity> type, WorldAccess serverWorldAccess, SpawnReason spawnReason, BlockPos blockPos, Random random) {
+        boolean bl = SpawnReason.isTrialSpawner(spawnReason) || isLightLevelValidForNaturalSpawn(serverWorldAccess, blockPos);
+        return serverWorldAccess.getBlockState(blockPos.down()).isOf(Blocks.MOSS_BLOCK) || serverWorldAccess.getBlockState(blockPos.down()).isOf(JamiesModBlocks.MOSSY_CLAYSTONE) && bl;
+    }
+
+    protected static boolean isLightLevelValidForNaturalSpawn(BlockRenderView world, BlockPos pos) {
+        return world.getBaseLightLevel(pos, 0) > 1;
+    }
+
     @Nullable
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
         Random random = world.getRandom();
@@ -254,12 +265,15 @@ public class BigBeakEntity  extends AbstractHorseEntity
     }
     public static boolean canSpawn(
             EntityType<BigBeakEntity> moobloomEntityType,
-            ServerWorldAccess serverWorldAccess,
+            WorldAccess serverWorldAccess,
             SpawnReason spawnReason,
             BlockPos blockPos,
             Random random
     ) {
-        return (serverWorldAccess.getBlockState(blockPos.down()).isOf(Blocks.MOSS_BLOCK) || serverWorldAccess.getBlockState(blockPos.down()).isOf(JamiesModBlocks.MOSSY_CLAYSTONE)) && isLightLevelValidForNaturalSpawn(serverWorldAccess, blockPos);
+        return serverWorldAccess.getBlockState(blockPos.down()).isOf(Blocks.MOSS_BLOCK) || serverWorldAccess.getBlockState(blockPos.down()).isOf(JamiesModBlocks.MOSSY_CLAYSTONE);
     }
 
+    public boolean canSpawn(WorldView world) {
+        return world.doesNotIntersectEntities(this);
+    }
 }

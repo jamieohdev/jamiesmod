@@ -2,16 +2,23 @@ package com.jamiedev.mod.entities.projectile;
 
 import com.jamiedev.mod.init.JamiesModEntityTypes;
 import com.jamiedev.mod.init.JamiesModItems;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.function.BooleanBiFunction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class HookEntity extends PersistentProjectileEntity
 {
+
+
 
     public HookEntity(EntityType<? extends HookEntity> entityType, World pLevel) {
         super(entityType, pLevel);
@@ -57,5 +64,20 @@ public class HookEntity extends PersistentProjectileEntity
     @Override
     public boolean canUsePortals(boolean allowVehicles) {
         return false;
+    }
+
+    @Override
+    public boolean isInsideWall() {
+        if (this.noClip) {
+            return false;
+        } else {
+            float f = this.getDimensions(this.getPose()).width() * 0.8F;
+            Box box = Box.of(this.getEyePos(), (double)f, 1.0E-6, (double)f);
+            return BlockPos.stream(box).anyMatch((pos) -> {
+                BlockState blockState = this.getWorld().getBlockState(pos);
+                return !blockState.isAir() && VoxelShapes.matchesAnywhere(blockState.getCollisionShape(this.getWorld(), pos)
+                        .offset((double)pos.getX(), (double)pos.getY(), (double)pos.getZ()), VoxelShapes.cuboid(box), BooleanBiFunction.AND);
+            });
+        }
     }
 }

@@ -27,29 +27,41 @@ public class JamiesModRecipeProvider  extends FabricRecipeProvider {
     public JamiesModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
-    //examples:
-    ////https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.20.X/blob/a1ce57390adb5ef0f1cd6ba7a0bf6b1b659074f5/src/main/java/net/kaupenjoe/tutorialmod/datagen/ModRecipeProvider.java
-
-
 
     @Override
     public void generate(RecipeExporter exporter) {
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_HELMET, 1)
+                .pattern("WWW")
+                .pattern("W W")
+                .pattern("   ")
+                .input('W',  JamiesModItems.SCALE)
+                .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
+                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_HELMET)));
 
-        WoodRecipe(exporter, JamiesModBlocks.STRIPPED_ANCIENT_LOG, JamiesModBlocks.STRIPPED_ANCIENT_WOOD, RecipeCategory.BUILDING_BLOCKS);
-        offerShapelessRecipe(exporter,JamiesModBlocks.ANCIENT_BUTTON, JamiesModBlocks.ANCIENT_PLANKS, "wooden_button",1);
-        DoorRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModBlocks.ANCIENT_DOOR, RecipeCategory.REDSTONE, "wooden_door");
-        FenceRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModBlocks.ANCIENT_FENCE, RecipeCategory.MISC,"wooden_fence");
-        FenceGateRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModBlocks.ANCIENT_FENCE_GATE, RecipeCategory.MISC, "wooden_fence_gate");
-        HanginSignRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModItems.ANCIENT_HANGING_SIGN, RecipeCategory.MISC, "hanging_sign");
-        offerPlanksRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModTags.Items.ANCIENT_LOGS, 4);
-        SignRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModItems.ANCIENT_SIGN, RecipeCategory.MISC, "wooden_sign");
-        SlabRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModBlocks.ANCIENT_SLAB);
-        StairsRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModBlocks.ANCIENT_STAIRS);
-        TrapDoorRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModBlocks.ANCIENT_TRAPDOOR, RecipeCategory.REDSTONE, "wooden_trapdoor");
-        WoodRecipe(exporter, JamiesModBlocks.ANCIENT_LOG, JamiesModBlocks.ANCIENT_WOOD, RecipeCategory.BUILDING_BLOCKS);
-        PressurePlateRecipe(exporter, JamiesModBlocks.ANCIENT_PLANKS, JamiesModBlocks.ANCIENT_PRESSURE_PLATE, RecipeCategory.REDSTONE, "wooden_pressure_plate");
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_CHESTPLATE, 1)
+                .pattern("W W")
+                .pattern("WWW")
+                .pattern("WWW")
+                .input('W',  JamiesModItems.SCALE)
+                .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
+                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_CHESTPLATE)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_LEGGINGS, 1)
+                .pattern("WWW")
+                .pattern("W W")
+                .pattern("W W")
+                .input('W',  JamiesModItems.SCALE)
+                .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
+                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_BOOTS, 1)
+                .pattern("   ")
+                .pattern("W W")
+                .pattern("W W")
+                .input('W',  JamiesModItems.SCALE)
+                .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
+                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_BOOTS)));
 
 
     }
@@ -74,14 +86,7 @@ public class JamiesModRecipeProvider  extends FabricRecipeProvider {
                 .offerTo(exporter, Identifier.of(getRecipeName(output.asItem())));
     }
 
-    void CraftingTableCoatingRecipe(RecipeExporter exporter, Item uncoated, Item coated, RecipeCategory recipeCategory, String group){
-        ShapelessRecipeJsonBuilder.create(recipeCategory, coated)
-                .input(JamiesModItems.JAMIES_ITEM)
-                .input(uncoated)
-                .criterion(hasItem(uncoated.asItem()), conditionsFromItem(uncoated.asItem()))
-                .group(group)
-                .offerTo(exporter, Identifier.of(getRecipeName(coated.asItem()) + "_from_item"));
-    }
+
 
     void PressurePlateRecipe(RecipeExporter exporter, Block input, Block output, RecipeCategory recipeCategory, String group){
         ShapedRecipeJsonBuilder.create(recipeCategory, output, 1)

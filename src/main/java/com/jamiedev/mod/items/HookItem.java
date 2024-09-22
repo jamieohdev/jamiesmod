@@ -3,6 +3,7 @@ package com.jamiedev.mod.items;
 import com.jamiedev.mod.JamiesMod;
 import com.jamiedev.mod.entities.projectile.HookEntity;
 import com.jamiedev.mod.util.PlayerWithHook;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -24,6 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import net.minecraft.world.gen.carver.Carver;
 
 public class HookItem extends Item
 {
@@ -75,7 +77,13 @@ public class HookItem extends Item
                     world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, SoundCategory.NEUTRAL, 1.0F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
                 }
 
-                grapple(hook, player);
+
+
+                if (hook.isInsideWall())
+                {
+                    grapple(hook, player);
+                }
+
 
             }
         }

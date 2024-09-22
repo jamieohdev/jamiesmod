@@ -1,6 +1,9 @@
 {
+  "replace": false,
   "values": [
     "jamiesmod:bygoneslate",
-    "jamiesmod:bygonestone"
+    "jamiesmod:bygoneslate_iron_ore",
+    "jamiesmod:bygoneslate_copper_ore",
+    "jamiesmod:bygoneslate_coal_ore"
   ]
 }

@@ -38,7 +38,8 @@ public class GlareModel<E extends Entity> extends EntityModel<E>
     public void setAngles(E entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         this.head.pitch = headPitch * 0.017453292F;
         this.head.yaw = headYaw * 0.017453292F;
-
+        this.body.pitch = headPitch * 0.017453292F;
+        this.body.yaw =  headYaw * 0.017453292F;
     }
 
     @Override

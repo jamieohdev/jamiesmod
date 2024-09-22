@@ -7,6 +7,7 @@ import com.jamiedev.mod.entities.ai.GlarePathHolder;
 import com.jamiedev.mod.init.JamiesModBlocks;
 import com.jamiedev.mod.init.JamiesModEntityTypes;
 import com.jamiedev.mod.entities.ai.GlareBrain;
+import com.jamiedev.mod.init.JamiesModTag;
 import com.mojang.serialization.Dynamic;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -25,23 +26,26 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer.Builder;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.entity.damage.DamageSource;
@@ -108,6 +112,15 @@ public class GlareEntity extends AnimalEntity implements Flutterer
         super.onTrackedDataSet(data);
     }
 
+    protected void initGoals() {
+
+        this.goalSelector.add(1, new AnimalMateGoal(this, 1.0));
+        this.goalSelector.add(2, new TemptGoal(this, 1.2, (stack) -> {
+            return stack.isOf(Items.DIRT);
+        }, false));
+        this.goalSelector.add(3, new FollowParentGoal(this, 1.1));
+
+    }
 
     @Override
     public void tickMovement() {
@@ -215,6 +228,10 @@ public class GlareEntity extends AnimalEntity implements Flutterer
         this.updateLimbs(false);
     }
 
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.BLOCK_AZALEA_LEAVES_BREAK;
+    }
+
     @Override
     public void stopMovement() {
         this.getBrain().forget(MemoryModuleType.AVOID_TARGET);
@@ -239,13 +256,14 @@ public class GlareEntity extends AnimalEntity implements Flutterer
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return false;
+        return stack.isIn(ItemTags.DIRT);
     }
 
+    PigEntity ref;
+
     @Nullable
-    @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return null;
+        return (GlareEntity)JamiesModEntityTypes.GLARE.create(world);
     }
 
     public boolean isInAir() {
@@ -309,7 +327,7 @@ public class GlareEntity extends AnimalEntity implements Flutterer
     @Nullable
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
         Random random = world.getRandom();
-        int i = random.nextInt(16);
+        int i = random.nextInt(8);
         if (i < 2 && random.nextFloat() < 0.5F * difficulty.getClampedLocalDifficulty()) {
             ++i;
         }
@@ -319,25 +337,23 @@ public class GlareEntity extends AnimalEntity implements Flutterer
         return super.initialize(world, difficulty, spawnReason, entityData);
     }
 
-    public static boolean canSpawn(
-            EntityType<GlareEntity> glareEntityEntityType,
-            ServerWorldAccess serverWorldAccess,
-            SpawnReason spawnReason,
-            BlockPos blockPos,
-            Random random
-    ) {
-        BlockState blockState = serverWorldAccess.getBlockState(blockPos.down());
-
-        boolean isBelowSurfaceLevel = blockPos.getY() < 63;
-        boolean isSkyHidden = !serverWorldAccess.isSkyVisible(blockPos);
-        boolean isBlockPosLightEnough = serverWorldAccess.getLightLevel(blockPos, 0) > 4;
-        boolean isRelatedBlock = (serverWorldAccess.getBlockState(blockPos.down()).isOf(Blocks.MOSS_BLOCK) || serverWorldAccess.getBlockState(blockPos.down()).isOf(JamiesModBlocks.MOSSY_CLAYSTONE));
-
-        return isBelowSurfaceLevel
-                && isRelatedBlock
-                && isSkyHidden
-                && isBlockPosLightEnough;
+    public static boolean isValidNaturalSpawn(EntityType<? extends AnimalEntity> type, WorldAccess serverWorldAccess, SpawnReason spawnReason, BlockPos blockPos, Random random) {
+        boolean bl = SpawnReason.isTrialSpawner(spawnReason) || isLightLevelValidForNaturalSpawn(serverWorldAccess, blockPos);
+        return serverWorldAccess.getBlockState(blockPos.down()).isOf(Blocks.MOSS_BLOCK) || serverWorldAccess.getBlockState(blockPos.down()).isOf(JamiesModBlocks.MOSSY_CLAYSTONE) && bl;
     }
+
+    protected static boolean isLightLevelValidForNaturalSpawn(BlockRenderView world, BlockPos pos) {
+        return world.getBaseLightLevel(pos, 0) > 1;
+    }
+
+    public static boolean canSpawn(EntityType<GlareEntity> glareEntityEntityType, ServerWorldAccess serverWorldAccess, SpawnReason spawnReason, BlockPos blockPos, Random random) {
+       return serverWorldAccess.getBlockState(blockPos.down()).isOf(Blocks.MOSS_BLOCK) || serverWorldAccess.getBlockState(blockPos.down()).isOf(JamiesModBlocks.MOSSY_CLAYSTONE);
+    }
+
+    public boolean canImmediatelyDespawn(double distanceSquared) {
+        return true;
+    }
+
 
     static {
         GLARE_SIZE = DataTracker.registerData(GlareEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -345,4 +361,7 @@ public class GlareEntity extends AnimalEntity implements Flutterer
         MEMORY_MODULES = ImmutableList.of(MemoryModuleType.PATH, MemoryModuleType.LOOK_TARGET, MemoryModuleType.VISIBLE_MOBS, MemoryModuleType.WALK_TARGET, MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE, MemoryModuleType.HURT_BY, MemoryModuleType.NEAREST_VISIBLE_WANTED_ITEM, MemoryModuleType.LIKED_PLAYER, MemoryModuleType.LIKED_NOTEBLOCK, MemoryModuleType.LIKED_NOTEBLOCK_COOLDOWN_TICKS, MemoryModuleType.ITEM_PICKUP_COOLDOWN_TICKS, MemoryModuleType.IS_PANICKING, new MemoryModuleType[0]);
     }
 
+    public boolean canSpawn(WorldView world) {
+        return world.doesNotIntersectEntities(this);
+    }
 }
