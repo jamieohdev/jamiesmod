@@ -53,7 +53,6 @@ import net.minecraft.entity.damage.DamageSource;
 public class GlareEntity extends AnimalEntity implements Flutterer
 {
 
-    AllayEntity refl;
     protected static final ImmutableList<SensorType<? extends Sensor<? super GlareEntity>>> SENSORS;
     protected static final ImmutableList MEMORY_MODULES;
 

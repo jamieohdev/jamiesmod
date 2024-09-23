@@ -22,7 +22,7 @@ import java.util.function.Predicate;
 
 public class GlareBrain
 {
-    AllayBrain ref;
+
         public static final List<MemoryModuleType<?>> MEMORY_MODULES;
         public static final List<SensorType<? extends Sensor<? super GlareEntity>>> SENSORS;
 
@@ -120,25 +120,27 @@ public class GlareBrain
 
 static {
         SENSORS = List.of(
+
+                SensorType.NEAREST_ITEMS,
+                SensorType.NEAREST_ADULT,
             SensorType.NEAREST_LIVING_ENTITIES,
-            SensorType.NEAREST_PLAYERS,
-            SensorType.NEAREST_ITEMS,
-            SensorType.NEAREST_ADULT
+            SensorType.NEAREST_PLAYERS
+
         );
             MEMORY_MODULES = List.of(
-            MemoryModuleType.TEMPTING_PLAYER,
-            MemoryModuleType.TEMPTATION_COOLDOWN_TICKS,
-            MemoryModuleType.ITEM_PICKUP_COOLDOWN_TICKS,
-            MemoryModuleType.IS_PANICKING,
+                    MemoryModuleType.BREED_TARGET,
+                    MemoryModuleType.AVOID_TARGET,
+                    MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
+                    MemoryModuleType.NEAREST_VISIBLE_WANTED_ITEM,
             MemoryModuleType.IS_TEMPTED,
             MemoryModuleType.VISIBLE_MOBS,
             MemoryModuleType.PATH,
+                    MemoryModuleType.TEMPTING_PLAYER,
+                    MemoryModuleType.TEMPTATION_COOLDOWN_TICKS,
+                    MemoryModuleType.ITEM_PICKUP_COOLDOWN_TICKS,
+                    MemoryModuleType.IS_PANICKING,
             MemoryModuleType.LOOK_TARGET,
             MemoryModuleType.WALK_TARGET,
-            MemoryModuleType.ATE_RECENTLY,
-            MemoryModuleType.BREED_TARGET,
-            MemoryModuleType.AVOID_TARGET,
-            MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
-            MemoryModuleType.NEAREST_VISIBLE_WANTED_ITEM);
+            MemoryModuleType.ATE_RECENTLY);
         }
 }
