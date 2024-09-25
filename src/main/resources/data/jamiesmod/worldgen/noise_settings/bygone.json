@@ -35,9 +35,9 @@
   ],
   "noise_router": {
     "barrier": 0.0,
-    "continents": 0.0,
+    "continents": "minecraft:overworld/continents",
     "depth": 0.0,
-    "erosion": 0.0,
+    "erosion": "minecraft:overworld/erosion",
     "final_density": {
       "type": "minecraft:squeeze",
       "argument": {
