@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:cache_once",
+  "argument": {
+    "type": "minecraft:flat_cache",
+    "argument": {
+      "type": "minecraft:range_choice",
+      "input": "minecraft:overworld/continents",
+      "min_inclusive": -10,
+      "max_exclusive": -0.5,
+      "when_in_range": 1,
+      "when_out_of_range": 0
+    }
+  }
+}
