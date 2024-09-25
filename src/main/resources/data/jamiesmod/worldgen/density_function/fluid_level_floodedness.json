@@ -1,14 +1,9 @@
 {
   "type": "minecraft:range_choice",
-  "input": "jamiesmod:ocean_or_river",
+  "input": "jamiesmod:in_primordial_ocean",
   "min_inclusive": 0,
   "max_exclusive": 1,
-  "when_in_range": {
-    "type": "minecraft:noise",
-    "noise": "jamiesmod:aquifer_fluid_level_floodedness",
-    "xz_scale": 2,
-    "y_scale": 0.67
-  },
+  "when_in_range": 0,
   "when_out_of_range": {
     "type": "minecraft:range_choice",
     "input": "minecraft:y",
