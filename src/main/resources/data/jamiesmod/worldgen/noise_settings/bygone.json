@@ -34,108 +34,14 @@
     }
   ],
   "noise_router": {
-    "barrier": 0.0,
+    "barrier": 0,
     "continents": "minecraft:overworld/continents",
-    "depth": 0.0,
+    "depth": 0,
     "erosion": "minecraft:overworld/erosion",
-    "final_density": {
-      "type": "minecraft:squeeze",
-      "argument": {
-        "type": "minecraft:mul",
-        "argument1": 0.64,
-        "argument2": {
-          "type": "minecraft:interpolated",
-          "argument": {
-            "type": "minecraft:blend_density",
-            "argument": {
-              "type": "minecraft:add",
-              "argument1": -0.234375,
-              "argument2": {
-                "type": "minecraft:mul",
-                "argument1": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_value": 0.0,
-                  "from_y": -60,
-                  "to_value": 2.0,
-                  "to_y": 230
-                },
-                "argument2": {
-                  "type": "minecraft:add",
-                  "argument1": 0.234375,
-                  "argument2": {
-                    "type": "minecraft:add",
-                    "argument1": -23.4375,
-                    "argument2": {
-                      "type": "minecraft:mul",
-                      "argument1": {
-                        "type": "minecraft:y_clamped_gradient",
-                        "from_value": 1.0,
-                        "from_y": 184,
-                        "to_value": 1.5,
-                        "to_y": 440
-                      },
-                      "argument2": {
-                        "type": "minecraft:add",
-                        "argument1": 23.4375,
-                        "argument2": "minecraft:end/base_3d_noise"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+    "final_density": "jamiesmod:final_density",
     "fluid_level_floodedness": "jamiesmod:fluid_level_floodedness",
     "fluid_level_spread": "jamiesmod:fluid_level_spread",
-    "initial_density_without_jaggedness": {
-      "type": "minecraft:add",
-      "argument1": -0.234375,
-      "argument2": {
-        "type": "minecraft:mul",
-        "argument1": {
-          "type": "minecraft:y_clamped_gradient",
-          "from_value": 0.0,
-          "from_y": 4,
-          "to_value": 1.0,
-          "to_y": 32
-        },
-        "argument2": {
-          "type": "minecraft:add",
-          "argument1": 0.234375,
-          "argument2": {
-            "type": "minecraft:add",
-            "argument1": -23.4375,
-            "argument2": {
-              "type": "minecraft:mul",
-              "argument1": {
-                "type": "minecraft:y_clamped_gradient",
-                "from_value": 1.0,
-                "from_y": 56,
-                "to_value": 0.0,
-                "to_y": 248
-              },
-              "argument2": {
-                "type": "minecraft:add",
-                "argument1": 23.4375,
-                "argument2": {
-                  "type": "minecraft:add",
-                  "argument1": 4.0,
-                  "argument2": {
-                    "type": "minecraft:cache_2d",
-                    "argument": {
-                      "type": "minecraft:end_islands"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+    "initial_density_without_jaggedness": 1,
     "lava": 0.0,
     "ridges": 0.0,
     "temperature": {
