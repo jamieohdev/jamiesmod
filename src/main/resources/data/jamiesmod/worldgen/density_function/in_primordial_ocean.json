@@ -4,7 +4,7 @@
     "type": "minecraft:flat_cache",
     "argument": {
       "type": "minecraft:range_choice",
-      "input": "minecraft:overworld/continents",
+      "input": "jamiesmod:biome_parameters/continents",
       "min_inclusive": -10,
       "max_exclusive": -0.5,
       "when_in_range": 1,
