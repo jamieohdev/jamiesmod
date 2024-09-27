@@ -48,8 +48,8 @@
       "minecraft:forest_rock"
     ],
     [
-      "minecraft:fossil_upper",
-      "minecraft:fossil_lower",
+      "jamiesmod:fossil_upper",
+      "jamiesmod:fossil_lower",
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],

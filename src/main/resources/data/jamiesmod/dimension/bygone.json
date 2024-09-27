@@ -1,15 +1,15 @@
 {
   "type": "jamiesmod:bygone",
-  "forge:use_server_seed": true,
+
   "generator": {
     "type": "minecraft:noise",
-    "seed": 0,
+
     "settings": "jamiesmod:bygone",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "jamiesmod:calm",
+          "biome": "jamiesmod:ancient_forest",
           "parameters": {
             "temperature": [-2, 2],
             "humidity": [-2, 0],
@@ -33,7 +33,7 @@
           }
         },
         {
-          "biome": "jamiesmod:pillars",
+          "biome": "jamiesmod:ancient_forest",
           "parameters": {
             "temperature": [-2, 2],
             "humidity": [-2, 0],

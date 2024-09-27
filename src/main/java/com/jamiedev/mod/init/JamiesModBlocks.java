@@ -160,6 +160,14 @@ public class JamiesModBlocks {
     public static final Block ANCIENT_WALL_HANGING_SIGN = registerBlockWithoutBlockItem("ancient_wall_hanging_sign",
             new WallHangingSignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).strength(1.0f).dropsLike(ANCIENT_HANGING_SIGN).solid()), JamiesModItemGroup.JAMIES_MOD);
 
+// Start of the Primordial Ocean blockset
+
+    public static final Block BLUE_ALGUE = registerBlock("blue_algue", new BlueAlgueBlock(AbstractBlock.Settings.create().mapColor(MapColor.LICHEN_GREEN)
+            .replaceable().noCollision().strength(0.2F).sounds(BlockSoundGroup.GLOW_LICHEN).luminance((state) -> {
+                return 15;
+            })
+            .burnable().pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
         registerBlockItem(name, block, group);
         return Registry.register(Registries.BLOCK, JamiesMod.getModId( name), block);

@@ -15,7 +15,7 @@ public class JamiesModPortals {
                 .destDimID(JamiesMod.getModId("bygone"))
                 .tintColor(86, 18, 1)
                 .setPortalSearchYRange(0, 120)
-                .forcedSize(4, 4)
+
                 .lightWithItem(JamiesModItems.HOOK)
                 .registerIgniteEvent((player, world, portalPos, framePos, portalIgnitionSource) -> {
                     if (portalIgnitionSource.sourceType == PortalIgnitionSource.SourceType.USEITEM && player != null) {
