@@ -73,6 +73,8 @@
       "minecraft:glow_lichen",
       "jamiesmod:cave_vines",
       "minecraft:patch_tall_grass_2",
+      "jamiesmod:patch_grass_ancient_forest",
+      "jamiesmod:patch_tall_grass",
       "jamiesmod:ancient_forest_vegetation",
       "minecraft:rooted_azalea_tree"
     ],
@@ -96,16 +98,16 @@
     "monster": [
       {
         "type": "jamiesmod:big_beak",
-        "maxCount": 2,
+        "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 15
       },
 
       {
         "type": "jamiesmod:glare",
-        "maxCount": 4,
+        "maxCount": 3,
         "minCount": 2,
-        "weight": 10
+        "weight": 20
       }
     ],
     "underground_water_creature": [

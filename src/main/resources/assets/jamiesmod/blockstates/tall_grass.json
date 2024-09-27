@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "jamiesmod:block/tall_grass_bottom"
+    },
+    "half=upper": {
+      "model": "jamiesmod:block/tall_grass_top"
+    }
+  }
+}

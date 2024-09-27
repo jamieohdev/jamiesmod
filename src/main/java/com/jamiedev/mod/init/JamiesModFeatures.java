@@ -1,4 +1,6 @@
 package com.jamiedev.mod.init;
+import com.jamiedev.mod.worldgen.feature.SmallCloudFeature;
+import com.jamiedev.mod.worldgen.feature.config.SmallCloudConfig;
 import com.jamiedev.mod.worldgen.structure.AncientForestVegetationFeature;
 import com.jamiedev.mod.worldgen.structure.AncientForestVegetationFeatureConfig;
 import com.jamiedev.mod.worldgen.structure.AncientTreeFeature;
@@ -16,6 +18,8 @@ public class JamiesModFeatures
     public static final Feature<RandomPatchFeatureConfig>  FLOWER = register("ancient_flowers", new RandomPatchFeature(RandomPatchFeatureConfig.CODEC));
     public static final Feature<AncientForestVegetationFeatureConfig> ANCIENT_FOREST_VEGATATION = register("ancient_forest_vegetation", new AncientForestVegetationFeature(AncientForestVegetationFeatureConfig.VEGETATION_CODEC));
 
+    public static final Feature<SmallCloudConfig> SMALL_CLOUD = register("small_cloud", new SmallCloudFeature(SmallCloudConfig.CODEC));
+
     private static <C extends FeatureConfig, F extends Feature<C>> F register(String name, F feature) {
         return Registry.register(Registries.FEATURE, JamiesMod.getModId(name), feature);
     }
@@ -24,6 +28,7 @@ public class JamiesModFeatures
         Registry.register(Registries.FEATURE, JamiesMod.getModId("ancient_tree"), ANCIENT_TREE);
         Registry.register(Registries.FEATURE, JamiesMod.getModId("ancient_forest_vegetation"), ANCIENT_FOREST_VEGATATION);
         Registry.register(Registries.FEATURE, JamiesMod.getModId("ancient_flowers"), FLOWER);
+        Registry.register(Registries.FEATURE, JamiesMod.getModId("small_cloud"), SMALL_CLOUD);
     }
 }
 

@@ -277,7 +277,8 @@ public class GlareEntity extends AnimalEntity implements Flutterer
         return false;
     }
 
-    protected void fall(double heightDifference, boolean onGround, BlockState landedState, BlockPos landedPosition) {
+    @Override
+    public void fall(double heightDifference, boolean onGround, BlockState landedState, BlockPos landedPosition) {
     }
 
     @Override

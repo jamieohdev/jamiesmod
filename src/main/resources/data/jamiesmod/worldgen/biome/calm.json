@@ -71,6 +71,8 @@
       "minecraft:spring_lava"
     ],
     [
+      "jamiesmod:small_cloud",
+      "jamiesmod:test_cloud",
       "minecraft:glow_lichen",
       "minecraft:mushroom_island_vegetation",
       "minecraft:brown_mushroom_taiga",
