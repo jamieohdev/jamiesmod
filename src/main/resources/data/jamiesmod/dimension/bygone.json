@@ -1,58 +1,140 @@
 {
   "type": "jamiesmod:bygone",
-
   "generator": {
     "type": "minecraft:noise",
-
     "settings": "jamiesmod:bygone",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "jamiesmod:ancient_forest",
+          "biome": "jamiesmod:calm",
           "parameters": {
-            "temperature": [-2, 2],
-            "humidity": [-2, 0],
-            "continentalness": [-0.5, 2],
-            "erosion": [-2, 0],
-            "weirdness": [-2, 2],
-            "depth": [-2, 2],
+            "temperature": [0.5, 1],
+            "humidity": [-1, 1],
+            "continentalness": [0, 1],
+            "erosion": [-1, 1],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:pillars",
+          "parameters": {
+            "temperature": [-1, -0.5],
+            "humidity": [-1, 1],
+            "continentalness": [0, 1],
+            "erosion": [-1, 1],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:calm",
+          "parameters": {
+            "temperature": [-0.5, 0.5],
+            "humidity": [-1, 0],
+            "continentalness": [0, 1],
+            "erosion": [-1, 0],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:calm",
+          "parameters": {
+            "temperature": [-0.5, 0.5],
+            "humidity": [-1, 0],
+            "continentalness": [0, 1],
+            "erosion": [-1, 0],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
             "offset": 0
           }
         },
         {
           "biome": "jamiesmod:ancient_forest",
           "parameters": {
-            "temperature": [-2, 2],
-            "humidity": [0, 2],
-            "continentalness": [-0.5, 2],
-            "erosion": [-2, 2],
-            "weirdness": [-2, 2],
-            "depth": [-2, 2],
+            "temperature": [-0.5, 0.5],
+            "humidity": [0, 1],
+            "continentalness": [0, 1],
+            "erosion": [-1, 0],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
             "offset": 0
           }
         },
         {
           "biome": "jamiesmod:ancient_forest",
           "parameters": {
-            "temperature": [-2, 2],
-            "humidity": [-2, 0],
-            "continentalness": [-0.5, 2],
-            "erosion": [0, 2],
-            "weirdness": [-2, 2],
-            "depth": [-2, 2],
+            "temperature": [-0.5, 0.5],
+            "humidity": [0, 1],
+            "continentalness": [0, 1],
+            "erosion": [0, 1],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:pillars",
+          "parameters": {
+            "temperature": [-0.5, 0.5],
+            "humidity": [0, 1],
+            "continentalness": [0, 1],
+            "erosion": [0, 1],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:ancient_forest",
+          "parameters": {
+            "temperature": [-0.5, 0.5],
+            "humidity": [0, 1],
+            "continentalness": [0, 1],
+            "erosion": [0, 1],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:pillars",
+          "parameters": {
+            "temperature": [-0.5, 0.5],
+            "humidity": [-1, 0],
+            "continentalness": [0, 1],
+            "erosion": [0, 1],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
             "offset": 0
           }
         },
         {
           "biome": "jamiesmod:primordial_ocean",
           "parameters": {
-            "temperature": [-2, 2],
-            "humidity": [-2, 2],
-            "continentalness": [-2, -0.5],
-            "erosion": [-2, 2],
-            "weirdness": [-2, 2],
-            "depth": [-2, 2],
+            "temperature": [-1, 1],
+            "humidity": [-1, 1],
+            "continentalness": [-0.5, 0],
+            "erosion": [-1, 1],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
+            "offset": 0
+          }
+        },
+        {
+          "biome": "jamiesmod:primordial_ocean",
+          "parameters": {
+            "temperature": [-1, 1],
+            "humidity": [-1, 1],
+            "continentalness": [-1, -0.5],
+            "erosion": [-1, 1],
+            "weirdness": [-1, 1],
+            "depth": [-1, 1],
             "offset": 0
           }
         }
