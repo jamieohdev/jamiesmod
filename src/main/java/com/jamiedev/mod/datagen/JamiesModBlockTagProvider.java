@@ -16,7 +16,12 @@ public class JamiesModBlockTagProvider extends FabricTagProvider.BlockTagProvide
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(JamiesModBlocks.MALACHITE)
+                .add(JamiesModBlocks.MALACHITE_CHISELED)
+                .add(JamiesModBlocks.MALACHITE_TILE)
+                .add(JamiesModBlocks.MALACHITE_PILLAR)
+                .add(JamiesModBlocks.MALACHITE_DOOR);
     }
 
 

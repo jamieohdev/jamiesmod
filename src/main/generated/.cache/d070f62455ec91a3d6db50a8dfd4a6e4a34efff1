@@ -1,1 +1,6 @@
-// 1.21.1	2024-09-21T13:44:37.3013021	jamiesmod/Block Loot Tables
+// 1.21.1	2024-09-28T15:52:40.9866462	jamiesmod/Block Loot Tables
+6a36737a117adf3d54362ab180e861d0bbffca7d data\jamiesmod\loot_table\blocks\malachite_pillar.json
+e00469c770da4c1121b8367301804d8b60b301d4 data\jamiesmod\loot_table\blocks\malachite.json
+fd01256e156902f81cf3c27f58dceb95fd777678 data\jamiesmod\loot_table\blocks\malachite_tile.json
+52da7df037136657c4dd0d3ab4f040795c857d64 data\jamiesmod\loot_table\blocks\malachite_chiseled.json
+8f25fdb0e79ff9c3dac42faef68c9e5568bba109 data\jamiesmod\loot_table\blocks\malachite_door.json

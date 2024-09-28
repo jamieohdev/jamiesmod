@@ -9,6 +9,11 @@
     "jamiesmod:bygoneslate_iron_ore",
     "jamiesmod:bygoneslate_copper_ore",
     "jamiesmod:bygoneslate_coal_ore",
-    "jamiesmod:oceanstone"
+    "jamiesmod:oceanstone",
+    "jamiesmod:malachite",
+    "jamiesmod:malachite_chiseled",
+    "jamiesmod:malachite_door",
+    "jamiesmod:malachite_pillar",
+    "jamiesmod:malachite_tiles"
   ]
 }

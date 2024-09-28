@@ -45,6 +45,8 @@ public class JamiesModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.SHORT_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.TALL_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.BLUE_ALGUE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.MALACHITE_DOOR, RenderLayer.getCutout());
+
 
         EntityRendererRegistry.register(JamiesModEntityTypes.DUCK, DuckieRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.DUCKIE, DuckieModel::getTexturedModelData);
