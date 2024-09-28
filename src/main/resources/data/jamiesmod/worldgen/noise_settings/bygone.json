@@ -271,7 +271,7 @@
               {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "minecraft:dirt"
+                  "Name": "jamiesmod:pink_sand"
                 }
               }
             ]

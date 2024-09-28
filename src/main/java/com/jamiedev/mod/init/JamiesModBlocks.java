@@ -174,20 +174,24 @@ public class JamiesModBlocks {
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
 
+    public static final Block PINK_SAND = registerBlock("pink_sand",
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.RAW_IRON_PINK).sounds(BlockSoundGroup.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+                    .strength(0.1F)), JamiesModItemGroup.JAMIES_MOD);
+
     public static final Block MALACHITE = registerBlock("malachite",
-            new Block(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).sounds(BlockSoundGroup.AMETHYST_BLOCK).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block MALACHITE_CHISELED = registerBlock("malachite_chiseled",
-            new PillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+            new PillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).sounds(BlockSoundGroup.AMETHYST_BLOCK).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block MALACHITE_PILLAR = registerBlock("malachite_pillar",
-            new PillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+            new PillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).sounds(BlockSoundGroup.AMETHYST_BLOCK).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block MALACHITE_TILE = registerBlock("malachite_tile",
-            new Block(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).sounds(BlockSoundGroup.AMETHYST_BLOCK).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block MALACHITE_DOOR = registerBlock("malachite_door",
-            new DoorBlock(JamiesModBlockSetType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_DOOR).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
+            new DoorBlock(JamiesModBlockSetType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_DOOR).sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
 
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
         registerBlockItem(name, block, group);
