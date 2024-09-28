@@ -168,6 +168,14 @@ public class JamiesModBlocks {
             })
             .burnable().pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
 
+    public static final Block SEAGRASS = registerBlock("seagrass", new SeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block TALL_SEAGRASS = registerBlock("tall_seagrass", new TallSeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block OCEANSTONE = registerBlock("oceanstone",
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+                    .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
+
+
+
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
         registerBlockItem(name, block, group);
         return Registry.register(Registries.BLOCK, JamiesMod.getModId( name), block);

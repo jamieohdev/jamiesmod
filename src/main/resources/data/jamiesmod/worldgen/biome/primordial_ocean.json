@@ -34,7 +34,8 @@
       "minecraft:monster_room_deep"
     ],
     [
-      "minecraft:small_basalt_columns"
+      "minecraft:small_basalt_columns",
+      "jamiesmod:small_cloud"
     ],
     [],
     [
@@ -56,6 +57,7 @@
       "minecraft:glowstone"
     ],
     [
+      "minecraft:jungle_bush",
       "jamiesmod:patch_blue",
       "minecraft:glow_lichen",
       "minecraft:trees_water",
@@ -65,8 +67,8 @@
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
-      "minecraft:seagrass_warm",
-      "minecraft:kelp_warm"
+      "jamiesmod:seagrass_deep",
+      "jamiesmod:kelp"
     ],
     [
       "minecraft:freeze_top_layer"

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "jamiesmod:block/oceanstone_top",
+    "side": "jamiesmod:block/oceanstone_side"
+  }
+}

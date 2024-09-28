@@ -4,7 +4,7 @@
     "blocks": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:glowstone"
+        "Name": "jamiesmod:cloud"
       }
     },
     "bounds": 14
