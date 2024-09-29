@@ -174,7 +174,7 @@ public class JamiesModBlocks {
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
 
-    public static final Block PINK_SAND = registerBlock("pink_sand",
+    public static final Block PINK_SAND = registerBlock("primordial_sand",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.RAW_IRON_PINK).sounds(BlockSoundGroup.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.1F).luminance((state) -> {
                         return 2;
