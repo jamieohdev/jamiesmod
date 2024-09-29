@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "jamiesmod:block/blue_algue",
-        "texture": "jamiesmod:block/blue_algue"
+        "particle": "jamiesmod:block/blue_algae",
+        "texture": "jamiesmod:block/blue_algae"
     },
     "elements": [
         {   "from": [  0, 0.25,  0 ],

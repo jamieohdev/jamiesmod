@@ -62,7 +62,14 @@
   "block.jamiesmod.ancient_wall_sign": "Ancient Wall Sign",
   "block.jamiesmod.ancient_hanging_sign": "Ancient Hanging Sign",
   "block.jamiesmod.ancient_wall_hanging_sign": "Ancient Wall Hanging Sign",
-
+  "block.jamiesmod.malachite": "Malachite",
+  "block.jamiesmod.malachite_chiseled": "Chiseled Malachite",
+  "block.jamiesmod.malachite_pillar": "Malachite Pillar",
+  "block.jamiesmod.malachite_tile": "Malachite Tiles",
+  "block.jamiesmod.malachite_door": "Malachite Door",
+  "block.jamiesmod.oceanstone": "Oceanstone",
+  "block.jamiesmod.pink_sand": "Primordial Sand",
+  "block.jamiesmod.blue_algae": "Primordial Algae",
 
   "entity.jamiesmod.big_beak": "Big Beak",
   "entity.jamiesmod.glare": "Glare",

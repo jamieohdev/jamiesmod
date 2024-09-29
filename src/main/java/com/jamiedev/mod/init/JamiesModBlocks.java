@@ -162,21 +162,23 @@ public class JamiesModBlocks {
 
 // Start of the Primordial Ocean blockset
 
-    public static final Block BLUE_ALGUE = registerBlock("blue_algue", new BlueAlgueBlock(AbstractBlock.Settings.create().mapColor(MapColor.LICHEN_GREEN)
+    public static final Block BLUE_ALGAE = registerBlock("blue_algae", new BlueAlgueBlock(AbstractBlock.Settings.create().mapColor(MapColor.LICHEN_GREEN)
             .replaceable().noCollision().strength(0.2F).sounds(BlockSoundGroup.GLOW_LICHEN).luminance((state) -> {
                 return 15;
             })
             .burnable().pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
 
-    public static final Block SEAGRASS = registerBlock("seagrass", new SeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
-    public static final Block TALL_SEAGRASS = registerBlock("tall_seagrass", new TallSeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+   // public static final Block SEAGRASS = registerBlock("seagrass", new SeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+   // public static final Block TALL_SEAGRASS = registerBlock("tall_seagrass", new TallSeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block OCEANSTONE = registerBlock("oceanstone",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block PINK_SAND = registerBlock("pink_sand",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.RAW_IRON_PINK).sounds(BlockSoundGroup.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
-                    .strength(0.1F)), JamiesModItemGroup.JAMIES_MOD);
+                    .strength(0.1F).luminance((state) -> {
+                        return 2;
+                    })), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block MALACHITE = registerBlock("malachite",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).sounds(BlockSoundGroup.AMETHYST_BLOCK).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()

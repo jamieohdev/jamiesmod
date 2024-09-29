@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "jamiesmod:block/blue_algae"
+      },
+      {
+        "model": "jamiesmod:block/blue_algae",
+        "y": 90
+      },
+      {
+        "model": "jamiesmod:block/blue_algae",
+        "y": 180
+      },
+      {
+        "model": "jamiesmod:block/blue_algae",
+        "y": 270
+      }
+    ]
+  }
+}
