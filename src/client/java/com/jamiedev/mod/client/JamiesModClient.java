@@ -14,6 +14,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.client.particle.SoulParticle;
 import net.minecraft.client.render.RenderLayer;
 import com.jamiedev.mod.client.renderer.*;
 import com.jamiedev.mod.client.models.*;
@@ -54,6 +55,9 @@ public class JamiesModClient implements ClientModInitializer {
         EntityRendererRegistry.register(JamiesModEntityTypes.GLARE, GlareRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.GLARE, GlareModel::getTexturedModelData);
 
+        EntityRendererRegistry.register(JamiesModEntityTypes.JAWS, JawsRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.JAWS, JawsEntityModel::getTexturedModelData);
+
         EntityRendererRegistry.register(JamiesModEntityTypes.HOOK, HookRenderer::new);
 
         EntityRendererRegistry.register(JamiesModEntityTypes.BIG_BEAK, BigBeakRenderer::new);
@@ -61,6 +65,7 @@ public class JamiesModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.BIG_BEAK_SADDLE, BigBeakModel::getTexturedModelData);
 
         ParticleFactoryRegistry.getInstance().register(JamiesModParticleTypes.RAFFLESIA_SPORES, RafflesiaSporeParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(JamiesModParticleTypes.ALGAE_BLOOM, SoulParticle.SculkSoulFactory::new);
 
         DimensionRenderingRegistry.registerDimensionEffects(BYGONE, BygoneDimensionEffects.INSTANCE);
 

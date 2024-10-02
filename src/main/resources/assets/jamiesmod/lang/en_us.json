@@ -30,7 +30,9 @@
   "block.jamiesmod.bygonestone_coal_ore": "Bystone Coal Ore",
   "block.jamiesmod.bygoneslate_coal_ore": "Byslate Coal Ore",
   "block.jamiesmod.bygone_portal": "Bygone Portal",
+
   "block.jamiesmod.cloud": "Cloud Block",
+
   "block.jamiesmod.cave_vines": "Byvine",
   "block.jamiesmod.cave_vines_plant": "Byvine",
   "block.jamiesmod.montsechia": "Montsechia",
@@ -62,6 +64,7 @@
   "block.jamiesmod.ancient_wall_sign": "Ancient Wall Sign",
   "block.jamiesmod.ancient_hanging_sign": "Ancient Hanging Sign",
   "block.jamiesmod.ancient_wall_hanging_sign": "Ancient Wall Hanging Sign",
+
   "block.jamiesmod.malachite": "Malachite",
   "block.jamiesmod.malachite_chiseled": "Chiseled Malachite",
   "block.jamiesmod.malachite_pillar": "Malachite Pillar",
@@ -72,9 +75,11 @@
   "block.jamiesmod.blue_algae": "Primordial Algae",
 
   "entity.jamiesmod.big_beak": "Big Beak",
+  "entity.jamiesmod.coelacanth": "Coelacanth",
   "entity.jamiesmod.glare": "Glare",
 
   "dimension.jamiesmod.bygone":"The Bygone",
+  "biome.jamiesmod.amber_desert": "The Amber Desert",
   "biome.jamiesmod.ancient_forest":"The Underhang",
   "biome.jamiesmod.calm":"The Calmlands",
   "biome.jamiesmod.primordial_ocean":"The Primordial Ocean",

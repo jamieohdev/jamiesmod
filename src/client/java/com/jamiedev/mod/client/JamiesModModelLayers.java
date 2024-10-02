@@ -10,6 +10,9 @@ public class JamiesModModelLayers {
     public static final EntityModelLayer HOOK =
             new EntityModelLayer(JamiesMod.getModId("hook"), "main");
 
+    public static final EntityModelLayer JAWS =
+            new EntityModelLayer(JamiesMod.getModId("jaws"), "main");
+
     public static final EntityModelLayer GLARE =
             new EntityModelLayer(JamiesMod.getModId("glare"), "main");
 

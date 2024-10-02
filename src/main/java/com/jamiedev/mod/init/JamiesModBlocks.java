@@ -12,6 +12,8 @@ import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -162,7 +164,7 @@ public class JamiesModBlocks {
 
 // Start of the Primordial Ocean blockset
 
-    public static final Block BLUE_ALGAE = registerBlock("blue_algae", new BlueAlgueBlock(AbstractBlock.Settings.create().mapColor(MapColor.LICHEN_GREEN)
+    public static final Block BLUE_ALGAE = registerBlock("blue_algae", new BlueAlgueBlock((SimpleParticleType) JamiesModParticleTypes.ALGAE_BLOOM, AbstractBlock.Settings.create().mapColor(MapColor.LICHEN_GREEN)
             .replaceable().noCollision().strength(0.2F).sounds(BlockSoundGroup.GLOW_LICHEN).luminance((state) -> {
                 return 15;
             })
