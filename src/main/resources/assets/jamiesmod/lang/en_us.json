@@ -73,12 +73,17 @@
   "block.jamiesmod.oceanstone": "Oceanstone",
   "block.jamiesmod.primordial_sand": "Primordial Sand",
   "block.jamiesmod.blue_algae": "Primordial Algae",
+  "block.jamiesmod.primordial_vent": "Primordial Vent (WIP)",
+  "block.jamiesmod.primordial_ventstone": "Primordial Ventstone",
+  "block.jamiesmod.crinoid": "Crinoid",
+
 
   "entity.jamiesmod.big_beak": "Big Beak",
   "entity.jamiesmod.coelacanth": "Coelacanth",
   "entity.jamiesmod.glare": "Glare",
 
   "dimension.jamiesmod.bygone":"The Bygone",
+
   "biome.jamiesmod.amber_desert": "The Amber Desert",
   "biome.jamiesmod.ancient_forest":"The Underhang",
   "biome.jamiesmod.calm":"The Calmlands",

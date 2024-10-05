@@ -70,6 +70,12 @@ public class JamiesModEntityTypes {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, JawsEntity::new)
                     .dimensions(EntityDimensions.fixed(0.8F, 0.4F)).build());
 
+    public static final EntityType<SpitterEntity> SPITTER = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "spitter"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SpitterEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.8F, 0.4F)).build());
+
+
     public static void init()
     {
         SpawnRestriction.register(GLARE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, GlareEntity::canSpawn);
@@ -77,6 +83,7 @@ public class JamiesModEntityTypes {
         FabricDefaultAttributeRegistry.register(DUCK, DuckEntity.createDuckAttributes());
         FabricDefaultAttributeRegistry.register(BIG_BEAK, BigBeakEntity.createBigBeakAttributes());
         FabricDefaultAttributeRegistry.register(GLARE, GlareEntity.createGlareAttributes());
+        FabricDefaultAttributeRegistry.register(SPITTER, SpitterEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(JAWS, JawsEntity.createJawsAttributes());
     }
 

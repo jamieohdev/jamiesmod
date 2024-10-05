@@ -39,11 +39,7 @@ public class JamiesModLootTableProvider  extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        addDrop(JamiesModBlocks.MALACHITE, JamiesModBlocks.MALACHITE.asItem());
-        addDrop(JamiesModBlocks.MALACHITE_CHISELED, JamiesModBlocks.MALACHITE_CHISELED.asItem());
-        addDrop(JamiesModBlocks.MALACHITE_TILE, JamiesModBlocks.MALACHITE_TILE.asItem());
-        addDrop(JamiesModBlocks.MALACHITE_PILLAR, JamiesModBlocks.MALACHITE_PILLAR.asItem());
-        addDrop(JamiesModBlocks.MALACHITE_DOOR, JamiesModBlocks.MALACHITE_DOOR.asItem());
+        addDrop(JamiesModBlocks.CRINOID, JamiesModBlocks.CRINOID.asItem());
     }
 
     public LootTable.Builder mushroomBlockDrops(Block withSilkTouch, ItemConvertible withoutSilkTouch) {

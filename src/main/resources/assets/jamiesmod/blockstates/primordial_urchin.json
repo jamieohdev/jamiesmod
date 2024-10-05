@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "inverted=false": {
+      "model": "jamiesmod:block/primordial_urchin"
+    },
+    "inverted=true": {
+      "model": "jamiesmod:block/primordial_urchin_active"
+    }
+  }
+}

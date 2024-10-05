@@ -49,6 +49,11 @@ public class JamiesModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.MALACHITE_DOOR, RenderLayer.getCutout());
 
 
+        BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.CRINOID, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.PRIMORDIAL_URCHIN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(JamiesModBlocks.PRIMORDIAL_VENT, RenderLayer.getCutout());
+
+
         EntityRendererRegistry.register(JamiesModEntityTypes.DUCK, DuckieRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.DUCKIE, DuckieModel::getTexturedModelData);
 
@@ -57,6 +62,9 @@ public class JamiesModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(JamiesModEntityTypes.JAWS, JawsRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.JAWS, JawsEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(JamiesModEntityTypes.SPITTER, SpitterRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.SPITTER, SpitterModel::getTexturedModelData);
 
         EntityRendererRegistry.register(JamiesModEntityTypes.HOOK, HookRenderer::new);
 

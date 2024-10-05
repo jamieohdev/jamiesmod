@@ -52,7 +52,6 @@ JawsEntity ref;
 
     public JawsEntity(EntityType<? extends JawsEntity> entityType, World world) {
         super(entityType, world);
-       // this.waterNavigation = new SwimNavigation(this, world);
         this.moveControl = new JawsEntity.JawsMoveControl(this);
         this.setPathfindingPenalty(PathNodeType.WATER, 0.0F);
         this.waterNavigation = new SwimNavigation(this, world);

@@ -19,6 +19,7 @@ public class JamiesMod implements ModInitializer {
 	public void onInitialize() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		JamiesModBlocks.init();
+		JamiesModBlockEntities.init();
 		JamiesModItems.init();
 		JamiesModEntityTypes.init();
 		JamiesModBiomes.init();

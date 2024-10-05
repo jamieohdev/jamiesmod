@@ -13,6 +13,9 @@ public class JamiesModModelLayers {
     public static final EntityModelLayer JAWS =
             new EntityModelLayer(JamiesMod.getModId("jaws"), "main");
 
+    public static final EntityModelLayer SPITTER =
+            new EntityModelLayer(JamiesMod.getModId("spitter"), "main");
+
     public static final EntityModelLayer GLARE =
             new EntityModelLayer(JamiesMod.getModId("glare"), "main");
 

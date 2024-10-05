@@ -24,6 +24,7 @@ import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 import static net.minecraft.block.Blocks.DIRT;
+import static net.minecraft.block.Blocks.createLightLevelFromLitBlockState;
 
 public class JamiesModBlocks {
 
@@ -196,6 +197,25 @@ public class JamiesModBlocks {
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block MALACHITE_DOOR = registerBlock("malachite_door",
             new DoorBlock(JamiesModBlockSetType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_DOOR).sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
+
+
+    public static final Block PRIMORDIAL_VENT = registerBlock("primordial_vent",
+                                    new PrimordialVentBlock(true, AbstractBlock.Settings.create()
+    .mapColor(MapColor.SPRUCE_BROWN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> {
+                                                return 1;
+                                            }).nonOpaque().burnable()), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block PRIMORDIAL_VENTSTONE = registerBlock("primordial_ventstone",
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+                    .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block CRINOID = registerBlock("crinoid", new CrinoidBlock(AbstractBlock.Settings.create()
+            .mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
+            .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block PRIMORDIAL_URCHIN = registerBlock("primordial_urchin", new PrimordialUrchinBlock(AbstractBlock.Settings.create()
+            .mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
+            .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
 
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
         registerBlockItem(name, block, group);

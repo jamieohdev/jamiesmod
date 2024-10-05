@@ -16,11 +16,12 @@ public class JamiesModModelProvider  extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.MALACHITE);
+       /** blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.MALACHITE);
         blockStateModelGenerator.registerSimpleCubeAll(JamiesModBlocks.MALACHITE_TILE);
         blockStateModelGenerator.registerAxisRotated(JamiesModBlocks.MALACHITE_CHISELED, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
         blockStateModelGenerator.registerAxisRotated(JamiesModBlocks.MALACHITE_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
-        blockStateModelGenerator.registerDoor(JamiesModBlocks.MALACHITE_DOOR);
+        blockStateModelGenerator.registerDoor(JamiesModBlocks.MALACHITE_DOOR);**/
+        blockStateModelGenerator.registerTintableCross(JamiesModBlocks.CRINOID, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override

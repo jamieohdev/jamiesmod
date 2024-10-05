@@ -29,7 +29,6 @@ public class JawsRenderer extends MobEntityRenderer<JawsEntity, JawsEntityModel>
         super(context, new JawsEntityModel(context.getPart(JamiesModModelLayers.JAWS)), 0.5F);
     }
 
-
     public boolean shouldRender(JawsEntity guardianEntity, Frustum frustum, double d, double e, double f) {
         if (super.shouldRender(guardianEntity, frustum, d, e, f)) {
             return true;

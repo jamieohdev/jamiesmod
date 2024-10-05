@@ -31,7 +31,7 @@ public class JamiesModRecipeProvider  extends FabricRecipeProvider {
     @Override
     public void generate(RecipeExporter exporter) {
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_HELMET, 1)
+       /** ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_HELMET, 1)
                 .pattern("WWW")
                 .pattern("W W")
                 .pattern("   ")
@@ -61,7 +61,7 @@ public class JamiesModRecipeProvider  extends FabricRecipeProvider {
                 .pattern("W W")
                 .input('W',  JamiesModItems.SCALE)
                 .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
-                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_BOOTS)));
+                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_BOOTS)));**/
 
 
     }
