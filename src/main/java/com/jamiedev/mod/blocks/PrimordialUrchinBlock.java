@@ -41,7 +41,8 @@ public class PrimordialUrchinBlock extends BlockWithEntity implements Waterlogga
 
     public static boolean test = false;
 
-    CactusBlock ref;
+    FlowerBlock ref;
+
 
     public MapCodec<PrimordialUrchinBlock> getCodec() { return CODEC; }
 
@@ -153,6 +154,6 @@ public class PrimordialUrchinBlock extends BlockWithEntity implements Waterlogga
         WATERLOGGED = Properties.WATERLOGGED;
         ACTIVATED = Properties.POWER;
         ACTIVATEDBOOL = Properties.INVERTED;
-        SHAPE = Block.createCuboidShape(2.0, 0.0, 2.0, 8.0, 8.0, 8.0);
+        SHAPE = Block.createCuboidShape(5.0, 0.0, 5.0, 8.0, 8.0, 8.0);
     }
 }

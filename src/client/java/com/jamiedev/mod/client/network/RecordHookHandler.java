@@ -26,18 +26,9 @@ public class RecordHookHandler {
         entity.getRotationVec(packet.yRot());
         entity.setId(packet.id());
         entity.setUuid(packet.uuid());
-        /** NO IDEA IDK
-         * 		entity.syncPacketPositionCodec(packet.x(), packet.y(), packet.z());
-         * 		entity.setPosRaw(packet.x(), packet.y(), packet.z());
-         * 		entity.setXRot(packet.xRot());
-         * 		entity.getViewYRot(packet.yRot());
-         * 		entity.setId(packet.id());
-         * 		entity.setUUID(packet.uuid());
-         */
 
         if(packet.hasGrapplingPlayer() && level.getEntityById(packet.grapplingPlayerId()) instanceof PlayerEntity player) {
             entity.setOwner(player);
         }
-        //level.place(packet.id(), entity);
     }
 }

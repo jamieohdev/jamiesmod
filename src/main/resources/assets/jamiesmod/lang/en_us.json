@@ -73,14 +73,17 @@
   "block.jamiesmod.oceanstone": "Oceanstone",
   "block.jamiesmod.primordial_sand": "Primordial Sand",
   "block.jamiesmod.blue_algae": "Primordial Algae",
-  "block.jamiesmod.primordial_vent": "Primordial Vent (WIP)",
+  "block.jamiesmod.primordial_vent": "Primordial Vent",
   "block.jamiesmod.primordial_ventstone": "Primordial Ventstone",
   "block.jamiesmod.crinoid": "Crinoid",
 
 
+  "entity.jamiesmod.ammonite": "Ammonite",
   "entity.jamiesmod.big_beak": "Big Beak",
   "entity.jamiesmod.coelacanth": "Coelacanth",
   "entity.jamiesmod.glare": "Glare",
+  "entity.jamiesmod.scuttle": "Scuttle (WIP)",
+  "entity.jamiesmod.scuttle_spike": "Scuttle's Spike",
 
   "dimension.jamiesmod.bygone":"The Bygone",
 

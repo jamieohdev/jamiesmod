@@ -63,10 +63,13 @@ public class JamiesModClient implements ClientModInitializer {
         EntityRendererRegistry.register(JamiesModEntityTypes.JAWS, JawsRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.JAWS, JawsEntityModel::getTexturedModelData);
 
-        EntityRendererRegistry.register(JamiesModEntityTypes.SPITTER, SpitterRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.SPITTER, SpitterModel::getTexturedModelData);
+        EntityRendererRegistry.register(JamiesModEntityTypes.SCUTTLE, ScuttleRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.SCUTTLE, ScuttleModel::getTexturedModelData);
 
         EntityRendererRegistry.register(JamiesModEntityTypes.HOOK, HookRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.SCUTTLE_SPIKE, ScuttleSpikeModel::getTexturedModelData);
+        EntityRendererRegistry.register(JamiesModEntityTypes.SCUTTLE_SPIKE, ScuttleSpikeRenderer::new);
 
         EntityRendererRegistry.register(JamiesModEntityTypes.BIG_BEAK, BigBeakRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(JamiesModModelLayers.BIG_BEAK, BigBeakModel::getTexturedModelData);

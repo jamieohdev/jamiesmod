@@ -86,18 +86,7 @@
     "creature": [],
     "misc": [],
     "monster": [
-      {
-        "type": "minecraft:slime",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 100
-      },
-      {
-        "type": "minecraft:drowned",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 5
-      }
+
     ],
     "underground_water_creature": [
       {
@@ -105,21 +94,15 @@
         "maxCount": 6,
         "minCount": 4,
         "weight": 10
+      },
+      {
+        "type": "jamiesmod:scuttle",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 5
       }
     ],
     "water_ambient": [
-      {
-        "type": "minecraft:cod",
-        "maxCount": 6,
-        "minCount": 3,
-        "weight": 15
-      },
-      {
-        "type": "minecraft:pufferfish",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 5
-      },
       {
         "type": "minecraft:tropical_fish",
         "maxCount": 8,
@@ -128,18 +111,7 @@
       }
     ],
     "water_creature": [
-      {
-        "type": "minecraft:squid",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:dolphin",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 2
-      }
+
     ]
   },
   "temperature": 0.5

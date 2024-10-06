@@ -3,8 +3,10 @@ package com.jamiedev.mod.init;
 import com.jamiedev.mod.JamiesMod;
 import com.jamiedev.mod.entities.*;
 import com.jamiedev.mod.entities.projectile.HookEntity;
+import com.jamiedev.mod.entities.projectile.ScuttleSpikeEntity;
 import com.jamiedev.mod.mixin.SpawnRestrictMixin;
 import net.minecraft.entity.*;
+import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.registry.Registry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -70,11 +72,21 @@ public class JamiesModEntityTypes {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, JawsEntity::new)
                     .dimensions(EntityDimensions.fixed(0.8F, 0.4F)).build());
 
-    public static final EntityType<SpitterEntity> SPITTER = Registry.register(Registries.ENTITY_TYPE,
-            JamiesMod.getModId( "spitter"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SpitterEntity::new)
+    public static final EntityType<ScuttleEntity> SCUTTLE = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "scuttle"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ScuttleEntity::new)
                     .dimensions(EntityDimensions.fixed(0.8F, 0.4F)).build());
 
+    public static final EntityType<ScuttleSpikeEntity> SCUTTLE_SPIKE = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "scuttle_spike"),
+            FabricEntityTypeBuilder.<ScuttleSpikeEntity>create(SpawnGroup.MISC, ScuttleSpikeEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5F, 0.5F).withEyeHeight(0.13F))
+                    .trackRangeChunks(4)
+                    .trackedUpdateRate(20)
+                    .build()
+    );
+
+    EntityType ref;
 
     public static void init()
     {
@@ -83,7 +95,7 @@ public class JamiesModEntityTypes {
         FabricDefaultAttributeRegistry.register(DUCK, DuckEntity.createDuckAttributes());
         FabricDefaultAttributeRegistry.register(BIG_BEAK, BigBeakEntity.createBigBeakAttributes());
         FabricDefaultAttributeRegistry.register(GLARE, GlareEntity.createGlareAttributes());
-        FabricDefaultAttributeRegistry.register(SPITTER, SpitterEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(SCUTTLE, ScuttleEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(JAWS, JawsEntity.createJawsAttributes());
     }
 
@@ -92,8 +104,10 @@ public class JamiesModEntityTypes {
     }
 
     public static void initSpawnRestrictions() {
+        SpawnRestrictMixin.callRegister(SCUTTLE, SpawnLocationTypes.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ScuttleEntity::canSpawn);
         SpawnRestrictMixin.callRegister(GLARE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, GlareEntity::canSpawn);
         SpawnRestrictMixin.callRegister(BIG_BEAK, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, BigBeakEntity::canSpawn);
+        SpawnRestriction.register(SCUTTLE, SpawnLocationTypes.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ScuttleEntity::canSpawn);
         SpawnRestriction.register(GLARE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, GlareEntity::canSpawn);
         SpawnRestriction.register(BIG_BEAK, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, BigBeakEntity::canSpawn);
    }

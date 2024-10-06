@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 // Made with Blockbench 4.11.1
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class SpitterModel<E extends Entity> extends EntityModel<E>
+public class AmmoniteModel<E extends Entity> extends EntityModel<E>
 {
 	private final ModelPart shell;
 	private final ModelPart head;
@@ -17,7 +17,7 @@ public class SpitterModel<E extends Entity> extends EntityModel<E>
 	private final ModelPart bone2;
 	private final ModelPart bone3;
 	private final ModelPart bone4;
-	public SpitterModel(ModelPart root) {
+	public AmmoniteModel(ModelPart root) {
 		this.shell = root.getChild("shell");
 		this.head = root.getChild("head");
 		this.bone = root.getChild("bone");
