@@ -38,10 +38,10 @@ import java.util.EnumSet;
 
 public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMob
 {
+    GuardianEntity ref;
     @Nullable
     private LivingEntity cachedTarget;
     private static final TrackedData<Integer> TARGET_ID;
-    ScuttleEntity ref;
     int attackCooldown = 0;
     int attackAnimTick;
     private float tailAngle;
@@ -54,7 +54,6 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
         this.moveControl = new ScuttleMoveControl(this);
         this.tailAngle = this.random.nextFloat();
         this.prevTailAngle = this.tailAngle;
-        //this.lookControl = new LookControl(this);
     }
 
     protected void initGoals() {
@@ -63,13 +62,11 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
         this.goalSelector.add(2, new ProjectileAttackGoal(this, 0.5D, 20, 10.0F));
         this.goalSelector.add(3, new SwimAroundGoal(this, 1.0D, 1)
         );
-        //this.goalSelector.add(3, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, SquidEntity.class, true));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, AnimalEntity.class, 10, true, false, TurtleEntity.BABY_TURTLE_ON_LAND_FILTER));
 
-        //this.goalSelector.add(2, new )
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
@@ -101,7 +98,7 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
         double zDistance = target.getZ() - this.getZ();
         double yMath = Math.sqrt((float) ((xDistance * xDistance) + (zDistance * zDistance)));
         glass.setVelocity(xDistance, yDistance + yMath * 0.10000000298023224D, zDistance, 1.6F, 11.0F);
-        this.playSound(SoundEvents.ENTITY_BREEZE_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+        this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
         this.getWorld().spawnEntity(glass);
     }
 
@@ -230,15 +227,12 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
                 }
 
                 if (this.hasProjTarget()) {
-                    //if (this.beamTicks < this.getWarmupTime()) {
-                    //    ++this.beamTicks;
-                    //}
+
 
                     LivingEntity livingEntity = this.getProjTarget();
                     if (livingEntity != null) {
                         this.getLookControl().lookAt(livingEntity, 90.0F, 90.0F);
                         this.getLookControl().tick();
-                        //double d = (double)this.getBeamProgress(0.0F);
                         double e = livingEntity.getX() - this.getX();
                         double f = livingEntity.getBodyY(0.5) - this.getEyeY();
                         double g = livingEntity.getZ() - this.getZ();
@@ -249,7 +243,6 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
                         double j = this.random.nextDouble();
 
                         while(j < h) {
-                           // j += 1.8 - d + this.random.nextDouble() * (1.7 - d);
                             this.getWorld().addParticle(ParticleTypes.BUBBLE, this.getX() + e * j, this.getEyeY() + f * j, this.getZ() + g * j, 0.0, 0.0, 0.0);
                         }
                     }
@@ -278,6 +271,22 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
         }
 
         super.tickMovement();
+    }
+
+    public int getMinAmbientSoundDelay() {
+        return 260;
+    }
+
+    protected SoundEvent getAmbientSound() {
+        return this.isInsideWaterOrBubbleColumn() ? SoundEvents.ENTITY_GUARDIAN_AMBIENT : SoundEvents.ENTITY_GUARDIAN_AMBIENT_LAND;
+    }
+
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return this.isInsideWaterOrBubbleColumn() ? SoundEvents.ENTITY_GUARDIAN_HURT : SoundEvents.ENTITY_GUARDIAN_HURT_LAND;
+    }
+
+    protected SoundEvent getDeathSound() {
+        return this.isInsideWaterOrBubbleColumn() ? SoundEvents.ENTITY_GUARDIAN_DEATH : SoundEvents.ENTITY_GUARDIAN_DEATH_LAND;
     }
 
     public float getTailAngle(float tickDelta) {
@@ -380,19 +389,6 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
                 this.guardian.setMovementSpeed(0.0F);
 
             }
-        }
-    }
-
-    static class SwimToRandomPlaceGoal extends SwimAroundGoal {
-        private final ScuttleEntity fish;
-
-        public SwimToRandomPlaceGoal(ScuttleEntity fish) {
-            super(fish, 1.0, 40);
-            this.fish = fish;
-        }
-
-        public boolean canStart() {
-            return this.fish.hasSelfControl() && super.canStart();
         }
     }
 

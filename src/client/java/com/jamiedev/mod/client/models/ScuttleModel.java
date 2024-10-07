@@ -40,16 +40,16 @@ public class ScuttleModel extends SinglePartEntityModel<ScuttleEntity> {
 	public ScuttleModel(ModelPart root) {
 		this.root = root;
 		this.body = root.getChild("body");
-
+		this.tail3 = this.body.getChild("tail3");
+		this.knub4 = this.body.getChild("knub4");
+		this.knub3 = this.body.getChild("knub3");
+		this.knub2 = this.body.getChild("knub2");
+		this.knub1 = this.body.getChild("knub1");
 		this.eye = this.body.getChild("eye");
 
 		this.tail = new ModelPart[2];
 
-		this.tail3 = root.getChild("tail3");
-		this.knub1 = root.getChild("knub1");
-		this.knub2 = root.getChild("knub2");
-		this.knub3 = root.getChild("knub3");
-		this.knub4 = root.getChild("knub4");
+
 		this.spine1 = this.body.getChild("spine1");
 		this.spine2 = this.body.getChild("spine2");
 		this.spine3 = this.body.getChild("spine3");
@@ -67,27 +67,26 @@ public class ScuttleModel extends SinglePartEntityModel<ScuttleEntity> {
 		ModelPartData body = modelPartData.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-6.0F, -6.0F, -8.0F, 12.0F, 4.0F, 12.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 20.0F, 0.0F));
 		body.addChild("eye", ModelPartBuilder.create().uv(32, 21).cuboid(-1.0F, 15.5F, 0.0F, 2.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -19.5F, -8.25F));
 
-		ModelPartData tail3 = modelPartData.addChild("tail3", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 15.0F, 0.0F));
+		ModelPartData tail3 = body.addChild("tail3", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -5.0F, 0.0F));
 
 		ModelPartData tail3_r1 = tail3.addChild("tail3_r1", ModelPartBuilder.create().uv(0, 16).cuboid(0.0F, -2.5F, 7.0F, 1.0F, 7.0F, 7.0F, new Dilation(0.0F))
 				.uv(24, 24).cuboid(-1.0F, 0.0F, 4.0F, 2.0F, 2.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0436F, 0.0F));
 
+		ModelPartData knub4 = body.addChild("knub4", ModelPartBuilder.create(), ModelTransform.pivot(6.0F, 4.0F, 7.0F));
 
-		ModelPartData knub1 = modelPartData.addChild("knub1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		ModelPartData knub4_r1 = knub4.addChild("knub4_r1", ModelPartBuilder.create().uv(32, 16).cuboid(-1.0F, -3.0F, -1.0F, 2.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-3.0F, -4.0F, -5.0F, 0.2618F, 0.0F, 0.0F));
 
-		ModelPartData knub1_r1 = knub1.addChild("knub1_r1", ModelPartBuilder.create().uv(0, 30).cuboid(-1.0F, -3.0F, -1.0F, 2.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-3.0F, -4.0F, -5.0F, 0.2618F, 0.0F, 0.0F));
-
-		ModelPartData knub2 = modelPartData.addChild("knub2", ModelPartBuilder.create(), ModelTransform.pivot(6.0F, 24.0F, 0.0F));
-
-		ModelPartData knub2_r1 = knub2.addChild("knub2_r1", ModelPartBuilder.create().uv(8, 30).cuboid(-1.0F, -3.0F, -1.0F, 2.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-3.0F, -4.0F, -5.0F, 0.2618F, 0.0F, 0.0F));
-
-		ModelPartData knub3 = modelPartData.addChild("knub3", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 7.0F));
+		ModelPartData knub3 = body.addChild("knub3", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 4.0F, 7.0F));
 
 		ModelPartData knub3_r1 = knub3.addChild("knub3_r1", ModelPartBuilder.create().uv(16, 32).cuboid(-1.0F, -3.0F, -1.0F, 2.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-3.0F, -4.0F, -5.0F, 0.2618F, 0.0F, 0.0F));
 
-		ModelPartData knub4 = modelPartData.addChild("knub4", ModelPartBuilder.create(), ModelTransform.pivot(6.0F, 24.0F, 7.0F));
+		ModelPartData knub2 = body.addChild("knub2", ModelPartBuilder.create(), ModelTransform.pivot(6.0F, 4.0F, 0.0F));
 
-		ModelPartData knub4_r1 = knub4.addChild("knub4_r1", ModelPartBuilder.create().uv(32, 16).cuboid(-1.0F, -3.0F, -1.0F, 2.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-3.0F, -4.0F, -5.0F, 0.2618F, 0.0F, 0.0F));
+		ModelPartData knub2_r1 = knub2.addChild("knub2_r1", ModelPartBuilder.create().uv(8, 30).cuboid(-1.0F, -3.0F, -1.0F, 2.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-3.0F, -4.0F, -5.0F, 0.2618F, 0.0F, 0.0F));
+
+		ModelPartData knub1 = body.addChild("knub1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 4.0F, 0.0F));
+
+		ModelPartData knub1_r1 = knub1.addChild("knub1_r1", ModelPartBuilder.create().uv(0, 30).cuboid(-1.0F, -3.0F, -1.0F, 2.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-3.0F, -4.0F, -5.0F, 0.2618F, 0.0F, 0.0F));
 
 		ModelPartData spine1 = body.addChild("spine1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 4.0F, 0.0F));
 
@@ -126,9 +125,9 @@ public class ScuttleModel extends SinglePartEntityModel<ScuttleEntity> {
 			Vec3d vec3d2 = guardianEntity.getCameraPosVec(0.0F);
 			double d = vec3d.y - vec3d2.y;
 			if (d > 0.0) {
-				this.eye.pivotY = 0.0F;
+				this.eye.pivotY = -19.5F;
 			} else {
-				this.eye.pivotY = 1.0F;
+				this.eye.pivotY = -20.5F;
 			}
 
 			Vec3d vec3d3 = guardianEntity.getRotationVec(0.0F);
@@ -149,12 +148,8 @@ public class ScuttleModel extends SinglePartEntityModel<ScuttleEntity> {
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color)  {
-		//eye.render(matrices, vertexConsumer, light, overlay, color);
 		body.render(matrices, vertexConsumer, light, overlay, color);
-		tail3.render(matrices, vertexConsumer, light, overlay, color);
-		knub1.render(matrices, vertexConsumer, light, overlay, color);
-		knub2.render(matrices, vertexConsumer, light, overlay, color);
-		knub3.render(matrices, vertexConsumer, light, overlay, color);
-		knub4.render(matrices, vertexConsumer, light, overlay, color);
+		//tail3.render(matrices, vertexConsumer, light, overlay, color);
+
 	}
 }

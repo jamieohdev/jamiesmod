@@ -48,29 +48,7 @@ public class ScuttleRenderer extends MobEntityRenderer<ScuttleEntity, ScuttleMod
 
     public void render(ScuttleEntity guardianEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         super.render(guardianEntity, f, g, matrixStack, vertexConsumerProvider, i);
-        LivingEntity livingEntity = guardianEntity.getProjTarget();
-        if (livingEntity != null) {
-          float l = guardianEntity.getStandingEyeHeight();
-            matrixStack.push();
-            matrixStack.translate(0.0F, l, 0.0F);
-            Vec3d vec3d = this.fromLerpedPosition(livingEntity, (double)livingEntity.getHeight() * 0.5, g);
-            Vec3d vec3d2 = this.fromLerpedPosition(guardianEntity, (double)l, g);
-            Vec3d vec3d3 = vec3d.subtract(vec3d2);
-            vec3d3 = vec3d3.normalize();
-            float n = (float)Math.acos(vec3d3.y);
-            float o = (float)Math.atan2(vec3d3.z, vec3d3.x);
-            matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((1.5707964F - o) * 57.295776F));
-            matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(n * 57.295776F));
 
-
-
-            VertexConsumer vertexConsumer = vertexConsumerProvider.getBuffer(LAYER);
-            MatrixStack.Entry entry = matrixStack.peek();
-
-
-
-            matrixStack.pop();
-        }
 
     }
 
