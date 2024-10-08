@@ -1,7 +1,7 @@
 ** Updates in 0.0.5a **
 
 **New features:**
-Added Glow Gravel, a nice gravel variant that- Well, glows!
+Added Glow Gravel, a nice gravel variant that, well- glows!
 Added Tabulata and Rugosa coral blocksets!
 
 **Changes:**
@@ -13,5 +13,6 @@ Added underwater fog to the Primordial Ocean
 
 **Bugs fixed:**
 Fixed new corals generating in the overworld.
+Fixed Ancient Grass not having a item model!
 Added gladosedition to the Credits!
 Started work on the <REDACTED> biome!

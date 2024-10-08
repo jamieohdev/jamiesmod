@@ -70,7 +70,7 @@ public class JamiesModBlocks {
 
     // Start of the Ancient Forests unique Blocks
 
-    public static  final  Block TALL_GRASS = registerBlock("tall_grass", new UpsidedownTallPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XZ).burnable().pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    public static  final  Block TALL_GRASS = registerBlockWithoutBlockItem("tall_grass", new UpsidedownTallPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XZ).burnable().pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
     public static  final  Block SHORT_GRASS = registerBlock("short_grass", new UpsidedownShortPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ).burnable().pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
 
 
@@ -170,11 +170,12 @@ public class JamiesModBlocks {
                 return 15;
             })
             .burnable().pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
-
+/**
     public static final Block SEAGRASS = registerBlock("primordial_seagrass", new SeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE)
             .replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block TALL_SEAGRASS = registerBlock("primordial_tall_seagrass", new TallSeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE)
             .replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    **/
     public static final Block OCEANSTONE = registerBlock("oceanstone",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
