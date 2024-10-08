@@ -16,6 +16,22 @@
     "jamiesmod:malachite_pillar",
     "jamiesmod:malachite_tile",
     "jamiesmod:primordial_vent",
-    "jamiesmod:primordial_ventstone"
+    "jamiesmod:primordial_ventstone",
+    "jamiesmod:dead_rugosa_coral",
+    "jamiesmod:dead_rugosa_coral_block",
+    "jamiesmod:dead_rugosa_coral_fan",
+    "jamiesmod:dead_rugosa_coral_wall_fan",
+    "jamiesmod:rugosa_coral",
+    "jamiesmod:rugosa_coral_block",
+    "jamiesmod:rugosa_coral_fan",
+    "jamiesmod:rugosa_coral_wall_fan",
+    "jamiesmod:dead_tabulata_coral",
+    "jamiesmod:dead_tabulata_coral_block",
+    "jamiesmod:dead_tabulata_coral_fan",
+    "jamiesmod:dead_tabulata_coral_wall_fan",
+    "jamiesmod:tabulata_coral",
+    "jamiesmod:tabulata_coral_block",
+    "jamiesmod:tabulata_coral_fan",
+    "jamiesmod:tabulata_coral_wall_fan"
   ]
 }

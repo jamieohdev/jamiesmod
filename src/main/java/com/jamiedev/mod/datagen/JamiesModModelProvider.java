@@ -21,7 +21,15 @@ public class JamiesModModelProvider  extends FabricModelProvider {
         blockStateModelGenerator.registerAxisRotated(JamiesModBlocks.MALACHITE_CHISELED, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
         blockStateModelGenerator.registerAxisRotated(JamiesModBlocks.MALACHITE_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
         blockStateModelGenerator.registerDoor(JamiesModBlocks.MALACHITE_DOOR);**/
-        blockStateModelGenerator.registerTintableCross(JamiesModBlocks.CRINOID, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerCoral(JamiesModBlocks.BLUE_CORAL, JamiesModBlocks.DEAD_BLUE_CORAL,
+                JamiesModBlocks.BLUE_CORAL_BLOCK, JamiesModBlocks.DEAD_BLUE_CORAL_BLOCK,
+                JamiesModBlocks.BLUE_CORAL_FAN, JamiesModBlocks.DEAD_BLUE_CORAL_FAN,
+                JamiesModBlocks.BLUE_CORAL_WALL_FAN, JamiesModBlocks.DEAD_BLUE_CORAL_WALL_FAN);
+        blockStateModelGenerator.registerCoral(JamiesModBlocks.ORANGE_CORAL, JamiesModBlocks.DEAD_ORANGE_CORAL, 
+                JamiesModBlocks.ORANGE_CORAL_BLOCK, JamiesModBlocks.DEAD_ORANGE_CORAL_BLOCK,
+                JamiesModBlocks.ORANGE_CORAL_FAN, JamiesModBlocks.DEAD_ORANGE_CORAL_FAN, 
+                JamiesModBlocks.ORANGE_CORAL_WALL_FAN, JamiesModBlocks.DEAD_ORANGE_CORAL_WALL_FAN);
+
     }
 
     @Override

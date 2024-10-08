@@ -48,7 +48,7 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
     private float prevTailAngle;
     private boolean flopping;
 
-    public ScuttleEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
+    public ScuttleEntity(EntityType<? extends ScuttleEntity> entityType, World world) {
         super(entityType, world);
         this.experiencePoints = 15;
         this.moveControl = new ScuttleMoveControl(this);
@@ -294,7 +294,11 @@ public class ScuttleEntity extends WaterCreatureEntity implements RangedAttackMo
     }
 
 
-    public static boolean canSpawn(EntityType<? extends WaterCreatureEntity> entityType, WorldAccess iServerWorld, SpawnReason reason, BlockPos pos, Random random) {
+    public static boolean canSpawn(EntityType<? extends WaterCreatureEntity> entityType,
+                                   WorldAccess iServerWorld,
+                                   SpawnReason reason,
+                                   BlockPos pos,
+                                   Random random) {
         return iServerWorld.getBlockState(pos).getFluidState().isIn(FluidTags.WATER)
                 && iServerWorld.getBlockState(pos.up()).isOf(Blocks.WATER)
                 && isLightLevelOk(pos, iServerWorld);

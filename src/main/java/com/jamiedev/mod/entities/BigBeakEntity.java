@@ -44,7 +44,7 @@ import java.util.Objects;
 
 public class BigBeakEntity  extends AbstractHorseEntity
 {
-SnifferEntity ref;
+
     private static final EntityDimensions BABY_BASE_DIMENSIONS;
     public float flapProgress;
     public float maxWingDeviation;
@@ -270,7 +270,8 @@ SnifferEntity ref;
             BlockPos blockPos,
             Random random
     ) {
-        return serverWorldAccess.getBlockState(blockPos.down()).isOf(Blocks.MOSS_BLOCK) || serverWorldAccess.getBlockState(blockPos.down()).isOf(JamiesModBlocks.MOSSY_CLAYSTONE);
+        return serverWorldAccess.getBlockState(blockPos.down()).isOf(Blocks.MOSS_BLOCK) ||
+                serverWorldAccess.getBlockState(blockPos.down()).isOf(JamiesModBlocks.MOSSY_CLAYSTONE);
     }
 
     public boolean canSpawn(WorldView world) {

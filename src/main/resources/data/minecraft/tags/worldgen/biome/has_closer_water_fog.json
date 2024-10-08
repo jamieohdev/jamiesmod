@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "jamiesmod:primordial_ocean",
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp"
+  ]
+}

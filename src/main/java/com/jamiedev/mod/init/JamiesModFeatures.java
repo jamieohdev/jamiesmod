@@ -1,12 +1,13 @@
 package com.jamiedev.mod.init;
-import com.jamiedev.mod.worldgen.feature.SmallCloudFeature;
-import com.jamiedev.mod.worldgen.feature.config.SmallCloudConfig;
-import com.jamiedev.mod.worldgen.structure.AncientForestVegetationFeature;
-import com.jamiedev.mod.worldgen.structure.AncientForestVegetationFeatureConfig;
-import com.jamiedev.mod.worldgen.structure.AncientTreeFeature;
-import com.jamiedev.mod.worldgen.structure.AncientTreeFeatureConfig;
+import com.jamiedev.mod.worldgen.feature.*;
+import com.jamiedev.mod.worldgen.feature.config.*;
+import com.jamiedev.mod.worldgen.structure.*;
+import net.minecraft.block.BlockState;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.feature.*;
 
 import com.jamiedev.mod.*;
@@ -20,6 +21,11 @@ public class JamiesModFeatures
 
     public static final Feature<SmallCloudConfig> SMALL_CLOUD = register("small_cloud", new SmallCloudFeature(SmallCloudConfig.CODEC));
 
+
+    public static  final Feature<DefaultFeatureConfig> PRIMORDIAL_CORAL_CLAW = register("primordial_coral_claw", new PrimordialCoralClawFeature(DefaultFeatureConfig.CODEC));
+    public static  final Feature<DefaultFeatureConfig> PRIMORDIAL_CORAL_MUSHROOM = register("primordial_coral_mushroom", new PrimordialCoralMushroomFeature(DefaultFeatureConfig.CODEC));
+    public static  final Feature<DefaultFeatureConfig> PRIMORDIAL_CORAL_TREE = register("primordial_coral_tree", new PrimordialCoralTreeFeature(DefaultFeatureConfig.CODEC));
+
     private static <C extends FeatureConfig, F extends Feature<C>> F register(String name, F feature) {
         return Registry.register(Registries.FEATURE, JamiesMod.getModId(name), feature);
     }
@@ -29,6 +35,10 @@ public class JamiesModFeatures
         Registry.register(Registries.FEATURE, JamiesMod.getModId("ancient_forest_vegetation"), ANCIENT_FOREST_VEGATATION);
         Registry.register(Registries.FEATURE, JamiesMod.getModId("ancient_flowers"), FLOWER);
         Registry.register(Registries.FEATURE, JamiesMod.getModId("small_cloud"), SMALL_CLOUD);
+
+        Registry.register(Registries.FEATURE, JamiesMod.getModId("primordial_coral_claw"), PRIMORDIAL_CORAL_CLAW);
+        Registry.register(Registries.FEATURE, JamiesMod.getModId("primordial_coral_mushroom"), PRIMORDIAL_CORAL_MUSHROOM);
+        Registry.register(Registries.FEATURE, JamiesMod.getModId("primordial_coral_tree"), PRIMORDIAL_CORAL_TREE);
     }
 }
 

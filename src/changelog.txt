@@ -1,0 +1,17 @@
+** Updates in 0.0.5a **
+
+**New features:**
+Added Glow Gravel, a nice gravel variant that- Well, glows!
+Added Tabulata and Rugosa coral blocksets!
+
+**Changes:**
+Gravel now generates on the lowest "stack" of the Primordial Ocean.
+Tabulata and Rugosa coral now generates on the high to middle "stacks" of the Primordial Ocean.
+Adjusted Primordial Vent generation to only generate on the lower "stacks".
+Adjusted Blue Algue generation to only generate on the top "stacks".
+Added underwater fog to the Primordial Ocean
+
+**Bugs fixed:**
+Fixed new corals generating in the overworld.
+Added gladosedition to the Credits!
+Started work on the <REDACTED> biome!

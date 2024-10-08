@@ -1,2 +1,13 @@
-// 1.21.1	2024-10-04T16:29:51.535961	jamiesmod/Block Loot Tables
-a7eb719a46ee425b5deecae003dfe52fc9465907 data\jamiesmod\loot_table\blocks\crinoid.json
+// 1.21.1	2024-10-07T15:39:02.6722755	jamiesmod/Block Loot Tables
+e834176ea9f53700d9788fae6d5d67f5023705c7 data\jamiesmod\loot_table\blocks\dead_orange_coral_block.json
+05946126677de52af31f8378bc7dabc90bcfe121 data\jamiesmod\loot_table\blocks\dead_orange_coral.json
+f58eaa172eaa724571431643f00c2cf554954b6a data\jamiesmod\loot_table\blocks\dead_orange_coral_fan.json
+6d16256d4b8e8003c6baac62beb5cbeacae02ebf data\jamiesmod\loot_table\blocks\blue_coral_block.json
+eb61d01b8608244ece8af9c6e67f14c12cd1a425 data\jamiesmod\loot_table\blocks\orange_coral_block.json
+13225d59b86a2c212741e7ed77c6a9f41a8cd61c data\jamiesmod\loot_table\blocks\dead_blue_coral.json
+289becb6bf84b14c9d24f158321382a03b87c31b data\jamiesmod\loot_table\blocks\blue_coral_fan.json
+47f6fbe17f23c945ab53c067c85c699d0f40f1fe data\jamiesmod\loot_table\blocks\blue_coral.json
+6b8e6460f5e560e063529591e193c3aa50cfc349 data\jamiesmod\loot_table\blocks\dead_blue_coral_block.json
+ab1aabcaf073417b5b25e8915e34ac2fe15a0ad7 data\jamiesmod\loot_table\blocks\orange_coral.json
+289becb6bf84b14c9d24f158321382a03b87c31b data\jamiesmod\loot_table\blocks\dead_blue_coral_fan.json
+f58eaa172eaa724571431643f00c2cf554954b6a data\jamiesmod\loot_table\blocks\orange_coral_fan.json

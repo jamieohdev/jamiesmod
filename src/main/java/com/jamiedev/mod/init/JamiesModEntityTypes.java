@@ -6,7 +6,6 @@ import com.jamiedev.mod.entities.projectile.HookEntity;
 import com.jamiedev.mod.entities.projectile.ScuttleSpikeEntity;
 import com.jamiedev.mod.mixin.SpawnRestrictMixin;
 import net.minecraft.entity.*;
-import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.registry.Registry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;

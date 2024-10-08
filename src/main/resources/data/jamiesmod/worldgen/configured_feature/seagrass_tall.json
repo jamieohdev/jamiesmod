@@ -14,11 +14,11 @@
               "feature": "jamiesmod:placed_tall_seagrass"
             },
             {
-              "chance": 0.9,
+              "chance": 0.7,
               "feature": "jamiesmod:placed_urchin"
             },
             {
-              "chance": 1.0,
+              "chance": 0.9,
               "feature": "jamiesmod:placed_crinoid"
             }
           ],

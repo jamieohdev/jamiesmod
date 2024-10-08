@@ -171,16 +171,24 @@ public class JamiesModBlocks {
             })
             .burnable().pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
 
-   // public static final Block SEAGRASS = registerBlock("seagrass", new SeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
-   // public static final Block TALL_SEAGRASS = registerBlock("tall_seagrass", new TallSeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block SEAGRASS = registerBlock("primordial_seagrass", new SeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE)
+            .replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block TALL_SEAGRASS = registerBlock("primordial_tall_seagrass", new TallSeagrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE)
+            .replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
     public static final Block OCEANSTONE = registerBlock("oceanstone",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.8F)), JamiesModItemGroup.JAMIES_MOD);
 
-    public static final Block PINK_SAND = registerBlock("primordial_sand",
-            new Block(AbstractBlock.Settings.create().mapColor(MapColor.RAW_IRON_PINK).sounds(BlockSoundGroup.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+    public static final Block PRIMORDIAL_SAND = registerBlock("primordial_sand",
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.PALE_GREEN).sounds(BlockSoundGroup.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.1F).luminance((state) -> {
                         return 2;
+                    })), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block GLOW_GRAVEL = registerBlock("glow_gravel",
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_CYAN).sounds(BlockSoundGroup.GRAVEL).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
+                    .strength(0.1F).luminance((state) -> {
+                        return 8;
                     })), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block MALACHITE = registerBlock("malachite",
@@ -201,7 +209,7 @@ public class JamiesModBlocks {
 
     public static final Block PRIMORDIAL_VENT = registerBlock("primordial_vent",
                                     new PrimordialVentBlock(true, AbstractBlock.Settings.create()
-    .mapColor(MapColor.SPRUCE_BROWN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> {
+    .mapColor(MapColor.SPRUCE_BROWN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.SUSPICIOUS_GRAVEL).luminance((state) -> {
                                                 return 1;
                                             }).nonOpaque().burnable()), JamiesModItemGroup.JAMIES_MOD);
 
@@ -216,6 +224,59 @@ public class JamiesModBlocks {
     public static final Block PRIMORDIAL_URCHIN = registerBlock("primordial_urchin", new PrimordialUrchinBlock(AbstractBlock.Settings.create()
             .mapColor(MapColor.WATER_BLUE).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
             .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block DEAD_ORANGE_CORAL_BLOCK = registerBlock("dead_rugosa_coral_block", new Block(
+            AbstractBlock.Settings.create().mapColor(MapColor.GRAY).solid().instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.5F,
+                    6.0F)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block ORANGE_CORAL_BLOCK = registerBlock("rugosa_coral_block", new CoralBlockBlock(DEAD_ORANGE_CORAL_BLOCK,
+            AbstractBlock.Settings.create().mapColor(MapColor.PINK).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.5F,
+                    6.0F).sounds(BlockSoundGroup.CORAL)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block DEAD_ORANGE_CORAL = registerBlock("dead_rugosa_coral", new DeadCoralBlock(
+            AbstractBlock.Settings.create().mapColor(MapColor.GRAY).solid().instrument(NoteBlockInstrument.BASEDRUM).requiresTool()
+                    .noCollision().breakInstantly()), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block ORANGE_CORAL = registerBlock("rugosa_coral", new CoralBlock(DEAD_ORANGE_CORAL,
+            AbstractBlock.Settings.create().mapColor(MapColor.PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
+                    .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block DEAD_ORANGE_CORAL_FAN = registerBlock("dead_rugosa_coral_fan", new DeadCoralFanBlock(
+            AbstractBlock.Settings.create().mapColor(MapColor.GRAY).solid().instrument(NoteBlockInstrument.BASEDRUM).requiresTool()
+                    .noCollision().breakInstantly()), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block ORANGE_CORAL_FAN = registerBlock("rugosa_coral_fan", new CoralFanBlock(DEAD_ORANGE_CORAL_FAN,
+            AbstractBlock.Settings.create().mapColor(MapColor.PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
+                    .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block DEAD_ORANGE_CORAL_WALL_FAN = registerBlockWithoutBlockItem("dead_rugosa_coral_wall_fan", new DeadCoralWallFanBlock(
+            AbstractBlock.Settings.create().mapColor(MapColor.GRAY).solid().instrument(NoteBlockInstrument.BASEDRUM).requiresTool()
+                    .noCollision().breakInstantly().dropsLike(DEAD_ORANGE_CORAL_FAN)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block ORANGE_CORAL_WALL_FAN = registerBlockWithoutBlockItem("rugosa_coral_wall_fan", new CoralWallFanBlock(DEAD_ORANGE_CORAL_WALL_FAN,
+            AbstractBlock.Settings.create().mapColor(MapColor.PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
+                    .dropsLike(ORANGE_CORAL_FAN).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block DEAD_BLUE_CORAL_BLOCK = registerBlock("dead_tabulata_coral_block", new Block(
+            AbstractBlock.Settings.create().mapColor(MapColor.GRAY).solid().instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.5F,
+                    6.0F)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block BLUE_CORAL_BLOCK = registerBlock("tabulata_coral_block", new CoralBlockBlock(DEAD_BLUE_CORAL_BLOCK,
+            AbstractBlock.Settings.create().mapColor(MapColor.PINK).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.5F,
+                    6.0F).sounds(BlockSoundGroup.CORAL)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block DEAD_BLUE_CORAL = registerBlock("dead_tabulata_coral", new DeadCoralBlock(
+            AbstractBlock.Settings.create().mapColor(MapColor.GRAY).solid().instrument(NoteBlockInstrument.BASEDRUM).requiresTool()
+                    .noCollision().breakInstantly()), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block BLUE_CORAL = registerBlock("tabulata_coral", new CoralBlock(DEAD_BLUE_CORAL,
+            AbstractBlock.Settings.create().mapColor(MapColor.PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
+                    .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block DEAD_BLUE_CORAL_FAN = registerBlock("dead_tabulata_coral_fan", new DeadCoralFanBlock(
+            AbstractBlock.Settings.create().mapColor(MapColor.GRAY).solid().instrument(NoteBlockInstrument.BASEDRUM).requiresTool()
+                    .noCollision().breakInstantly()), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block BLUE_CORAL_FAN = registerBlock("tabulata_coral_fan", new CoralFanBlock(DEAD_BLUE_CORAL_FAN,
+            AbstractBlock.Settings.create().mapColor(MapColor.PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
+                    .pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block DEAD_BLUE_CORAL_WALL_FAN = registerBlockWithoutBlockItem("dead_tabulata_coral_wall_fan", new DeadCoralWallFanBlock(
+            AbstractBlock.Settings.create().mapColor(MapColor.GRAY).solid().instrument(NoteBlockInstrument.BASEDRUM).requiresTool()
+                    .noCollision().breakInstantly().dropsLike(DEAD_BLUE_CORAL_FAN)), JamiesModItemGroup.JAMIES_MOD);
+    public static final Block BLUE_CORAL_WALL_FAN = registerBlockWithoutBlockItem("tabulata_coral_wall_fan", new CoralWallFanBlock(DEAD_BLUE_CORAL_WALL_FAN,
+            AbstractBlock.Settings.create().mapColor(MapColor.PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
+                    .dropsLike(BLUE_CORAL_FAN).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
 
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
         registerBlockItem(name, block, group);

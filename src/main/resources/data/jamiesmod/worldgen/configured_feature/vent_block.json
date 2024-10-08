@@ -4,7 +4,10 @@
     "to_place": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "jamiesmod:primordial_vent"
+        "Name": "jamiesmod:primordial_vent",
+        "Properties": {
+          "waterlogged": "true"
+        }
       }
     }
   }
