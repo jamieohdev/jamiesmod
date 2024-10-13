@@ -1,6 +1,8 @@
 package com.jamiedev.mod.init;
 
 import com.jamiedev.mod.JamiesMod;
+import com.jamiedev.mod.blocks.entity.ModHangingSignBlockEntity;
+import com.jamiedev.mod.blocks.entity.ModSignBlockEntity;
 import com.jamiedev.mod.blocks.entity.PrimordialUrchinEntity;
 import com.jamiedev.mod.blocks.entity.PrimordialVentEntity;
 import com.jamiedev.mod.worldgen.structure.AncientRootStructure;
@@ -16,6 +18,8 @@ import net.minecraft.world.gen.structure.StructureType;
 
 import java.util.Locale;
 
+import static com.jamiedev.mod.init.JamiesModBlocks.*;
+
 public class JamiesModBlockEntities <T extends BlockEntity>
 {
     BlockEntityType ref;
@@ -23,6 +27,10 @@ public class JamiesModBlockEntities <T extends BlockEntity>
     public static BlockEntityType<PrimordialVentEntity> PRIMORDIAL_VENT;
 
     public static BlockEntityType<PrimordialUrchinEntity> PRIMORDIAL_URCHIN;
+
+    public static BlockEntityType<ModSignBlockEntity> MOD_SIGN_BLOCK_ENTITY;
+
+    public static BlockEntityType<ModHangingSignBlockEntity> MOD_HANGING_SIGN_BLOCK_ENTITY;
 
     public static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> type) {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, JamiesMod.getModId(name), type);
@@ -36,5 +44,13 @@ public class JamiesModBlockEntities <T extends BlockEntity>
         PRIMORDIAL_URCHIN = register("primordial_urchin",
                 BlockEntityType.Builder.create(PrimordialUrchinEntity::new, JamiesModBlocks.PRIMORDIAL_URCHIN)
                         .build());
+        MOD_SIGN_BLOCK_ENTITY = Registry.register(
+                Registries.BLOCK_ENTITY_TYPE,
+                JamiesMod.getModId("mod_sign_entity"),
+                FabricBlockEntityTypeBuilder.create(ModSignBlockEntity::new, ANCIENT_SIGN, ANCIENT_WALL_SIGN).build()
+        );
+        MOD_HANGING_SIGN_BLOCK_ENTITY = register("mod_hanging_sign_entity",
+                BlockEntityType.Builder.create(ModHangingSignBlockEntity::new, JamiesModBlocks.ANCIENT_HANGING_SIGN, JamiesModBlocks.ANCIENT_WALL_HANGING_SIGN).build()
+        );
     }
 }

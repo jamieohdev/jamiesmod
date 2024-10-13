@@ -1,4 +1,31 @@
-** Updates in 0.0.5a **
+**Updates in 0.0.5b**
+
+*New features:*
+Added Coelacanth mob
+Added Trilobite mob
+Added Carnia block
+- Generates on the lower two "shelves" of the Primordial Ocean.
+Added Malachite slabs, stairs, and walls
+Added Malachite Tile slabs, stairs, and walls
+Added Ancient Signs & Hanging Signs!
+Added <REDACTED> block! (Work in progress!)
+
+*Changes:*
+Made all Malachite variants available in  Survival via crafting
+Changed gravel that generated on bottom "shelf" of the Primordial Ocean to Basalt!
+**NOW COMPATIBLE WITH 1.21!!** (Please report any issues you may have!)
+Updated Rugosa coral textures! (Still  temporary until our artist can get to it!)
+Primordial Sand no longer has a light level.
+Glow Gravel's light level has been updated from 8 to 4.
+
+*Bugs fixed:*
+Fixed numerous errors that popped up in the console.
+Fixed the song "Gelida" not playing ingame
+Fixed Malachite Door texture being unaligned
+Fixed Ancient Grass not having a name
+Fixed old Ancient Signs/Hanging Signs crashing the game.
+
+*Updates in 0.0.5a*
 
 **New features:**
 Added Glow Gravel, a nice gravel variant that, well- glows!
@@ -15,4 +42,5 @@ Added underwater fog to the Primordial Ocean
 Fixed new corals generating in the overworld.
 Fixed Ancient Grass not having a item model!
 Added gladosedition to the Credits!
+
 Started work on the <REDACTED> biome!

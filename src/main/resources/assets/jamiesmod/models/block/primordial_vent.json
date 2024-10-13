@@ -1,6 +1,6 @@
 {
   "credit": "Made with Blockbench",
-  "parent": "primordial_vent",
+
   "texture_size": [64, 64],
   "textures": {
     "0": "jamiesmod:block/primordial_vent",

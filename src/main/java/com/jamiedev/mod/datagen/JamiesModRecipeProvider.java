@@ -31,39 +31,6 @@ public class JamiesModRecipeProvider  extends FabricRecipeProvider {
     @Override
     public void generate(RecipeExporter exporter) {
 
-       /** ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_HELMET, 1)
-                .pattern("WWW")
-                .pattern("W W")
-                .pattern("   ")
-                .input('W',  JamiesModItems.SCALE)
-                .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
-                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_HELMET)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_CHESTPLATE, 1)
-                .pattern("W W")
-                .pattern("WWW")
-                .pattern("WWW")
-                .input('W',  JamiesModItems.SCALE)
-                .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
-                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_CHESTPLATE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_LEGGINGS, 1)
-                .pattern("WWW")
-                .pattern("W W")
-                .pattern("W W")
-                .input('W',  JamiesModItems.SCALE)
-                .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
-                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_LEGGINGS)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, JamiesModItems.SCALE_BOOTS, 1)
-                .pattern("   ")
-                .pattern("W W")
-                .pattern("W W")
-                .input('W',  JamiesModItems.SCALE)
-                .criterion(hasItem(JamiesModItems.SCALE), conditionsFromItem(JamiesModItems.SCALE))
-                .offerTo(exporter, Identifier.tryParse(getRecipeName(JamiesModItems.SCALE_BOOTS)));**/
-
-
     }
 
     void SlabRecipe(RecipeExporter exporter, Block input, Block output){
@@ -86,7 +53,15 @@ public class JamiesModRecipeProvider  extends FabricRecipeProvider {
                 .offerTo(exporter, Identifier.of(getRecipeName(output.asItem())));
     }
 
+    void WallsRecipe(RecipeExporter exporter, Block input, Block output){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 6)
+                .pattern("XXX")
+                .pattern("XXX")
+                .input('X', input.asItem())
+                .criterion(hasItem(input.asItem()), conditionsFromItem(input.asItem()))
+                .offerTo(exporter, Identifier.of(getRecipeName(output.asItem())));
 
+    }
 
     void PressurePlateRecipe(RecipeExporter exporter, Block input, Block output, RecipeCategory recipeCategory, String group){
         ShapedRecipeJsonBuilder.create(recipeCategory, output, 1)

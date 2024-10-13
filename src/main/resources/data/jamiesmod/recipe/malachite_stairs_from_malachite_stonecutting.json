@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "jamiesmod:malachite"
+  },
+  "result": {
+    "count": 1,
+    "id": "jamiesmod:malachite_stairs"
+  }
+}

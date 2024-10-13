@@ -152,16 +152,16 @@ public class JamiesModBlocks {
             new ButtonBlock(JamiesModBlockSetType.ANCIENT, 30, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block ANCIENT_SIGN = registerBlockWithoutBlockItem("ancient_sign",
-            new SignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_SIGN).strength(1.0f).solid()), JamiesModItemGroup.JAMIES_MOD);
+            new ModStandingSignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_SIGN).strength(1.0f).solid()), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block ANCIENT_WALL_SIGN = registerBlockWithoutBlockItem("ancient_wall_sign",
-            new WallSignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).strength(1.0f).dropsLike(JamiesModBlocks.ANCIENT_SIGN).solid()), JamiesModItemGroup.JAMIES_MOD);
+            new ModWallSignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).strength(1.0f).dropsLike(JamiesModBlocks.ANCIENT_SIGN).solid()), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block ANCIENT_HANGING_SIGN = registerBlockWithoutBlockItem("ancient_hanging_sign",
-            new HangingSignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).strength(1.0f).solid()), JamiesModItemGroup.JAMIES_MOD);
+            new ModHangingSignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).strength(1.0f).solid()), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block ANCIENT_WALL_HANGING_SIGN = registerBlockWithoutBlockItem("ancient_wall_hanging_sign",
-            new WallHangingSignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).strength(1.0f).dropsLike(ANCIENT_HANGING_SIGN).solid()), JamiesModItemGroup.JAMIES_MOD);
+            new ModWallHangingSignBlock(JamiesModWoodType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).strength(1.0f).dropsLike(ANCIENT_HANGING_SIGN).solid()), JamiesModItemGroup.JAMIES_MOD);
 
 // Start of the Primordial Ocean blockset
 
@@ -182,14 +182,12 @@ public class JamiesModBlocks {
 
     public static final Block PRIMORDIAL_SAND = registerBlock("primordial_sand",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.PALE_GREEN).sounds(BlockSoundGroup.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
-                    .strength(0.1F).luminance((state) -> {
-                        return 2;
-                    })), JamiesModItemGroup.JAMIES_MOD);
+                    .strength(0.1F)), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block GLOW_GRAVEL = registerBlock("glow_gravel",
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_CYAN).sounds(BlockSoundGroup.GRAVEL).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool()
                     .strength(0.1F).luminance((state) -> {
-                        return 8;
+                        return 4;
                     })), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block MALACHITE = registerBlock("malachite",
@@ -207,6 +205,23 @@ public class JamiesModBlocks {
     public static final Block MALACHITE_DOOR = registerBlock("malachite_door",
             new DoorBlock(JamiesModBlockSetType.ANCIENT, AbstractBlock.Settings.copy(Blocks.OAK_DOOR).sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
 
+    public static final Block MALACHITE_STAIRS = registerBlock("malachite_stairs",
+            new StairsBlock(JamiesModBlocks.MALACHITE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block MALACHITE_SLAB = registerBlock("malachite_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(JamiesModBlocks.MALACHITE).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block MALACHITE_WALL = registerBlock("malachite_wall",
+            new WallBlock(AbstractBlock.Settings.copy(JamiesModBlocks.MALACHITE).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block MALACHITE_TILE_STAIRS = registerBlock("malachite_tile_stairs",
+            new StairsBlock(JamiesModBlocks.MALACHITE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block MALACHITE_TILE_SLAB = registerBlock("malachite_tile_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(JamiesModBlocks.MALACHITE).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
+
+    public static final Block MALACHITE_TILE_WALL = registerBlock("malachite_tile_wall",
+            new WallBlock(AbstractBlock.Settings.copy(JamiesModBlocks.MALACHITE).strength(2.0f)), JamiesModItemGroup.JAMIES_MOD);
 
     public static final Block PRIMORDIAL_VENT = registerBlock("primordial_vent",
                                     new PrimordialVentBlock(true, AbstractBlock.Settings.create()
@@ -278,6 +293,13 @@ public class JamiesModBlocks {
             AbstractBlock.Settings.create().mapColor(MapColor.PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS)
                     .dropsLike(BLUE_CORAL_FAN).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
 
+
+    public static final Block CHARNIA = registerBlock("charnia", new CharniaBlock(AbstractBlock.Settings.create().mapColor(MapColor.WATER_BLUE)
+            .replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)), JamiesModItemGroup.JAMIES_MOD);
+
+
+// Start of Blemish biome blocksets!
+    public static final Block BLEMISH = registerBlock("blemish", new BlemishBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_PURPLE).breakInstantly().sounds(BlockSoundGroup.WET_GRASS)), JamiesModItemGroup.JAMIES_MOD);
 
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
         registerBlockItem(name, block, group);

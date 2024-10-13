@@ -16,41 +16,18 @@ public class JamiesModBlockTagProvider extends FabricTagProvider.BlockTagProvide
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(JamiesModBlocks.DEAD_ORANGE_CORAL)
-                .add(JamiesModBlocks.DEAD_ORANGE_CORAL_BLOCK)
-                .add(JamiesModBlocks.DEAD_ORANGE_CORAL_FAN)
-                .add(JamiesModBlocks.DEAD_ORANGE_CORAL_WALL_FAN)
-                .add(JamiesModBlocks.ORANGE_CORAL)
-                .add(JamiesModBlocks.ORANGE_CORAL_BLOCK)
-                .add(JamiesModBlocks.ORANGE_CORAL_FAN)
-                .add(JamiesModBlocks.ORANGE_CORAL_WALL_FAN)
-                .add(JamiesModBlocks.DEAD_BLUE_CORAL)
-                .add(JamiesModBlocks.DEAD_BLUE_CORAL_BLOCK)
-                .add(JamiesModBlocks.DEAD_BLUE_CORAL_FAN)
-                .add(JamiesModBlocks.DEAD_BLUE_CORAL_WALL_FAN)
-                .add(JamiesModBlocks.BLUE_CORAL)
-                .add(JamiesModBlocks.BLUE_CORAL_BLOCK)
-                .add(JamiesModBlocks.BLUE_CORAL_FAN)
-                .add(JamiesModBlocks.BLUE_CORAL_WALL_FAN);
+        getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
+                .add(JamiesModBlocks.ANCIENT_SIGN);
 
-        //        .add(JamiesModBlocks.PRIMORDIAL_VENT);
-        getOrCreateTagBuilder(BlockTags.CORAL_BLOCKS)
-                .add(JamiesModBlocks.ORANGE_CORAL_BLOCK);
-        getOrCreateTagBuilder(BlockTags.CORAL_PLANTS)
-                .add(JamiesModBlocks.ORANGE_CORAL);
-        getOrCreateTagBuilder(BlockTags.CORALS)
-                .add(JamiesModBlocks.ORANGE_CORAL_FAN);
-        getOrCreateTagBuilder(BlockTags.WALL_CORALS)
-                .add(JamiesModBlocks.ORANGE_CORAL_WALL_FAN);
-        getOrCreateTagBuilder(BlockTags.CORAL_BLOCKS)
-                .add(JamiesModBlocks.BLUE_CORAL_BLOCK);
-        getOrCreateTagBuilder(BlockTags.CORAL_PLANTS)
-                .add(JamiesModBlocks.BLUE_CORAL);
-        getOrCreateTagBuilder(BlockTags.CORALS)
-                .add(JamiesModBlocks.BLUE_CORAL_FAN);
-        getOrCreateTagBuilder(BlockTags.WALL_CORALS)
-                .add(JamiesModBlocks.BLUE_CORAL_WALL_FAN);
+        getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
+                .add(JamiesModBlocks.ANCIENT_WALL_SIGN);
+
+        getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
+                .add(JamiesModBlocks.ANCIENT_HANGING_SIGN);
+
+
+        getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
+                .add(JamiesModBlocks.ANCIENT_WALL_HANGING_SIGN);
     }
 
 

@@ -61,6 +61,7 @@
       "jamiesmod:primordial_vents",
       "jamiesmod:patch_blue",
       "minecraft:glow_lichen",
+      "jamiesmod:charnia",
       "jamiesmod:coral",
       "jamiesmod:seagrass_deep",
       "jamiesmod:seagrass_normal",
@@ -87,13 +88,25 @@
         "type": "minecraft:glow_squid",
         "maxCount": 6,
         "minCount": 4,
-        "weight": 10
+        "weight": 15
       },
       {
         "type": "jamiesmod:scuttle",
         "maxCount": 1,
         "minCount": 1,
         "weight": 5
+      },
+      {
+        "type": "jamiesmod:coelacanth",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 1
+      },
+      {
+        "type": "jamiesmod:trilobite",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 4
       }
     ],
     "water_ambient": [

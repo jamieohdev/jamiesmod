@@ -21,7 +21,7 @@
 
   "block.jamiesmod.jamiesblock": "",
   "block.jamiesmod.bygonestone": "Bystone",
-  "block.jamiesmod.bystone": "Bystone (Still a WIP)",
+  "block.jamiesmod.bystone": "Cobbled Bystone",
   "block.jamiesmod.bygoneslate": "Byslate",
   "block.jamiesmod.bygonestone_iron_ore": "Bystone Iron Ore",
   "block.jamiesmod.bygoneslate_iron_ore": "Byslate Iron Ore",
@@ -35,6 +35,7 @@
 
   "block.jamiesmod.cave_vines": "Byvine",
   "block.jamiesmod.cave_vines_plant": "Byvine",
+  "block.jamiesmod.short_grass": "Ancient Grass",
   "block.jamiesmod.montsechia": "Montsechia",
   "block.jamiesmod.sagaria": "Sagaria",
   "block.jamiesmod.rafflesia": "Rafflesia",
@@ -70,6 +71,13 @@
   "block.jamiesmod.malachite_pillar": "Malachite Pillar",
   "block.jamiesmod.malachite_tile": "Malachite Tiles",
   "block.jamiesmod.malachite_door": "Malachite Door",
+  "block.jamiesmod.malachite_slab": "Malachite Slab",
+  "block.jamiesmod.malachite_stairs": "Malachite Stairs",
+  "block.jamiesmod.malachite_wall": "Malachite Wall",
+  "block.jamiesmod.malachite_tile_slab": "Malachite Tile Slab",
+  "block.jamiesmod.malachite_tile_stairs": "Malachite Tile Stairs",
+  "block.jamiesmod.malachite_tile_wall": "Malachite Tile Wall",
+
   "block.jamiesmod.oceanstone": "Oceanstone",
   "block.jamiesmod.primordial_sand": "Primordial Sand",
   "block.jamiesmod.blue_algae": "Primordial Algae",
@@ -88,10 +96,11 @@
   "block.jamiesmod.tabulata_coral": "Tabulata Coral",
   "block.jamiesmod.tabulata_coral_block": "Tabulata Coral Block",
   "block.jamiesmod.tabulata_coral_fan": "Tabulata Coral Fan",
-  "block.jamiesmod.glow_gravel": "Glow Gravel (WIP!)",
+  "block.jamiesmod.glow_gravel": "Glow Gravel",
+  "block.jamiesmod.charnia": "Charnia",
 
   "block.jamiesmod.blemish": "Blemish Block",
-  "block.jamiesmod.blemish_rooted_block": "Blemished  Rooted  Stone",
+  "block.jamiesmod.blemish_rooted_block": "Blemished Rooted Stone",
   "block.jamiesmod.blemish_roots": "Blemished Roots",
   "block.jamiesmod.blemish_stone": "Blemished Stone",
   "block.jamiesmod.blemish_vines": "Blemished Vines",
@@ -100,6 +109,7 @@
   "entity.jamiesmod.big_beak": "Big Beak",
   "entity.jamiesmod.coelacanth": "Coelacanth",
   "entity.jamiesmod.glare": "Glare (WIP)",
+  "entity.jamiesmod.trilobite": "Trilobite",
   "entity.jamiesmod.scuttle": "Scuttle",
   "entity.jamiesmod.scuttle_spike": "Scuttle's Spike",
 

@@ -51,6 +51,11 @@ public class JamiesModEntityTypes {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BigBeakEntity::new)
                     .dimensions(EntityDimensions.fixed(1.0F, 2.0F)).build());
 
+    public static final EntityType<CoelacanthEntity> COELACANTH = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "coelacanth"),
+            FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, CoelacanthEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.8F, 0.6F)).build());
+
     public static final EntityType<DuckEntity> DUCK = Registry.register(Registries.ENTITY_TYPE,
             JamiesMod.getModId( "duck"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DuckEntity::new)
@@ -73,7 +78,7 @@ public class JamiesModEntityTypes {
 
     public static final EntityType<ScuttleEntity> SCUTTLE = Registry.register(Registries.ENTITY_TYPE,
             JamiesMod.getModId( "scuttle"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ScuttleEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, ScuttleEntity::new)
                     .dimensions(EntityDimensions.fixed(0.8F, 0.4F)).build());
 
     public static final EntityType<ScuttleSpikeEntity> SCUTTLE_SPIKE = Registry.register(Registries.ENTITY_TYPE,
@@ -84,6 +89,12 @@ public class JamiesModEntityTypes {
                     .trackedUpdateRate(20)
                     .build()
     );
+
+    public static final EntityType<TrilobiteEntity> TRILOBITE = Registry.register(Registries.ENTITY_TYPE,
+            JamiesMod.getModId( "trilobite"),
+            FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, TrilobiteEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3F, 0.2F)).build());
+
 
     EntityType ref;
 
@@ -96,6 +107,8 @@ public class JamiesModEntityTypes {
         FabricDefaultAttributeRegistry.register(GLARE, GlareEntity.createGlareAttributes());
         FabricDefaultAttributeRegistry.register(SCUTTLE, ScuttleEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(JAWS, JawsEntity.createJawsAttributes());
+        FabricDefaultAttributeRegistry.register(COELACANTH, CoelacanthEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(TRILOBITE, TrilobiteEntity.createAttributes());
     }
 
     public static void postInit() {
@@ -103,11 +116,15 @@ public class JamiesModEntityTypes {
     }
 
     public static void initSpawnRestrictions() {
+        SpawnRestrictMixin.callRegister(COELACANTH, SpawnLocationTypes.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, CoelacanthEntity::canSpawn);
+        SpawnRestrictMixin.callRegister(TRILOBITE, SpawnLocationTypes.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, TrilobiteEntity::canSpawn);
         SpawnRestrictMixin.callRegister(SCUTTLE, SpawnLocationTypes.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ScuttleEntity::canSpawn);
         SpawnRestrictMixin.callRegister(GLARE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, GlareEntity::canSpawn);
         SpawnRestrictMixin.callRegister(BIG_BEAK, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, BigBeakEntity::canSpawn);
         SpawnRestriction.register(SCUTTLE, SpawnLocationTypes.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ScuttleEntity::canSpawn);
         SpawnRestriction.register(GLARE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, GlareEntity::canSpawn);
         SpawnRestriction.register(BIG_BEAK, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, BigBeakEntity::canSpawn);
+        SpawnRestriction.register(COELACANTH, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, CoelacanthEntity::canSpawn);
+        SpawnRestriction.register(TRILOBITE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, TrilobiteEntity::canSpawn);
    }
 }

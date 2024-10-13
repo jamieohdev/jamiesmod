@@ -32,6 +32,12 @@
     "jamiesmod:tabulata_coral",
     "jamiesmod:tabulata_coral_block",
     "jamiesmod:tabulata_coral_fan",
-    "jamiesmod:tabulata_coral_wall_fan"
+    "jamiesmod:tabulata_coral_wall_fan",
+    "jamiesmod:malachite_slab",
+    "jamiesmod:malachite_stairs",
+    "jamiesmod:malachite_wall",
+    "jamiesmod:malachite_tile_slab",
+    "jamiesmod:malachite_tile_stairs",
+    "jamiesmod:malachite_tile_wall"
   ]
 }

@@ -7,11 +7,7 @@
         "stream": true
       },
       {
-        "name": "jamiesmod:music/gelinda",
-        "stream": true
-      },
-      {
-        "name": "jamiesmod:music/glimmer",
+        "name": "jamiesmod:music/gelida",
         "stream": true
       },
       {
@@ -20,6 +16,15 @@
       },
       {
         "name": "jamiesmod:music/theashfalls",
+        "stream": true
+      }
+    ]
+  },
+  "music.bygone.primordial_ocean": {
+    "category":"music",
+    "sounds": [
+      {
+        "name": "jamiesmod:music/glimmer",
         "stream": true
       }
     ]

@@ -1,6 +1,5 @@
-// 1.21.1	2024-10-07T15:39:02.6732551	jamiesmod/Tags for minecraft:block
-480dc377fd43c53f04188da18d914ec29a9b74ee data\minecraft\tags\block\corals.json
-c8ee946890916abbadf1d0d8726f16feb589a462 data\minecraft\tags\block\coral_blocks.json
-7cc029d5d18595ccb99a4d521135c181d9ba13ae data\minecraft\tags\block\mineable\pickaxe.json
-ed2a1644fbfa97c272e7b3b72eea7159f62d1463 data\minecraft\tags\block\wall_corals.json
-cb3e36158c32f0ed11d08cca3977376d662a058f data\minecraft\tags\block\coral_plants.json
+// 1.21.1	2024-10-12T20:38:49.8295543	jamiesmod/Tags for minecraft:block
+e775dbbce3fcb6a6424ce27066f00d8a36f795a7 data\minecraft\tags\block\ceiling_hanging_signs.json
+09096f02ff4465970ab8bf91bafce302a07ad006 data\minecraft\tags\block\wall_hanging_signs.json
+9cad919eec61c7cfebdfc670e985a86aac322829 data\minecraft\tags\block\standing_signs.json
+e5e26931bfaa7992435d77752af07f5e5f0102de data\minecraft\tags\block\wall_signs.json

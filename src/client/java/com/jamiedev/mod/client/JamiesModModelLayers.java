@@ -13,13 +13,16 @@ public class JamiesModModelLayers {
     public static final EntityModelLayer JAWS =
             new EntityModelLayer(JamiesMod.getModId("jaws"), "main");
 
+
     public static final EntityModelLayer SCUTTLE =
             new EntityModelLayer(JamiesMod.getModId("scuttle"), "main");
 
     public static final EntityModelLayer SCUTTLE_SPIKE =
             new EntityModelLayer(JamiesMod.getModId("scuttle_spike"), "main");
-
-
+    public static final EntityModelLayer COELACANTH =
+            new EntityModelLayer(JamiesMod.getModId("coelacanth"), "main");
+    public static final EntityModelLayer TRILOBITE =
+            new EntityModelLayer(JamiesMod.getModId("trilobite"), "main");
     public static final EntityModelLayer GLARE =
             new EntityModelLayer(JamiesMod.getModId("glare"), "main");
 

@@ -5,7 +5,8 @@
   "mixins": [
     "ExampleMixin",
     "PlayerMixin",
-    "SpawnRestrictMixin"
+    "SpawnRestrictMixin",
+    "HangingSignBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

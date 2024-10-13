@@ -11,7 +11,7 @@
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:gravel"
+          "Name": "minecraft:basalt"
         }
       },
       "rules": []

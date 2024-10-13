@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jamiesmod:block/malachite_slab"
+    },
+    "type=double": {
+      "model": "jamiesmod:block/malachite"
+    },
+    "type=top": {
+      "model": "jamiesmod:block/malachite_slab_top"
+    }
+  }
+}
