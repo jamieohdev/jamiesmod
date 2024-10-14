@@ -143,7 +143,7 @@ public class PrimordialVentBlock extends BlockWithEntity implements Waterloggabl
         if (world.isClient) {
             return  (Boolean)state.get(WATERLOGGED) ? validateTicker(type, JamiesModBlockEntities.PRIMORDIAL_VENT, PrimordialVentEntity::clientTick) : null;
         } else {
-            return   (Boolean)state.get(WATERLOGGED) ? validateTicker(type, JamiesModBlockEntities.PRIMORDIAL_VENT, PrimordialVentEntity::litServerTick) : null;
+            return  (Boolean)state.get(WATERLOGGED) ? validateTicker(type, JamiesModBlockEntities.PRIMORDIAL_VENT, PrimordialVentEntity::litServerTick) : null;
         }
     }
 
@@ -174,6 +174,6 @@ public class PrimordialVentBlock extends BlockWithEntity implements Waterloggabl
     static {
         WATERLOGGED = Properties.WATERLOGGED;
         SIGNAL_FIRE = Properties.SIGNAL_FIRE;
-        SHAPE = Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 10.0, 11.0);
+        SHAPE = Block.createCuboidShape(2.0, 0.0, 2.0, 14.0, 14.0, 14.0);
     }
 }

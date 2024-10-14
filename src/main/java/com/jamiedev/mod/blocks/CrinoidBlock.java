@@ -91,6 +91,6 @@ public class CrinoidBlock  extends PlantBlock implements Fertilizable, FluidFill
 
     static {
 
-        SHAPE = Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 10.0, 11.0);
+        SHAPE = Block.createCuboidShape(3.0, 0.0, 3.0, 11.0, 13.0, 11.0);
     }
 }

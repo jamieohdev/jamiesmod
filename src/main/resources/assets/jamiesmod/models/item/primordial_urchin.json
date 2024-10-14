@@ -1,3 +1,6 @@
 {
-  "parent": "jamiesmod:block/primordial_urchin"
+  "parent": "jamiesmod:block/primordial_urchin",
+  "textures": {
+    "particle": "jamiesmod:block/primordial_urchin"
+  }
 }

@@ -3,8 +3,11 @@ package com.jamiedev.mod.entities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.control.AquaticMoveControl;
+import net.minecraft.entity.ai.control.LookControl;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.FollowGroupLeaderGoal;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -19,6 +22,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.tag.DamageTypeTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
@@ -27,20 +31,24 @@ import java.security.Guard;
 
 public class CoelacanthEntity extends SchoolingFishEntity
 {
-    SkeletonEntity ref;
+    SalmonEntity ref;
 
     public CoelacanthEntity(EntityType<? extends CoelacanthEntity> entityType, World world) {
         super(entityType, world);
+        this.moveControl = new AquaticMoveControl(this, 85, 10, 0.02F, 0.1F, true);
+        this.lookControl = new LookControl(this);
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0);
     }
     protected void initGoals() {
         super.initGoals();
-        this.goalSelector.add(3, new FleeEntityGoal(this, PlayerEntity.class, 6.0F, 1.0, 1.2));
+        this.goalSelector.add(0, new FleeEntityGoal<>(this, PlayerEntity.class, 6.0F, 1.0, 1.2));
+        this.goalSelector.add(1, new TemptGoal(this, 3.0, (stack) -> {
+            return stack.isIn(ItemTags.ARMADILLO_FOOD);
+        }, false));
     }
 
     protected SoundEvent getAmbientSound() {
@@ -77,8 +85,6 @@ public class CoelacanthEntity extends SchoolingFishEntity
                     this.playSound(SoundEvents.BLOCK_CALCITE_HIT, 1.0F, 1.0F);
                 }
             }
-
-
             return super.damage(source, amount);
         }
     }

@@ -11,10 +11,20 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "jamiesmod:charnia",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
           "name": "jamiesmod:charnia"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "jamiesmod:blocks/charnia"
 }

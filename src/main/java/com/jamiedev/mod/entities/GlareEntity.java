@@ -132,7 +132,7 @@ public class GlareEntity extends AnimalEntity implements Flutterer
 
     @VisibleForTesting
     public void setSize(int size) {
-        this.dataTracker.set(GLARE_SIZE, MathHelper.clamp(size, 0, 8));
+        this.dataTracker.set(GLARE_SIZE, MathHelper.clamp(size, 0, 2));
     }
 
     public int getSize() {

@@ -13,18 +13,18 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "jamiesmod:malachite_door",
+              "block": "jamiesmod:ancient_door",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "jamiesmod:malachite_door"
+          "name": "jamiesmod:ancient_door"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "jamiesmod:blocks/malachite_door"
+  "random_sequence": "jamiesmod:blocks/ancient_door"
 }

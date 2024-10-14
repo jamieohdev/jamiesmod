@@ -154,6 +154,6 @@ public class PrimordialUrchinBlock extends BlockWithEntity implements Waterlogga
         WATERLOGGED = Properties.WATERLOGGED;
         ACTIVATED = Properties.POWER;
         ACTIVATEDBOOL = Properties.INVERTED;
-        SHAPE = Block.createCuboidShape(5.0, 0.0, 5.0, 8.0, 8.0, 8.0);
+        SHAPE = Block.createCuboidShape(4.0, 0.0, 4.0, 12.0, 8.0, 12.0);
     }
 }

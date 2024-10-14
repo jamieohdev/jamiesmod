@@ -1,3 +1,34 @@
+# **Updates in 0.0.x**
+
+**New Featues:**
+Text
+
+**Changes to existing features:**
+Text
+
+
+**Bugs fixed:**
+Text
+
+
+# **Updates in 0.0.5c**
+
+**New features:**
+
+**Changes to existing features:**
+Updated Chiseled Malachite recipe not being two slabs.
+
+**Bugs fixed:**
+Fixed Malachite Pillars/Doors not being craftable in Survival
+Fixed bounding boxes for several blocks.
+Fixed multiple blocks not being compostable
+Fixed multiple blocks not being fuel
+Fixed Ancient Logs not smelting into Charcoal
+Fixed Oceanstone not being usable for other stone recipes
+Fixed Malachite Doors/Charnias dropping in Creative
+Fixed Ancient Grass model rendering incorrectly
+Fixed Primordial Urchin not having a name.
+
 **Updates in 0.0.5b**
 
 *New features:*

@@ -1,3 +1,6 @@
 {
-  "parent": "jamiesmod:block/short_grass"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jamiesmod:block/short_grass"
+  }
 }

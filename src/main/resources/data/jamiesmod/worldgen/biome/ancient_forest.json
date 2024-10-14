@@ -100,14 +100,14 @@
         "type": "jamiesmod:big_beak",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 15
+        "weight": 3
       },
 
       {
         "type": "jamiesmod:glare",
-        "maxCount": 3,
-        "minCount": 2,
-        "weight": 20
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 5
       }
     ],
     "underground_water_creature": [

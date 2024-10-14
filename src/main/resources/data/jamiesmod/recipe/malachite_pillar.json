@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "X": {
-      "item": "jamiesmod:malachite_slab"
+      "item": "jamiesmod:malachite"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "X"
   ],
   "result": {
-    "count": 1,
-    "id": "jamiesmod:malachite_chiseled"
+    "count": 2,
+    "id": "jamiesmod:malachite_pillar"
   }
 }
