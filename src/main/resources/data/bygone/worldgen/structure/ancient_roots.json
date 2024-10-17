@@ -1,0 +1,19 @@
+{
+  "type": "bygone:ancient_roots",
+  "start_pool": "bygone:ancient_roots",
+  "max_distance_from_center": 80,
+  "size": 1,
+  "biomes": "#bygone:has_structure/has_roots",
+  "step": "underground_decoration",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "below_top": 2
+    },
+    "min_inclusive": {
+      "absolute": 32
+    }
+  },
+  "liquid_settings": "apply_waterlogging",
+  "spawn_overrides": {}
+}

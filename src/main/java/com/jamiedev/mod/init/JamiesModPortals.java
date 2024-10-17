@@ -27,8 +27,6 @@ public class JamiesModPortals {
                         heldItem.damage(1 , player, player.getPreferredEquipmentSlot(player.getActiveItem()));
                     }
                 })
-
                 .registerPortal();
-
     }
 }

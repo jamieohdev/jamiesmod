@@ -10,7 +10,7 @@
     "minecraft:twisting_vines_plant",
     "minecraft:cave_vines",
     "minecraft:cave_vines_plant",
-    "jamiesmod:cave_vines",
-    "jamiesmod:cave_vines_plant"
+    "bygone:cave_vines",
+    "bygone:cave_vines_plant"
   ]
 }

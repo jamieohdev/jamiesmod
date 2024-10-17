@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "jamiesmod:block/malachite_tile",
-    "side": "jamiesmod:block/malachite_tile",
-    "top": "jamiesmod:block/malachite_tile"
-  }
-}

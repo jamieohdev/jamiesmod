@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "jamiesmod:claystone",
-    "jamiesmod:coarse_claystone",
-    "jamiesmod:grassy_claystone",
-    "jamiesmod:mossy_claystone",
-    "jamiesmod:primordial_sand",
-    "jamiesmod:glow_gravel"
+    "bygone:claystone",
+    "bygone:coarse_claystone",
+    "bygone:grassy_claystone",
+    "bygone:mossy_claystone",
+    "bygone:primordial_sand",
+    "bygone:glow_gravel"
   ]
 }

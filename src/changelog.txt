@@ -1,14 +1,15 @@
 # **Updates in 0.0.x**
 
-**New Featues:**
+**New Features:**
 Text
 
+
 **Changes to existing features:**
-Text
+Upgraded the Biome Map, it's highly recommended to delete/reset the dimension folder prior to opening the world.
 
 
 **Bugs fixed:**
-Text
+Fixed Glares/Big Beaks spawning too often.
 
 
 # **Updates in 0.0.5c**

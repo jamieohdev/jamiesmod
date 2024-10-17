@@ -1,0 +1,59 @@
+{
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "bygone:ancient_roots/ancient_roots_1",
+        "projection": "rigid",
+        "processors": "bygone:randomize_roots",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "bygone:ancient_roots/ancient_roots_2",
+        "projection": "rigid",
+        "processors": "bygone:randomize_roots",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "bygone:ancient_roots/ancient_roots_3",
+        "projection": "rigid",
+        "processors": "bygone:randomize_roots",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "bygone:ancient_roots/ancient_roots_4",
+        "projection": "rigid",
+        "processors": "bygone:randomize_roots",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "bygone:ancient_roots/ancient_roots_5",
+        "projection": "rigid",
+        "processors": "bygone:randomize_roots",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "bygone:ancient_roots/ancient_roots_6",
+        "projection": "rigid",
+        "processors": "bygone:randomize_roots",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "bygone:item/hook",
+    "textures": {
+        "layer0": "bygone:item/hook_cast"
+    }
+}

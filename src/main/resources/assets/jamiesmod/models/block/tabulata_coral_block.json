@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "jamiesmod:block/tabulata_coral_block"
-  }
-}

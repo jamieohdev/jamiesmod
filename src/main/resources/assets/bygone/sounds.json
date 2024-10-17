@@ -1,0 +1,204 @@
+{
+  "music.bygone.ancient_forest": {
+    "category":"music",
+    "sounds": [
+      {
+        "name": "bygone:music/coda",
+        "stream": true
+      },
+      {
+        "name": "bygone:music/gelida",
+        "stream": true
+      },
+      {
+        "name": "bygone:music/rodhim",
+        "stream": true
+      },
+      {
+        "name": "bygone:music/theashfalls",
+        "stream": true
+      }
+    ]
+  },
+  "music.bygone.primordial_ocean": {
+    "category":"music",
+    "sounds": [
+      {
+        "name": "bygone:music/glimmer",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.ancient_forest.additions": {
+    "sounds":  [
+      "bygone:ambience/ancient_creak1",
+      "bygone:ambience/ancient_creak2",
+      "bygone:ambience/ancient_wind1",
+      "bygone:ambience/ancient_wind2",
+      "bygone:ambience/ancient_wind3",
+      "bygone:ambience/ancient_wind4"
+    ],
+    "subtitle": "subtitles.ambient.ancient_forest.additions"
+  },
+  "ambience.volcanic1": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/volcanic1",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.volcanic2": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/volcanic2",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.volcanic3": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/volcanic3",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.frozen1": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/frozen1",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.frozen2": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/frozen2",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.frozen3": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/frozen3",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.upsidedown1": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/upsidedown1",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.upsidedown2": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/upsidedown2",
+        "stream": false
+      }
+    ]
+  },
+  "ambience.upsidedown3": {
+    "category": "ambient",
+    "subtitle": "subtitles.ambient.bygone",
+    "sounds":[
+      {
+        "name": "bygone:ambience/upsidedown3",
+        "stream": false
+      }
+    ]
+  },
+  "records.ease": {
+    "category": "record",
+    "sounds":[
+      {
+        "name": "bygone:records/ease",
+        "stream": true
+      }
+    ]
+  },
+  "records.fox": {
+    "category": "record",
+    "sounds":[
+      {
+        "name": "bygone:records/fox",
+        "stream": true
+      }
+    ]
+  },
+  "records.hullabaloo": {
+    "category": "record",
+    "sounds":[
+      {
+        "name": "bygone:records/hullabaloo",
+        "stream": true
+      }
+    ]
+  },
+  "music.glimmer": {
+    "sounds": [
+      {
+        "name": "bygone:music/glimmer",
+        "stream": true
+      }
+    ]
+  },
+  "music.gelida": {
+    "category": "music",
+    "sounds":[
+      {
+        "name": "bygone:music/gelida",
+        "stream": true
+      }
+    ]
+  },
+  "music.theashfalls": {
+    "category": "music",
+    "sounds":[
+      {
+        "name": "bygone:music/theashfalls",
+        "stream": true
+      }
+    ]
+  },
+  "music.coda": {
+    "category": "music",
+    "sounds":[
+      {
+        "name": "bygone:music/coda",
+        "stream": true
+      }
+    ]
+  },
+  "music.rodhim": {
+    "category": "music",
+    "sounds":[
+      {
+        "name": "bygone:music/rodhim",
+        "stream": true
+      }
+    ]
+  }
+}

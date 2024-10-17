@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/tinted_cross",
-  "textures": {
-    "cross": "jamiesmod:block/short_grass"
-  }
-}

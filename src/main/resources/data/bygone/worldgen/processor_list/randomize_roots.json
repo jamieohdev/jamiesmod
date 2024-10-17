@@ -1,0 +1,24 @@
+
+{
+ "processors": [
+    {
+      "processor_type": "minecraft:rule",
+
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "bygone:ancient_roots",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:moss_block"
+          }
+        }
+      ]
+    }
+  ]
+}

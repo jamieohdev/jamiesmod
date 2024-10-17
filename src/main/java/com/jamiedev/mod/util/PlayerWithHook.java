@@ -4,6 +4,6 @@ import com.jamiedev.mod.entities.projectile.HookEntity;
 import org.jetbrains.annotations.Nullable;
 
 public interface PlayerWithHook {
-    @Nullable HookEntity jamiesmod$getHook();
-    void jamiesmod$setHook(@Nullable HookEntity pHook);
+    @Nullable HookEntity bygone$getHook();
+    void bygone$setHook(@Nullable HookEntity pHook);
 }

@@ -22,7 +22,7 @@ public class SyncPlayerHookPacketHandler {
         PlayerEntity playerByUuid = world.getPlayerByUuid(playerUUID);
         if(playerByUuid != null){
             JamiesMod.LOGGER.info("Syncing {} to {}", hook, playerByUuid);
-            ((PlayerWithHook)playerByUuid).jamiesmod$setHook(hook);
+            ((PlayerWithHook)playerByUuid).bygone$setHook(hook);
         } else{
             JamiesMod.LOGGER.error("Could not find player with UUID {}, unable to sync their hook", playerUUID);
         }

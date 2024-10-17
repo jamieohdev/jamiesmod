@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "jamiesmod:block/charnia_bottom"
-  }
-}

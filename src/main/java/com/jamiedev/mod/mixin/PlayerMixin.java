@@ -39,7 +39,7 @@ public abstract class PlayerMixin extends LivingEntity implements PlayerWithHook
     }
 
     @Override
-    public @Nullable HookEntity jamiesmod$getHook() {
+    public @Nullable HookEntity bygone$getHook() {
         if(this.hookUUID == null) return null;
 
         // This is definitely our hook, so retrieve it
@@ -49,13 +49,13 @@ public abstract class PlayerMixin extends LivingEntity implements PlayerWithHook
         // If we are on the server-side, look up the hook by the uuid we stored
         else if (this.getWorld() instanceof ServerWorld serverWorld) {
             Entity entityByUuid = serverWorld.getEntity(this.hookUUID);
-            this.jamiesmod$setHook(entityByUuid instanceof HookEntity foundHook ? foundHook : null);
+            this.bygone$setHook(entityByUuid instanceof HookEntity foundHook ? foundHook : null);
             return this.hook;
         }
         // If we are on the client-side, look up the hook by the id we stored
         else if(this.hookId > 0){
             Entity entityById = this.getWorld().getEntityById(this.hookId);
-            this.jamiesmod$setHook(entityById instanceof HookEntity foundHook ? foundHook : null);
+            this.bygone$setHook(entityById instanceof HookEntity foundHook ? foundHook : null);
             return this.hook;
         }
         // We don't have a hook, so return null
@@ -65,7 +65,7 @@ public abstract class PlayerMixin extends LivingEntity implements PlayerWithHook
     }
 
     @Override
-    public void jamiesmod$setHook(@Nullable HookEntity pHook) {
+    public void bygone$setHook(@Nullable HookEntity pHook) {
         boolean changed = this.hook != pHook;
         this.hook = pHook;
         this.hookUUID = pHook == null ? null : pHook.getUuid();

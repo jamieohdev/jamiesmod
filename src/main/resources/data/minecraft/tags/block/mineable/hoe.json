@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "jamiesmod:ancient_leaves",
-    "jamiesmod:ancient_roots",
-    "jamiesmod:cloud"
+    "bygone:ancient_leaves",
+    "bygone:ancient_roots",
+    "bygone:cloud"
   ]
 }

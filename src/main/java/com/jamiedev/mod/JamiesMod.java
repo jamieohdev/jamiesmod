@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class JamiesMod implements ModInitializer {
-	public static String MOD_ID = "jamiesmod";
+	public static String MOD_ID = "bygone";
 
 	@Override
 	public void onInitialize() {

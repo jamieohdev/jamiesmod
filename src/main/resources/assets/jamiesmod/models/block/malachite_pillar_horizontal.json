@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "jamiesmod:block/malachite_pillar_top",
-    "side": "jamiesmod:block/malachite_pillar_side"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "jamiesmod:block/malachite_chiseled_top",
-    "side": "jamiesmod:block/malachite_chiseled"
-  }
-}

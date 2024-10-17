@@ -124,7 +124,7 @@ public class JamiesModClient implements ClientModInitializer {
                 {
                     ItemStack heldStack = livingEntity.getStackInHand(value);
 
-                    if (heldStack == itemStack && (((PlayerWithHook)livingEntity).jamiesmod$getHook()  != null && !((PlayerWithHook)livingEntity).jamiesmod$getHook().isRemoved()))
+                    if (heldStack == itemStack && (((PlayerWithHook)livingEntity).bygone$getHook()  != null && !((PlayerWithHook)livingEntity).bygone$getHook().isRemoved()))
                     {
                         return 1;
                     }

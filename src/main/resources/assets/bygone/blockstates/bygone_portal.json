@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "bygone:block/bygone_portal_ns"
+    },
+    "axis=z": {
+      "model": "bygone:block/bygone_portal_ew"
+    }
+  }
+}

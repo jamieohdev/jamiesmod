@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "jamiesmod",
+	"id": "bygone",
 	"version": "${version}",
-	"accessWidener": "jamiesmod.accesswidener",
-	"name": "jamiesmod",
+	"accessWidener": "bygone.accesswidener",
+	"name": "bygone",
 	"description": "The Bygone adds a new prehistoric dimension where everything wound up- Including you.",
 	"authors": [
 		"Programmers: Jamie, soumeh, TelepathicGrunt(Generation code!), TheInfamous1 (Hook!), Catalyst (Trees & Features!) & Klinbee (World gen!!)",
@@ -13,10 +13,10 @@
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/jamieohdev/jamiesmod"
+		"sources": "https://github.com/jamieohdev/bygone"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/jamiesmod/icon.png",
+	"icon": "assets/bygone/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -30,9 +30,9 @@
 		]
 	},
 	"mixins": [
-		"jamiesmod.mixins.json",
+		"bygone.mixins.json",
 		{
-			"config": "jamiesmod.client.mixins.json",
+			"config": "bygone.client.mixins.json",
 			"environment": "client"
 		}
 	],

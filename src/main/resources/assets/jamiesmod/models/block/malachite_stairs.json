@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "jamiesmod:block/malachite",
-    "side": "jamiesmod:block/malachite",
-    "top": "jamiesmod:block/malachite"
-  }
-}

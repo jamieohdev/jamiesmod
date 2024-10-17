@@ -4,8 +4,8 @@
     "minecraft:cobblestone",
     "minecraft:blackstone",
     "minecraft:cobbled_deepslate",
-    "jamiesmod:bygonestone",
-    "jamiesmod:bygoneslate",
-    "jamiesmod:oceanstone"
+    "bygone:bygonestone",
+    "bygone:bygoneslate",
+    "bygone:oceanstone"
   ]
 }

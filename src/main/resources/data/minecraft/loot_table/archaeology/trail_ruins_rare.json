@@ -54,7 +54,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "jamiesmod:hook"
+          "name": "bygone:hook"
         }
       ],
       "rolls": 1.0

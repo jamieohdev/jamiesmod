@@ -39,7 +39,7 @@ public class HookItem extends Item
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         PlayerWithHook hookuser = (PlayerWithHook)user;
         ItemStack itemStack = user.getStackInHand(hand);
-        HookEntity hook = hookuser.jamiesmod$getHook();
+        HookEntity hook = hookuser.bygone$getHook();
         boolean secondaryUse = user.shouldCancelInteraction();
         boolean used = false;
         if(!secondaryUse){
@@ -61,7 +61,7 @@ public class HookItem extends Item
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, SoundCategory.NEUTRAL, 1.0F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!level.isClient()) {
             hook.discard();
-            ((PlayerWithHook)player).jamiesmod$setHook(null);
+            ((PlayerWithHook)player).bygone$setHook(null);
             isGrappling = false;
         }
 
@@ -71,7 +71,7 @@ public class HookItem extends Item
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (user instanceof PlayerEntity player) {
-            HookEntity hook = ((PlayerWithHook) player).jamiesmod$getHook();
+            HookEntity hook = ((PlayerWithHook) player).bygone$getHook();
             if (hook != null) {
                 if(remainingUseTicks % 5 == 0){
                     world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, SoundCategory.NEUTRAL, 1.0F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -121,7 +121,7 @@ public class HookItem extends Item
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         if (user instanceof PlayerEntity player) {
-            if (((PlayerWithHook) player).jamiesmod$getHook() != null) return;
+            if (((PlayerWithHook) player).bygone$getHook() != null) return;
 
             int useTime = this.getMaxUseTime(stack, user) - remainingUseTicks;
             if (useTime < 0) return;
@@ -133,7 +133,7 @@ public class HookItem extends Item
                     HookEntity hook = new HookEntity(world, player);
                     this.shoot(user, hook, powerForTime *  8.0F);
                     if(world.spawnEntity(hook)){
-                        ((PlayerWithHook)player).jamiesmod$setHook(hook);
+                        ((PlayerWithHook)player).bygone$setHook(hook);
                     }
                     player.incrementStat(Stats.USED.getOrCreateStat(this));
                 }
